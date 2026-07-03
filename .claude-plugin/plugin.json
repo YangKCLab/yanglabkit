@@ -1,0 +1,12 @@
+{
+  "name": "yanglabkit",
+  "description": "Yang Lab-specific research skills, including scicolor-based scientific colour-scheme guidance",
+  "version": "0.0.1",
+  "author": {
+    "name": "Kaicheng Yang",
+    "email": "yang3kc@gmail.com"
+  },
+  "homepage": "https://github.com/YangKCLab/yanglabkit",
+  "repository": "https://github.com/YangKCLab/yanglabkit",
+  "license": "MIT"
+}
