@@ -34,46 +34,33 @@ reference guide. **No code execution and no Python dependency at runtime.**
 
 ## Workflow
 
-1. **Identify what is being coloured** and map the data structure to a palette
-   **class** using `reference/selection-guide.md`:
-   - qualitative groups (no order) → **categorical**
-   - ordered low → high → **sequential**
-   - deviation around a meaningful midpoint → **diverging**
-   - two independent sequences meeting at a boundary → **multi-sequential**
-2. **Gather constraints:** number of categories/levels; discrete vs continuous;
-   colourblind-safe (**default yes**); greyscale/print-safe; scientific-strict
-   vs aesthetic.
-3. **Query the bundled data:**
-   - discrete/categorical → `data/colors.json` (schemes carry `labels` such as
-     `categorical` / `sequential` / `diverging` / `color_blind_friendly` and an
-     explicit hex `colors` array).
-   - continuous → `data/continuous-colormaps.json` (each entry has `cm_class`,
-     `perceptually_uniform`, `color_blind_friendly`, and 32 evenly-spaced hex
-     `stops`).
-   Filter by class + `color_blind_friendly` (when CVD-safe is required) and a
-   sufficient colour count.
-4. **Recommend 1–2 palettes and return actual hex codes** — the discrete
-   palette's hex array, or the continuous map's hex stops — plus the palette
-   name and its source collection. For continuous maps, also give the canonical
-   name so the user can pull the full-resolution object via
-   `scicolor.get_cmap(name)` or matplotlib if they want more than 32 stops.
-5. **Apply the guardrails** from `reference/selection-guide.md` (the Crameri
-   paper's four-point checklist) before finalising.
+Work through `reference/selection-guide.md`, which holds the class taxonomy,
+decision flow, and guardrails. This is the procedure:
+
+1. **Classify + constrain.** Map the data structure to a palette class
+   (categorical / sequential / diverging / multi-sequential) and gather
+   constraints — category/level count, discrete vs continuous, CVD-safe
+   (**default yes**), greyscale/print-safe — following the guide's Steps 1–3.
+2. **Query the bundled data.** Discrete/categorical → `data/colors.json`
+   (schemes carry a `labels` array and an explicit `colors` hex array).
+   Continuous → `data/continuous-colormaps.json` (each entry has `cm_class`,
+   `perceptually_uniform`, `color_blind_friendly`, and 32 hex `stops`). Filter by
+   class + `color_blind_friendly` (when CVD-safe is required) and sufficient
+   colour count; the guide's Step 4 names concrete palettes per class.
+3. **Return the recommendation.** 1–2 palettes with **actual hex codes** (the
+   discrete hex array, or the continuous hex stops) + palette name + source
+   collection. For continuous maps, also give the canonical name so the user can
+   pull the full-resolution object via `scicolor.get_cmap(name)` / matplotlib.
+4. **Enforce the guardrails** in the guide's Step 5 before finalising.
 
 ## Rules
 
 - **Default to colourblind-safe.** Only relax if the user explicitly opts out.
-- **Never recommend rainbow, jet, HSV, or "improved" rainbows (incl. Turbo)**,
-  and never a categorical scheme that relies on red-vs-green at equal luminosity.
-- **Always return hex codes, not just names.** A recommendation without hex is
-  incomplete.
-- **Cite the source collection** for every palette (e.g. "Okabe–Ito", "Scientific
-  colour maps / vik", "Tableau Color Blind 10").
-- **Invoke the Crameri principles:** perceptual uniformity, perceptual order
-  (greyscale-safe monotonic lightness), and — for any continuous map — remind the
-  user to include a colour bar.
-- Prefer palettes whose metadata marks them `perceptually_uniform` /
-  `color_blind_friendly` over ad-hoc choices.
+- **Always return actual hex codes** — never names alone — with the palette name
+  and its source collection (e.g. "Okabe–Ito", "Scientific colour maps / vik").
+- **Never rainbow, jet, HSV, or Turbo**, and never red–green at equal luminosity.
+- **Enforce the full guardrail checklist** (perceptual uniformity, perceptual
+  order / greyscale-safe, colour bar for continuous maps) from the guide's Step 5.
 
 ## Data & provenance
 
