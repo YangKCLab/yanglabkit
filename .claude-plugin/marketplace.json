@@ -5,13 +5,13 @@
     "email": "yang3kc@gmail.com"
   },
   "metadata": {
-    "description": "Yang Lab research skill set for Claude Code — tools spanning the research lifecycle (ideation, literature review, design, analysis, writing)",
+    "description": "Yang Lab skill set for AI agents — a focused collection of skills tailored to the lab's own research workflows, not a general-purpose research toolkit",
     "version": "0.0.1"
   },
   "plugins": [
     {
       "name": "yanglabkit",
-      "description": "Yang Lab research skills for the scholarly workflow",
+      "description": "Yang Lab-specific research skills",
       "source": "./",
       "skills": [
         "./skills/example-skill"
