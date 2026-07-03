@@ -1,0 +1,21 @@
+{
+  "name": "yanglabkit",
+  "owner": {
+    "name": "Kaicheng Yang",
+    "email": "yang3kc@gmail.com"
+  },
+  "metadata": {
+    "description": "Yang Lab research skill set for Claude Code — tools spanning the research lifecycle (ideation, literature review, design, analysis, writing)",
+    "version": "0.0.1"
+  },
+  "plugins": [
+    {
+      "name": "yanglabkit",
+      "description": "Yang Lab research skills for the scholarly workflow",
+      "source": "./",
+      "skills": [
+        "./skills/example-skill"
+      ]
+    }
+  ]
+}
