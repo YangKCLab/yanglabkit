@@ -12,16 +12,47 @@ Skills use the portable `SKILL.md` convention, so they're usable by any AI agent
 
 ## Installation
 
-Add this repo as a Claude Code plugin marketplace, then install the `yanglabkit`
-plugin:
+Each skill lives in its own folder under `skills/<name>/` and follows the portable
+`SKILL.md` convention, so any agent that reads markdown instruction files can use
+it. Compatible with Claude Code, Cursor, Windsurf, GitHub Copilot, and others.
+Pick whichever install approach fits your agent.
+
+### Claude Code plugin (recommended)
+
+Add this repo as a plugin marketplace, then install the `yanglabkit` plugin — this
+registers every skill in the set and keeps them updatable:
 
 ```
-/plugin marketplace add yang3kc/yanglabkit
+/plugin marketplace add YangKCLab/yanglabkit
 /plugin install yanglabkit
 ```
 
-Skills follow the portable `SKILL.md` convention, so any agent that supports the
-standard can load a skill directly from `skills/<name>/`.
+### Clone into your agent's skills directory
+
+Clone the repo, then point your agent at the individual skill folder(s) you want:
+
+```bash
+# Claude Code — clone, then symlink the skill you want into ~/.claude/skills/
+git clone git@github.com:YangKCLab/yanglabkit.git ~/src/yanglabkit
+ln -s ~/src/yanglabkit/skills/yanglabkit-scicolor ~/.claude/skills/yanglabkit-scicolor
+
+# Cursor — link into your project (or global) rules/skills directory
+ln -s ~/src/yanglabkit/skills/yanglabkit-scicolor .cursor/skills/yanglabkit-scicolor
+
+# Any agent — clone anywhere, then point it at skills/<name>/SKILL.md
+git clone git@github.com:YangKCLab/yanglabkit.git /path/to/yanglabkit
+```
+
+### `skills` CLI
+
+For agents that support the [`vercel-labs/skills`](https://github.com/vercel-labs/skills) CLI:
+
+```bash
+npx skills install https://github.com/YangKCLab/yanglabkit
+```
+
+Once a skill is available to your agent, it activates automatically when your
+request matches its description.
 
 ## Skills
 
