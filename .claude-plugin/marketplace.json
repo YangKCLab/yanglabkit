@@ -11,10 +11,10 @@
   "plugins": [
     {
       "name": "yanglabkit",
-      "description": "Yang Lab-specific research skills",
+      "description": "Yang Lab-specific research skills, including scicolor-based scientific colour-scheme guidance",
       "source": "./",
       "skills": [
-        "./skills/example-skill"
+        "./skills/yanglabkit-scicolor"
       ]
     }
   ]
