@@ -27,8 +27,9 @@ standard can load a skill directly from `skills/<name>/`.
 
 - **[`yanglabkit-scicolor`](skills/yanglabkit-scicolor/SKILL.md)** — Pick a
   scientifically sound colour palette for a figure, chart, heatmap, map, slide,
-  or UI. Applies the decision logic from Crameri et al. (2020), *"The misuse of
-  colour in science communication"*, to a self-contained snapshot of the lab's
+  or UI. Applies the decision logic from Crameri et al. (2020), [*"The misuse of
+  colour in science communication"*](https://www.nature.com/articles/s41467-020-19160-7),
+  to a self-contained snapshot of the lab's
   [scicolor](https://github.com/yang3kc/scicolor) palettes and returns concrete
   hex codes (discrete or continuous). Defaults to colourblind-safe, perceptually
   uniform choices and refuses rainbow/jet. No runtime dependencies — pure
