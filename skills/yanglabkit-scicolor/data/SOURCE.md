@@ -31,10 +31,12 @@ Snapshot source commit: `bb40a9342ed9785b880581f2167e314a9b0b3135` (2025-10-13).
   (`cm_class`, `cm_type`, `perceptually_uniform`, `color_blind_friendly`,
   `source`).
 - **Re-sync:** re-run the build-time extractor inside the scicolor repo's uv env
-  (requires Python + matplotlib + scicolor **at build time only**):
+  (requires Python + matplotlib + scicolor **at build time only**). The extractor
+  lives at the repo root (`scripts/`), not in the skill folder, so skill users
+  never load it:
   ```bash
   cd <scicolor>
-  uv run python <yanglabkit>/skills/yanglabkit-scicolor/build/extract_continuous.py
+  uv run python <yanglabkit>/scripts/extract_continuous_colormaps.py
   ```
 
 ## Full-resolution continuous colormaps

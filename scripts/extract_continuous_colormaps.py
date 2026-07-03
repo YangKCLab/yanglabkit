@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Extract continuous colormaps from the scicolor package into a self-contained JSON.
 
-This is a BUILD-TIME script. It is NOT read by the skill at runtime. Its committed
-output (`../data/continuous-colormaps.json`) is the only thing the skill reads, so
-the skill has no Python runtime dependency.
+This is a BUILD-TIME script. It lives outside the skill folder so skill users never
+load it. Its committed output
+(`skills/yanglabkit-scicolor/data/continuous-colormaps.json`) is the only thing the
+skill reads, so the skill has no Python runtime dependency.
 
 Usage (run inside the scicolor repo so `scicolor` + matplotlib are importable):
 
     cd git_repos/standalone/scicolor
-    uv run python /path/to/yanglabkit/skills/yanglabkit-scicolor/build/extract_continuous.py
+    uv run python /path/to/yanglabkit/scripts/extract_continuous_colormaps.py
 
 It:
   1. Iterates every colormap in scicolor's `color_info_list` with cm_type == "continuous".
@@ -16,7 +17,7 @@ It:
      for the scientific/cet/ocean maps; samples matplotlib for viridis/inferno/cividis).
   3. Downsamples each to N evenly-spaced hex stops (default 32).
   4. Joins class/type/perceptual-uniformity/CVD metadata from `color_info_df`.
-  5. Writes `../data/continuous-colormaps.json`.
+  5. Writes `skills/yanglabkit-scicolor/data/continuous-colormaps.json`.
 
 Re-run this whenever scicolor's continuous colormaps or metadata change.
 """
@@ -66,9 +67,12 @@ def extract():
 
     entries.sort(key=lambda e: (e["cm_class"], e["name"]))
 
+    # This script lives in <repo>/scripts/; the skill data dir is a sibling of scripts/.
     out_path = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
         "..",
+        "skills",
+        "yanglabkit-scicolor",
         "data",
         "continuous-colormaps.json",
     )
