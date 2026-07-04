@@ -147,6 +147,16 @@ plt.grid(True, axis="y", alpha=0.2, linestyle="--")   # vertical bars / lines
 plt.grid(True, axis="x", alpha=0.3, linestyle="--")   # horizontal bars
 ```
 - `alpha` in `0.1–0.3`. Grid on the axis the eye reads values along.
+- **Cover the data max with a tick, then leave headroom past it.** Make sure the
+  value axis has a tick (and its gridline) at or above the tallest bar/point so
+  the max is readable — if data peaks at 56 but ticks stop at 50, add a tick at
+  60. Then set the limit a hair *above* the top tick so that gridline/tick isn't
+  clipped where it would coincide with the axes edge:
+  ```python
+  ax.set_yticks([0, 20, 40, 60])   # tick above the data max (56)
+  ax.set_ylim(0, 62)               # headroom so the 60 gridline isn't clipped
+  ```
+  Keep the headroom small (a few percent) so it doesn't distort the comparison.
 
 ### Legend
 Always frameless, tight, small:
@@ -232,6 +242,10 @@ What figures must **never** do.
   - Legend overlapping data — reposition, don't shrink to illegibility.
   - Too many categorical colours (>~6) — reconsider the encoding.
   - Colliding tick labels — rotate 35°/`ha='right'` before shrinking.
+  - Data max overshoots the top tick (bar peaks at 56, ticks end at 50) so it
+    can't be read, or the top gridline is clipped by the axes edge — add a
+    tick/gridline above the max and set the limit just past it
+    (`set_ylim(0, 62)`, not `60`).
 
 ---
 
@@ -313,7 +327,8 @@ Run before a figure ships:
    only for slides/web.)
 2. Spines correct for the plot type? (line/scatter: top+right off; bar/heatmap:
    all off.)
-3. Grid dashed, `alpha ≤ 0.3`, on the value axis, **behind** the data?
+3. Grid dashed, `alpha ≤ 0.3`, on the value axis, **behind** the data — with a
+   tick above the data max and small headroom so the top gridline isn't clipped?
 4. Legend `frameon=False`, not covering data?
 5. Proportions shown as **percentages** (`PercentFormatter`), not raw fractions?
 6. All colours from **scicolor** — no rainbow/jet, greyscale-survivable?
