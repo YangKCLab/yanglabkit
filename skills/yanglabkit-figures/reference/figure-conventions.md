@@ -23,7 +23,8 @@ How the figures should *feel* — five rules:
    proportions are shown as percentages; reference lines mark meaningful
    thresholds (0, chance, a cutoff).
 4. **Consistent across a paper.** The same variable is the same colour in every
-   panel; the same size hierarchy everywhere; one colormap family per paper.
+   panel; the same size hierarchy everywhere; the same marker/linestyle per
+   variable across panels; one colormap family per paper.
 5. **Legible when shrunk.** If a label is unreadable at single-column width,
    the figure is wrong — not the reader.
 
@@ -211,6 +212,42 @@ and grays.
 - **Greyscale-safe:** assume a reader may print in B&W; prefer palettes that
   survive it, or lean on ordering/position not just hue.
 
+### Redundant encoding (don't rely on colour alone)
+When more than one series/type shares an axes, pair each colour with a distinct
+**second channel** so the series survive greyscale printing, colourblind readers,
+and shrinking to single-column width. **Marker shape and line style are the
+default channels** — reach for them first:
+
+```python
+# scatter: cycle marker over a distinct-shape sequence
+markers = ["o", "s", "^", "D", "v"]
+for i, (x, y, label) in enumerate(series):
+    plt.scatter(x, y, marker=markers[i], label=label)   # colour set by scicolor palette
+
+# line: cycle linestyle over dashed patterns
+linestyles = ["-", "--", "-.", ":"]
+for i, (x, y, label) in enumerate(series):
+    plt.plot(x, y, linestyle=linestyles[i], marker=markers[i], label=label)
+```
+
+**Bar hatches — optional, use sparingly.** Grouped bars *can* take a `hatch`
+(`["", "//", "..", "xx"]`) for the same reason, but hatches read as busy/noisy in
+print, so prefer position + colour for bars and reach for hatch only when
+greyscale distinguishability is genuinely essential:
+
+```python
+hatches = ["", "//", "..", "xx"]
+for i, (bar, h) in enumerate(zip(bars, hatches)):
+    bar.set_hatch(h)
+```
+
+The legend automatically carries the marker/linestyle (and hatch) alongside the
+colour, so the redundant channel shows up there too — no extra work.
+
+Consistent with the "same variable → same colour across panels" rule: a variable
+should keep the **same marker/linestyle** across every panel too, not just the
+same colour.
+
 ---
 
 ## 5. Anti-Patterns
@@ -238,6 +275,8 @@ What figures must **never** do.
     base size.
   - A title or axis label so long it overruns the axes width on one line —
     shorten it, or break it across lines so it aligns with the figure.
+  - Multiple series distinguished by **colour alone** — add a shape/linestyle
+    (hatch for bars, sparingly) so they survive greyscale and colourblind readers.
 - 🟢 **Watch**
   - Legend overlapping data — reposition, don't shrink to illegibility.
   - Too many categorical colours (>~6) — reconsider the encoding.
@@ -300,6 +339,16 @@ fig.savefig("figures/regressions.pdf")
 *Why:* object-oriented axes for multiple panels, lowercase `(a)–(d)` labels
 upper-left in axes coords.
 
+### Multiple series — redundant encoding (colour + linestyle + marker)
+```python
+plt.plot(x, y_a, color=c_a, linestyle="-",  marker="o", label="Model A")
+plt.plot(x, y_b, color=c_b, linestyle="--", marker="s", label="Model B")
+plt.legend(frameon=False, fontsize=10)   # legend carries colour + line/marker
+```
+*Why it's in-voice:* the two series differ by colour **and** linestyle **and**
+marker, so they stay distinguishable in greyscale, for colourblind readers, and
+when shrunk — not colour alone.
+
 ### Heatmap — scicolor continuous map
 ```python
 cmap = scicolor.get_cmap("acton")
@@ -333,10 +382,12 @@ Run before a figure ships:
 5. Proportions shown as **percentages** (`PercentFormatter`), not raw fractions?
 6. All colours from **scicolor** — no rainbow/jet, greyscale-survivable?
 7. Same variable = same colour across every panel?
-8. Multi-panel labelled `(a)(b)(c)` upper-left; no stray in-figure title on paper
+8. Multiple series distinguished by more than colour (shape for scatter,
+   linestyle for lines), so they survive greyscale/colourblind?
+9. Multi-panel labelled `(a)(b)(c)` upper-left; no stray in-figure title on paper
    figures?
-9. `tight_layout()` called; nothing clipped?
-10. Titles/axis labels short and within the figure width — long ones wrapped
+10. `tight_layout()` called; nothing clipped?
+11. Titles/axis labels short and within the figure width — long ones wrapped
     across lines, not overrunning the axes?
-11. No more than **two distinct font sizes** in the figure?
-12. Readable at single-column width?
+12. No more than **two distinct font sizes** in the figure?
+13. Readable at single-column width?

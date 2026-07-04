@@ -48,7 +48,8 @@ revision checklist. This is the procedure:
    formatting, and reference lines per §3, keyed off the spines-by-plot-type
    table.
 3. **Colour via `yanglabkit-scicolor`.** Defer every colour/colormap choice to the
-   sibling skill (§4).
+   sibling skill (§4). When one axes shows multiple series, also encode them
+   redundantly (marker/linestyle/hatch) per the redundant-encoding subsection (§4).
 4. **Export and revise** — vector PDF for papers, raster only for slides/web (§3),
    then run the revision checklist (§7) before the figure ships.
 
@@ -59,6 +60,9 @@ revision checklist. This is the procedure:
 - **Never rainbow / `jet` / `hsv`.** Perceptually broken; scicolor exists for this.
 - **Colour via scicolor.** Route every colour and colormap choice through
   `yanglabkit-scicolor`; retire matplotlib defaults and ad-hoc hexes.
+- **Encode series redundantly.** When one axes shows multiple series/types, pair
+  colour with a distinct marker (scatter), linestyle (line), or hatch (bar) — not
+  colour alone — so they survive greyscale and colourblind readers.
 - **PDF vector for papers.** Export `.pdf` for the paper (no dpi); raster only for
   slides/web.
 - **Frameless legend.** `frameon=False` always — never a boxed legend.
