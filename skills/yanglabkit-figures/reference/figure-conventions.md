@@ -99,6 +99,23 @@ for uniformity. The only routine exception: shrink the **legend to `fontsize=10`
 when it would otherwise crowd the plotting area. Don't build an elaborate size
 hierarchy.
 
+### Labels — short, and wrapped when long
+Axis labels and titles should be **short**. A label that runs wider than the
+axes it sits under unbalances the figure and steals space from the data — push
+the detail into the caption, not onto the axis.
+
+- Prefer a terse noun phrase (`"Accuracy"`, `"Share of posts"`) over a full
+  sentence.
+- If a long label is unavoidable, **break it across lines** so each line fits
+  within the figure width — never let one line overrun the axes.
+
+```python
+plt.xlabel("Share of accounts\nflagged by the classifier")   # manual line break
+# or wrap automatically to a width that fits under the axes:
+import textwrap
+plt.xlabel(textwrap.fill("Share of accounts flagged by the classifier", width=24))
+```
+
 ### Spines — by plot type
 | Plot type | Spines kept |
 |---|---|
@@ -200,6 +217,8 @@ What figures must **never** do.
   - Raw fractions on an axis where a `PercentFormatter` reads better.
   - Truncated y-axis that visually exaggerates a difference (be honest).
   - Elaborate per-element font sizing when base-14 would do.
+  - A title or axis label so long it overruns the axes width on one line —
+    shorten it, or break it across lines so it aligns with the figure.
 - 🟢 **Watch**
   - Legend overlapping data — reposition, don't shrink to illegibility.
   - Too many categorical colours (>~6) — reconsider the encoding.
@@ -293,4 +312,6 @@ Run before a figure ships:
 8. Multi-panel labelled `(a)(b)(c)` upper-left; no stray in-figure title on paper
    figures?
 9. `tight_layout()` called; nothing clipped?
-10. Readable at single-column width?
+10. Titles/axis labels short and within the figure width — long ones wrapped
+    across lines, not overrunning the axes?
+11. Readable at single-column width?
