@@ -35,25 +35,22 @@ no runtime dependency.**
 
 ## Workflow
 
-Work through `reference/figure-conventions.md`, which holds the full detail: the
-setup block, element-level defaults, the spines-by-plot-type table, the scicolor
+Work through `reference/figure-conventions.md`, which owns the full detail: the
+setup rcParams block, structure/sizing guidance, element-level defaults (the
+spines-by-plot-type table, grid, legend, ticks, reference lines), the scicolor
 colour policy, severity-ranked anti-patterns, annotated examples, and the
 revision checklist. This is the procedure:
 
-1. **Apply the setup block.** Paste the canonical rcParams block (base font 14,
-   `axes.axisbelow=True`); leave `font.family` at matplotlib's default.
-2. **Pick structure.** Choose a paper-scale `figsize`; single plot → imperative
-   pyplot, multi-panel → object-oriented `subplots` with lowercase `(a)(b)(c)`
-   panel labels.
-3. **Set element defaults per plot type.** Drop spines per the table (line/scatter:
-   top+right off; horizontal bar / heatmap: all off), add a subtle dashed grid on
-   the value axis behind the data, frameless legend, percentage tick formatter,
-   gray dashed reference lines for meaningful thresholds.
-4. **Colour via `yanglabkit-scicolor`.** Defer every colour/colormap choice to the
-   sibling skill — no matplotlib defaults, no ad-hoc hexes.
-5. **Export.** Vector PDF for papers (no dpi); PNG @ dpi=300 `bbox_inches='tight'`
-   only for slides/web.
-6. **Run the revision checklist** in the reference before the figure ships.
+1. **Apply the setup block** from the reference (§3), then pick a paper-scale
+   `figsize` and API — single plot → imperative pyplot, multi-panel →
+   object-oriented `subplots` with `(a)(b)(c)` panel labels (§2).
+2. **Set element defaults for the plot type** — spines, grid, legend, tick
+   formatting, and reference lines per §3, keyed off the spines-by-plot-type
+   table.
+3. **Colour via `yanglabkit-scicolor`.** Defer every colour/colormap choice to the
+   sibling skill (§4).
+4. **Export and revise** — vector PDF for papers, raster only for slides/web (§3),
+   then run the revision checklist (§7) before the figure ships.
 
 ## Rules
 
