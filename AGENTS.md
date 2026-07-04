@@ -53,6 +53,33 @@ choices and refusing rainbow/jet.
     Python package.
   - `data/SOURCE.md` — provenance + re-sync instructions for both data files.
 
+### `yanglabkit-figures`
+
+Styles matplotlib/seaborn figures to the Yang Lab's conventions for scientific
+figures: minimal and print-first, spines dropped by plot type, subtle dashed
+grids, frameless legends, percentage axes, gray dashed reference lines, and
+vector PDF export. Refuses pie charts and rainbow/jet colormaps, and defers every
+colour choice to the sibling `yanglabkit-scicolor` skill.
+
+- **Pure markdown guidance, no runtime dependency.** The skill reads one
+  reference doc and applies its conventions to the plotting code; it never
+  executes code and bundles no data.
+- **File roles:**
+  - `SKILL.md` — the always-loaded orchestrator: the numbered styling procedure
+    plus the hard invariants (never pie/rainbow, colour via scicolor, PDF vector
+    for papers, frameless legend, spines by plot type, no title on paper figures).
+    Delegates the full detail to the reference doc.
+  - `reference/figure-conventions.md` — the on-demand reference that solely owns
+    the full detail: the setup rcParams block, structure/sizing guidance,
+    element-level defaults (spines table, grid, legend, ticks, reference lines),
+    the scicolor colour policy, severity-ranked anti-patterns, annotated
+    examples, and the 10-item revision checklist. Keep this the single source for
+    that substance; do not re-duplicate it in `SKILL.md`.
+- **Provenance:** the public sanitized derivative of the private vault style
+  guide (`writing-samples/figures/style-guide.md`), distilled from real analysis
+  notebooks and interview. The vault guide stays the canonical source; this skill
+  ships the sanitized conventions only.
+
 ## Data provenance & regeneration
 
 Both data files derive from the lab's [scicolor](https://github.com/yang3kc/scicolor)

@@ -65,6 +65,13 @@ request matches its description.
   hex codes (discrete or continuous). Defaults to colourblind-safe, perceptually
   uniform choices and refuses rainbow/jet. No runtime dependencies — pure
   markdown + bundled JSON.
+- **[`yanglabkit-figures`](skills/yanglabkit-figures/SKILL.md)** — Style
+  matplotlib/seaborn figures the Yang Lab way: minimal, print-first design with
+  spines dropped by plot type, frameless legends, percentage axes, gray dashed
+  reference lines, and vector PDF export, with colour deferred to
+  `yanglabkit-scicolor`. Refuses pie charts and rainbow/jet. Triggers when you
+  write plotting code or ask how to style/export a scientific figure. No runtime
+  dependencies — pure markdown guidance.
 
 ## License
 
