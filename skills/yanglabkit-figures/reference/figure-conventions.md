@@ -17,8 +17,8 @@ How the figures should *feel* — five rules:
 1. **Minimal, not decorated.** Data ink over chrome. No boxes, no drop shadows,
    no background fills, no 3D. When in doubt, remove an element.
 2. **Print-first.** Every figure is destined for a paper column. Design at
-   paper scale (small figsizes, ~14pt text), export vector, assume greyscale
-   might happen.
+   paper scale (small figsizes, ~14pt text as a starting reference — scale down
+   for small/dense figures), export vector, assume greyscale might happen.
 3. **Quantitatively honest.** Axes start where the data honestly starts;
    proportions are shown as percentages; reference lines mark meaningful
    thresholds (0, chance, a cutoff).
@@ -84,7 +84,7 @@ import matplotlib.ticker as mtick
 import scicolor
 
 plt.rcParams.update({
-    "font.size": 14,        # base size — everything scales from here
+    "font.size": 14,        # reference base — adjust per figure, see below
     "axes.axisbelow": True, # grid/gridlines sit BEHIND the data
 })
 ```
@@ -94,12 +94,16 @@ Font family is intentionally left at matplotlib's default **DejaVu Sans** — no
 dependencies.
 
 ### Font sizes
-**One base size (14), at most one deviation.** Keep ticks, labels, and titles at
-14 for uniformity. Shrinking an element that would otherwise crowd the plot is
-fine — most commonly the **legend to `fontsize=10`** — but cap a figure at **two
-distinct font sizes total**. A third size (or more) reads as messy; if another
-element is crowded, fix it with layout, shorter labels, or wrapping (see below)
-rather than introducing a third size.
+**14 is a reference, not a fixed rule.** Start from a base of 14 for
+ticks/labels/titles, then adjust it to the figure — shrink the base (e.g. to
+11–12) for a small figsize, a dense multi-panel grid, or anywhere 14 would
+crowd or overflow. Whatever base you land on, apply it **consistently** to
+every tick/label/title in the figure. One further deviation is fine for a
+single element that still needs to be smaller for space — most commonly the
+**legend** (a few points below the base, e.g. `fontsize=10` against a base of
+14) — but cap the figure at **two distinct font sizes total**. Three or more
+reads as messy; if another element is still crowded, fix it with layout,
+shorter labels, or wrapping (see below) rather than adding a third size.
 
 ### Labels — short, and wrapped when long
 Axis labels and titles should be **short**. A label that runs wider than the
@@ -218,7 +222,7 @@ What figures must **never** do.
   - Keeping all four spines on a line/scatter plot.
   - Raw fractions on an axis where a `PercentFormatter` reads better.
   - Truncated y-axis that visually exaggerates a difference (be honest).
-  - Elaborate per-element font sizing when base-14 would do.
+  - Elaborate per-element font sizing when one consistent base would do.
   - More than two distinct font sizes in one figure — pick the one element that
     genuinely needs a deviation (usually the legend) and hold everything else at
     base size.
