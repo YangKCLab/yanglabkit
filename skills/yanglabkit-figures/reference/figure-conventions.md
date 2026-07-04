@@ -94,10 +94,12 @@ Font family is intentionally left at matplotlib's default **DejaVu Sans** — no
 dependencies.
 
 ### Font sizes
-**One base size (14) — rarely deviate.** Keep ticks, labels, and titles at 14
-for uniformity. The only routine exception: shrink the **legend to `fontsize=10`**
-when it would otherwise crowd the plotting area. Don't build an elaborate size
-hierarchy.
+**One base size (14), at most one deviation.** Keep ticks, labels, and titles at
+14 for uniformity. Shrinking an element that would otherwise crowd the plot is
+fine — most commonly the **legend to `fontsize=10`** — but cap a figure at **two
+distinct font sizes total**. A third size (or more) reads as messy; if another
+element is crowded, fix it with layout, shorter labels, or wrapping (see below)
+rather than introducing a third size.
 
 ### Labels — short, and wrapped when long
 Axis labels and titles should be **short**. A label that runs wider than the
@@ -217,6 +219,9 @@ What figures must **never** do.
   - Raw fractions on an axis where a `PercentFormatter` reads better.
   - Truncated y-axis that visually exaggerates a difference (be honest).
   - Elaborate per-element font sizing when base-14 would do.
+  - More than two distinct font sizes in one figure — pick the one element that
+    genuinely needs a deviation (usually the legend) and hold everything else at
+    base size.
   - A title or axis label so long it overruns the axes width on one line —
     shorten it, or break it across lines so it aligns with the figure.
 - 🟢 **Watch**
@@ -314,4 +319,5 @@ Run before a figure ships:
 9. `tight_layout()` called; nothing clipped?
 10. Titles/axis labels short and within the figure width — long ones wrapped
     across lines, not overrunning the axes?
-11. Readable at single-column width?
+11. No more than **two distinct font sizes** in the figure?
+12. Readable at single-column width?
