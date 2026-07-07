@@ -169,13 +169,22 @@ plt.legend(frameon=False, fontsize=10, labelspacing=0.2, loc="upper right")
 - Tight `labelspacing` (`0.1–0.2`). Place where it doesn't cover data.
 
 ### Tick formatting
-Proportions are **percentages**, not raw fractions:
+Proportions are **percentages**, not raw fractions. Use
+`matplotlib.ticker.PercentFormatter` on whichever axis carries the proportion:
 
 ```python
-plt.gca().xaxis.set_major_formatter(mtick.PercentFormatter(xmax=1, decimals=0))
+import matplotlib.ticker as mtick
+
+# xmax:     the value that corresponds to 100% (1 for [0,1] data, 100 if already scaled)
+# decimals: number of decimal places after the point (None = auto-pick per tick)
+plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=100, decimals=None))
 ```
-- `xmax=1` when data is in `[0,1]`; `xmax=100` when already scaled.
-- `decimals=0` unless finer precision is genuinely needed.
+- `xmax=1` when data is in `[0,1]`; `xmax=100` when already scaled to `[0,100]`.
+- `decimals=0` for whole-percent ticks; `decimals=None` lets matplotlib choose
+  the fewest places needed per tick; bump to `1`/`2` only when finer precision is
+  genuinely needed.
+- Swap `yaxis`↔`xaxis` for the axis the proportion sits on (percent on `x` for
+  horizontal bars, on `y` for vertical bars / lines).
 
 Rotate crowded categorical labels 30–50°, right-aligned:
 
