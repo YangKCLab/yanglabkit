@@ -151,8 +151,10 @@ Small consistency rules that keep text in-voice:
   `"Distance (km)"` — not bare or in brackets.
 - **Leading zero on decimals** (`0.05`, never `.05`), and a consistent number of
   significant figures across ticks and annotations.
-- **Real Unicode glyphs** for maths and Greek — `µ α ± × →`, not `u`, `alpha`,
-  `+/-`, `x`, `->`, and never spelled-out words.
+- **LaTeX/mathtext for maths and Greek** — matplotlib renders `$...$` inline, so
+  use `r"$\mu$"`, `r"$\alpha$"`, `r"$\pm$"`, `r"$\times$"`, `r"$\rightarrow$"`
+  (raw strings), not `u`, `alpha`, `+/-`, `x`, `->` or spelled-out words. Works
+  in any label, tick, title, or annotation: `plt.xlabel(r"Rate ($\mu$s$^{-1}$)")`.
 
 ### Spines — by plot type
 | Plot type | Spines kept |
@@ -439,5 +441,5 @@ Run before a figure ships:
 13. Sized for its target column (**single by default**), with the effective
     on-page font landing **~6–9 pt**?
 14. Labels sentence-case with units in parentheses; decimals carry a leading
-    zero; maths/Greek use real Unicode glyphs (`µ α ± × →`)?
+    zero; maths/Greek use LaTeX/mathtext (`r"$\mu$"`, `r"$\pm$"`, `r"$\times$"`)?
 15. Readable at single-column width?
