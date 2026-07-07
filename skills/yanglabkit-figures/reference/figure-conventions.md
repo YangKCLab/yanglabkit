@@ -176,13 +176,14 @@ Proportions are **percentages**, not raw fractions. Use
 import matplotlib.ticker as mtick
 
 # xmax:     the value that corresponds to 100% (1 for [0,1] data, 100 if already scaled)
-# decimals: number of decimal places after the point (None = auto-pick per tick)
-plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=100, decimals=None))
+# decimals: number of decimal places after the point — choose to fit the data
+plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=100, decimals=0))
 ```
 - `xmax=1` when data is in `[0,1]`; `xmax=100` when already scaled to `[0,100]`.
-- `decimals=0` for whole-percent ticks; `decimals=None` lets matplotlib choose
-  the fewest places needed per tick; bump to `1`/`2` only when finer precision is
-  genuinely needed.
+- **Choose `decimals` to suit the data**, don't just default it: `0` for
+  whole-percent ticks, `1`/`2` only when the values genuinely need that
+  precision to be distinguishable. Prefer the fewest places that keep the ticks
+  meaningful — trailing zeros are noise.
 - Swap `yaxis`↔`xaxis` for the axis the proportion sits on (percent on `x` for
   horizontal bars, on `y` for vertical bars / lines).
 
