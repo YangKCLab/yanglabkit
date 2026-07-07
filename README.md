@@ -73,6 +73,15 @@ request matches its description.
   write plotting code or ask how to style/export a scientific figure. No runtime
   dependencies — pure markdown guidance.
 
+## Acknowledgements
+
+- **[`yanglabkit-figures`](skills/yanglabkit-figures/SKILL.md)** drew on
+  [Zhangyanbo/nature-style-skill](https://github.com/Zhangyanbo/nature-style-skill),
+  a Nature house-style figure skill, for several conventions — sizing figures at
+  their final print width, defaulting to single-column layouts, label/number
+  typography (sentence case, units in parentheses, leading-zero decimals,
+  LaTeX/mathtext for maths and Greek), and print-scale marker sizing.
+
 ## License
 
 See [LICENSE](LICENSE).
