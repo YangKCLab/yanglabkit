@@ -44,6 +44,26 @@ Paper-column scale. Common footprints:
 
 Start small; only widen when labels collide.
 
+**Target the column width — single by default.** Every figure lands in a paper
+column. Default to **single-column width (~3.5 in / 9 cm)**; only design for
+**two-column width (~7.2 in / 18.4 cm)** when you know the figures are for a
+double-column paper. When unsure, assume single-column — a 2×2 grid that only
+reads at full text-width is really two figures.
+
+**Size for the final print size, not the screen.** A "14 pt" label is only 14 pt
+*on the page* if the figure is placed at the width it was drawn at — don't assume
+downstream scaling is free. Two consistent workflows:
+- *Draw at final size* — pass the target column width as `figsize` (e.g.
+  `(3.5, 2.6)`) and set the font base to true print points (~6–9 pt). What you
+  save is what prints.
+- *Draw on a larger canvas, let LaTeX scale it down* (the footprints in the table
+  above) — the effective on-page font is `base × (column ÷ canvas width)`, so a
+  14 pt base on an 8 in canvas lands ~6 pt at single-column. That is *why* the
+  base is 14.
+
+Either way, reason backwards from the printed column width and check the
+effective font lands **~6–9 pt** on the page.
+
 ### Single vs. multi-panel — API choice
 - **Single plot → imperative pyplot** (`plt.plot`, `plt.gca()`). Terse, fine for
   one axes.
@@ -122,6 +142,17 @@ plt.xlabel("Share of accounts\nflagged by the classifier")   # manual line break
 import textwrap
 plt.xlabel(textwrap.fill("Share of accounts flagged by the classifier", width=24))
 ```
+
+### Label & number typography
+Small consistency rules that keep text in-voice:
+- **Sentence case** for axis labels and titles (`"Share of posts"`, not
+  `"Share Of Posts"` or ALL-CAPS).
+- **Units in parentheses**, SI where applicable: `"Latency (ms)"`,
+  `"Distance (km)"` — not bare or in brackets.
+- **Leading zero on decimals** (`0.05`, never `.05`), and a consistent number of
+  significant figures across ticks and annotations.
+- **Real Unicode glyphs** for maths and Greek — `µ α ± × →`, not `u`, `alpha`,
+  `+/-`, `x`, `->`, and never spelled-out words.
 
 ### Spines — by plot type
 | Plot type | Spines kept |
@@ -239,6 +270,11 @@ linestyles = ["-", "--", "-.", ":"]
 for i, (x, y, label) in enumerate(series):
     plt.plot(x, y, linestyle=linestyles[i], marker=markers[i], label=label)
 ```
+
+**Marker size — small and print-scale (~5–8 pt).** Keep symbols to simple solid
+or open shapes at print size: `markersize=6` for line markers, `s≈30–60` for
+`scatter` (its `s` is *area* in pt², so ~5–8 pt across). Oversized markers eat
+data ink and blur when the figure shrinks to a column.
 
 **Bar hatches — optional, use sparingly.** Grouped bars *can* take a `hatch`
 (`["", "//", "..", "xx"]`) for the same reason, but hatches read as busy/noisy in
@@ -400,4 +436,8 @@ Run before a figure ships:
 11. Titles/axis labels short and within the figure width — long ones wrapped
     across lines, not overrunning the axes?
 12. No more than **two distinct font sizes** in the figure?
-13. Readable at single-column width?
+13. Sized for its target column (**single by default**), with the effective
+    on-page font landing **~6–9 pt**?
+14. Labels sentence-case with units in parentheses; decimals carry a leading
+    zero; maths/Greek use real Unicode glyphs (`µ α ± × →`)?
+15. Readable at single-column width?
