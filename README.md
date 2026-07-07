@@ -3,11 +3,6 @@
 `yanglabkit` is a skill set for AI agents.
 It's a focused collection tailored to the [Yang Lab](https://www.kaichengyang.me)'s research workflows — **not** a general-purpose research toolkit.
 
-Those interested in research skills that covers the broad research lifecycle can refer to the following skill sets:
-
-- https://github.com/yy/claude-scholar
-- https://github.com/letitbk/claude-academic-setup 
-
 Skills use the portable `SKILL.md` convention, so they're usable by any AI agent that supports the standard.
 
 ## Installation
@@ -73,7 +68,18 @@ request matches its description.
   write plotting code or ask how to style/export a scientific figure. No runtime
   dependencies — pure markdown guidance.
 
+## Related projects 
+
+
+`yanglabkit` is intentionally narrow. Those interested in research skills that
+cover the broad research lifecycle can refer to these skill sets:
+
+- [`yy/claude-scholar`](https://github.com/yy/claude-scholar)
+- [`letitbk/claude-academic-setup`](https://github.com/letitbk/claude-academic-setup)
+
 ## Acknowledgements
+
+`yanglabkit` draws on other skill sets:
 
 - **[`yanglabkit-figures`](skills/yanglabkit-figures/SKILL.md)** drew on
   [Zhangyanbo/nature-style-skill](https://github.com/Zhangyanbo/nature-style-skill),
