@@ -66,8 +66,11 @@ revision checklist. This is the procedure:
 - **PDF vector for papers.** Export `.pdf` for the paper (no dpi); raster only for
   slides/web.
 - **Frameless legend.** `frameon=False` always — never a boxed legend.
-- **Spines by plot type.** Line/scatter drop top+right; horizontal bar and heatmap
-  drop all four.
+- **Spines & ticks are a matched pair.** Keep a spine wherever its axis has
+  meaningful tick marks and drop the spine *with its tick marks* elsewhere — never
+  orphan a tick. Line/scatter keep left+bottom (drop top+right); horizontal bar
+  keeps only the bottom value spine + its x ticks (drop the other three spines and
+  the category tick marks); heatmap drops all four spines and all ticks.
 - **No title on paper figures.** The LaTeX caption does that job; titles are only
   for slides / standalone figures.
 

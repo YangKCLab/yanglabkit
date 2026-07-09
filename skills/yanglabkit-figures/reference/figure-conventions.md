@@ -156,21 +156,34 @@ Small consistency rules that keep text in-voice:
   (raw strings), not `u`, `alpha`, `+/-`, `x`, `->` or spelled-out words. Works
   in any label, tick, title, or annotation: `plt.xlabel(r"Rate ($\mu$s$^{-1}$)")`.
 
-### Spines — by plot type
-| Plot type | Spines kept |
-|---|---|
-| Line / scatter | left + bottom (drop **top + right**) |
-| Horizontal bar / ranked list | drop **all four** |
-| Heatmap | drop **all four** |
+### Spines & tick marks — a matched pair, by plot type
+**Tick marks and their spine travel together.** Keep a spine wherever its axis
+carries meaningful tick marks, and drop the spine *and its tick marks together*
+everywhere else. Never orphan a tick mark from a removed spine (a tick floating
+with no axis line to sit on), and never keep a spine that carries no ticks. Which
+sides survive is then set by the plot type:
+
+| Plot type | Spines + ticks kept | Dropped |
+|---|---|---|
+| Line / scatter | left + bottom, with their ticks | top + right (tickless already) |
+| Horizontal bar / ranked list | bottom value/percent spine + its x ticks | top + left + right, **and the y (category) tick marks** — the category labels stay |
+| Heatmap | *none* | all four spines **and** all tick marks (cells are self-labeled) |
 
 ```python
-# line/scatter default:
+# line/scatter — keep left+bottom spines and their ticks, drop top+right:
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 
-# horizontal bar / heatmap:
+# horizontal bar — keep only the bottom value spine + its x ticks; drop the
+# other three spines and the category (y) tick marks (labels stay):
+for side in ("top", "right", "left"):
+    ax.spines[side].set_visible(False)
+ax.tick_params(axis="y", length=0)   # y labels stay; tick marks go with the left spine
+
+# heatmap — drop all four spines and all tick marks (cells self-labeled):
 for s in ax.spines.values():
     s.set_visible(False)
+ax.tick_params(length=0)
 ```
 
 ### Grid
@@ -315,6 +328,9 @@ What figures must **never** do.
 - 🟡 **Rewrite**
   - Heavy solid gridlines — should be dashed, `alpha ≤ 0.3`, behind data.
   - Keeping all four spines on a line/scatter plot.
+  - Tick marks orphaned from a removed spine (a tick floating with no axis line),
+    or a spine kept with no ticks — keep spine + ticks together, drop them
+    together (`tick_params(length=0)` on the side whose spine you dropped).
   - Raw fractions on an axis where a `PercentFormatter` reads better.
   - Truncated y-axis that visually exaggerates a difference (be honest).
   - Elaborate per-element font sizing when one consistent base would do.
@@ -357,15 +373,18 @@ vector PDF, no title (caption handles it).
 ```python
 plt.figure(figsize=(4.3, 7))
 plt.barh(ys, values)
-for s in plt.gca().spines.values():            # horizontal bar → no frame
-    s.set_visible(False)
-plt.gca().xaxis.set_major_formatter(mtick.PercentFormatter(xmax=1, decimals=0))
+ax = plt.gca()
+for side in ("top", "right", "left"):          # keep only the bottom value spine
+    ax.spines[side].set_visible(False)
+ax.tick_params(axis="y", length=0)             # category labels stay, ticks go with the left spine
+ax.xaxis.set_major_formatter(mtick.PercentFormatter(xmax=1, decimals=0))
 plt.grid(True, axis="x", alpha=0.3, linestyle="--")
 plt.tight_layout()
 plt.savefig("figures/proportion_by_category.pdf")
 ```
-*Why:* frameless for a ranked bar list, values shown as `%`, grid on the value
-axis (x).
+*Why:* the bottom value spine + its x ticks stay so the percentages read off an
+axis (not just gridlines), the other three spines and the category tick marks go,
+and values are shown as `%` with the grid on the value axis (x).
 
 ### Bias plot with reference line
 ```python
@@ -422,8 +441,10 @@ Run before a figure ships:
 
 1. Exported as **vector PDF** for the paper? (PNG @ dpi=300, `bbox_inches='tight'`
    only for slides/web.)
-2. Spines correct for the plot type? (line/scatter: top+right off; bar/heatmap:
-   all off.)
+2. Spines correct for the plot type, with tick marks kept only where their spine
+   is — no orphaned ticks? (line/scatter: left+bottom on, top+right off;
+   horizontal bar: bottom value spine + x ticks only, category ticks off;
+   heatmap: all spines and all ticks off.)
 3. Grid dashed, `alpha ≤ 0.3`, on the value axis, **behind** the data — with a
    tick above the data max and small headroom so the top gridline isn't clipped?
 4. Legend `frameon=False`, not covering data?
