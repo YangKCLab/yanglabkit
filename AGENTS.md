@@ -123,7 +123,9 @@ The package owns these roles:
 - `build_comparison.py` — blinded HTML matrix builder with a separate identity
   key;
 - `build_showcase.py` — per-submission annotated showcase images (identity-
-  revealing; for sharing after blinded scoring); and
+  revealing; for sharing after blinded scoring). Default output `_showcase/`
+  stays gitignored; selected composites are promoted into the tracked
+  `showcase/` folder for the task README; and
 - `RUBRIC.md` — per-figure scoring and final collection-coherence review.
 
 Rules when working with evaluation tasks:

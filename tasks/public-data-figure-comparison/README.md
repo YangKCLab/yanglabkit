@@ -191,7 +191,41 @@ to the gitignored `_showcase/` directory — all six figures in a grid, annotate
 with the agent, model, and skill setup. Pass `--only <submission-id>`
 (repeatable) to rebuild a subset. The output is **identity-revealing by
 design**: generate and share showcase images only after blinded rubric scoring
-is complete, consistent with the identity-key rule above.
+is complete, consistent with the identity-key rule above. Composites promoted
+for display in this README are committed under the tracked
+[`showcase/`](showcase/) directory, while `_showcase/` remains the gitignored
+scratch default.
+
+## Example outcomes
+
+Six validator-passing submissions have been collected so far: four no-skill
+baselines and two runs with the YangLabKit skills installed. The composites
+below were regenerated with `build_showcase.py` and show one skill-vs-no-skill
+pair from the same agent and model — Claude Code with Claude Opus 4.8. All six
+figures per submission are shown in a single annotated grid.
+
+**Claude Code, Opus 4.8, without skills:**
+
+![All six figures produced by Claude Code with Opus 4.8 without the YangLabKit skills](showcase/claude_code_opus-4-8_noskill.png)
+
+**Claude Code, Opus 4.8, with the yanglabkit-figures and yanglabkit-scicolor skills:**
+
+![All six figures produced by Claude Code with Opus 4.8 using the YangLabKit figure and colour skills](showcase/claude_code_opus-4-8_yanglabkit.png)
+
+Every submission's committed figures, source, palette metadata, and `NOTES.md`
+are available under [`submissions/`](submissions/):
+
+| Submission | Agent | Model | Skill setup |
+|---|---|---|---|
+| [`claude_code_fable-5_noskill`](submissions/claude_code_fable-5_noskill/) | Claude Code | Fable 5 | none (baseline) |
+| [`claude_code_opus-4-8_noskill`](submissions/claude_code_opus-4-8_noskill/) | Claude Code | Opus 4.8 | none (baseline) |
+| [`claude_code_opus-4-8_yanglabkit`](submissions/claude_code_opus-4-8_yanglabkit/) | Claude Code | Opus 4.8 | YangLabKit skills |
+| [`codex_gpt-5-5_noskill`](submissions/codex_gpt-5-5_noskill/) | Codex | GPT-5.5 | none (baseline) |
+| [`codex_gpt-5-6-sol_noskill`](submissions/codex_gpt-5-6-sol_noskill/) | Codex | GPT-5.6 (sol) | none (baseline) |
+| [`codex_gpt-5-6-sol_yanglabkit`](submissions/codex_gpt-5-6-sol_yanglabkit/) | Codex | GPT-5.6 | YangLabKit skills |
+
+Consistent with the list below, this section documents outcomes without
+selecting winners or claiming that one agent is generally better.
 
 ## What is not part of this task
 
