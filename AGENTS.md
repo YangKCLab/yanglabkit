@@ -121,7 +121,9 @@ The package owns these roles:
   hidden generator-metadata structure;
 - `validate_submission.py` — standard-library structural validator;
 - `build_comparison.py` — blinded HTML matrix builder with a separate identity
-  key; and
+  key;
+- `build_showcase.py` — per-submission annotated showcase images (identity-
+  revealing; for sharing after blinded scoring); and
 - `RUBRIC.md` — per-figure scoring and final collection-coherence review.
 
 Rules when working with evaluation tasks:

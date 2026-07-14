@@ -180,6 +180,19 @@ local `_comparison/index.html` plus a separate identity key. Review candidates
 with [`RUBRIC.md`](RUBRIC.md); do not inspect the identity key until scoring is
 complete.
 
+### Showcase images (after scoring)
+
+```bash
+uv run --frozen python build_showcase.py
+```
+
+The showcase builder writes one combined PNG per validator-passing submission
+to the gitignored `_showcase/` directory — all six figures in a grid, annotated
+with the agent, model, and skill setup. Pass `--only <submission-id>`
+(repeatable) to rebuild a subset. The output is **identity-revealing by
+design**: generate and share showcase images only after blinded rubric scoring
+is complete, consistent with the identity-key rule above.
+
 ## What is not part of this task
 
 - editing the repository's public README;
