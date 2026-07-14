@@ -69,6 +69,29 @@ frozen into the inputs where doing so removes avoidable analytical variation:
 - Use a deterministic jitter seed of `20260713` for the penguin observations.
 - Do not redistribute additional upstream data inside a submission.
 
+## Independent-run rule
+
+Every candidate must be produced independently. During generation and
+validation, the agent may read the task files, fixed inputs, canonical or
+locally installed YangLabKit skills, repository instructions, and files inside
+its own submission directory.
+
+The agent must **not** list, search, open, read, diff, copy, execute, summarize,
+or otherwise use:
+
+- any sibling directory under `submissions/`;
+- another candidate's figures, source code, notes, or metadata;
+- `_comparison/`, its rendered review page, or its identity key; or
+- prior submissions recovered from git history, remote branches, caches, or an
+  external copy.
+
+Do not revise a candidate after seeing another submission or comparison output.
+If competing material is exposed accidentally, stop using it, record the
+exposure in `NOTES.md`, and let the evaluator decide whether the run remains
+comparable. The validator checks structure, not this behavioral rule; the
+recommended safeguard is a clean worktree containing no prior candidate or
+comparison outputs.
+
 ## Submission layout
 
 Copy [`submission-template/`](submission-template/) to

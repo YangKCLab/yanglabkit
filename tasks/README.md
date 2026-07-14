@@ -53,6 +53,12 @@ If the repository is already cloned, only the final two commands are needed.
 Use a clean checkout at the intended commit so every candidate receives the
 same task version and skill version.
 
+For an independent comparison run, the evaluator should provide a fresh
+worktree or copy in which `submissions/` contains no prior candidate directories
+and no `_comparison/` output is present. The candidate agent must not be given a
+comparison identity key. This prevents accidental exposure more reliably than
+instructions alone.
+
 It is also recommended to install the task's linked skills into the local agent
 environment before testing. Follow the agent-appropriate method in the root
 [`Installation`](../README.md#installation) section and install from this
@@ -91,9 +97,12 @@ generation code belongs inside each submission rather than in the task itself.
 3. Copy the submission template into a directory named
    `<agent-harness>_<model>_<run-id>` and use the same `submission_id` in its
    metadata.
-4. Produce the required outputs and retain the complete generating source.
-5. Run the task's validator before adding the submission to a comparison.
-6. Keep generator identity hidden until rubric-based scoring is complete.
+4. Work only from the task, its linked skills, fixed inputs, and the agent's own
+   submission directory. Do not inspect sibling submissions, prior candidates,
+   comparison output, or identity keys.
+5. Produce the required outputs and retain the complete generating source.
+6. Run the task's validator before adding the submission to a comparison.
+7. Keep generator identity hidden until rubric-based scoring is complete.
 
 ## Conventions for new tasks
 
@@ -102,6 +111,8 @@ generation code belongs inside each submission rather than in the task itself.
 - Record authoritative sources, reuse terms, transformations, and checksums.
 - State which task-specific rules override a general skill default.
 - Separate immutable task materials from generated submissions and comparisons.
+- State an explicit independent-run rule and recommend a clean worktree without
+  prior submissions or comparison artifacts.
 - Provide machine validation for objective requirements and a rubric for
   judgments that require human review.
 - Add every new task to the index above.

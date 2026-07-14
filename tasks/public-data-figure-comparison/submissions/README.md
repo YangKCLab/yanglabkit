@@ -10,4 +10,12 @@ Start from `../submission-template/` and run the validator before comparison.
 The comparison builder replaces these descriptive names with anonymous slot
 paths in its review page and keeps the identity mapping in a separate key.
 
+Each candidate must be generated independently. While working, an agent may use
+the task, fixed inputs, linked skills, repository instructions, and its own
+submission directory only. It must not list, search, open, read, diff, copy, or
+execute any sibling submission; inspect `_comparison/` or an identity key; or
+retrieve prior candidates from git history, remote branches, caches, or another
+copy. If accidental exposure occurs, record it in that run's `NOTES.md` for the
+evaluator.
+
 Candidate outputs are intentionally not included in the initial scaffold.

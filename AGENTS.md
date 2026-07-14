@@ -137,16 +137,24 @@ Rules when working with evaluation tasks:
    name and `submission_id` must identify the agent harness and model; the
    comparison builder is responsible for replacing them with blinded slot paths
    during review.
-4. **Retain complete audit metadata.** A submission includes source code,
+4. **Never inspect competing submissions during a candidate run.** The agent may
+   use the task, fixed inputs, linked skills, repository instructions, and its
+   own submission directory only. Do not list, search, open, read, diff, copy,
+   execute, or summarize sibling submissions; inspect `_comparison/` or its
+   identity key; or retrieve prior candidates from git history, remote branches,
+   caches, or another copy. Prefer a clean worktree with prior candidates and
+   comparison artifacts absent. Record accidental exposure in the run's
+   `NOTES.md` so the evaluator can judge comparability.
+5. **Retain complete audit metadata.** A submission includes source code,
    `NOTES.md`, alt text, exact palette names and hex values, and agent/model/run
    identity in `submission.json`.
-5. **Validate before comparison.** Only validator-passing submissions enter the
+6. **Validate before comparison.** Only validator-passing submissions enter the
    blinded comparison. Do not inspect the generated identity key until rubric
    scoring is complete.
-6. **Do not generate candidates while scaffolding a task.** Task definition,
+7. **Do not generate candidates while scaffolding a task.** Task definition,
    candidate generation, human selection, and README promotion are distinct
    stages.
-7. **Keep task instructions portable.** Do not require Claude Code commands,
+8. **Keep task instructions portable.** Do not require Claude Code commands,
    Codex tools, hidden prompts, or another vendor-specific runtime unless the
    task explicitly exists to evaluate that runtime.
 
