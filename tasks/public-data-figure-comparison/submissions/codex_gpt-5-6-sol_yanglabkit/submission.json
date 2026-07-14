@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "yanglabkit-public-data-figures-v1",
+  "task_version": "1.2.0",
+  "submission_id": "codex_gpt-5-6-sol_yanglabkit",
+  "generator": {
+    "agent": "Codex",
+    "model": "GPT-5.6",
+    "provider": "OpenAI",
+    "run_date": "2026-07-14",
+    "prompt_or_run_reference": "YangLabKit public-data figure task using the repository-local figure and scicolor skills"
+  },
+  "figures": {
+    "gistemp-zonal-lines": {
+      "file": "figures/gistemp-zonal-lines.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Line chart of centered five-year temperature anomalies from 1882 to 2023 for the northern extratropics, tropics, and southern extratropics. All three series rise in recent decades, with the northern extratropics ending at the highest anomaly; a dashed horizontal line marks zero.",
+      "palette": {
+        "class": "categorical",
+        "name": "Masataka Okabe / Color Blind",
+        "colors": ["#0071b2", "#e69f00", "#009e73"]
+      }
+    },
+    "world-bank-urbanization-bars": {
+      "file": "figures/world-bank-urbanization-bars.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Horizontal bars show the urban share of population in seven World Bank regions in 2024, ordered from South Asia at 35.5% through Latin America and the Caribbean at 81.3%. Each bar is directly labeled with its percentage.",
+      "palette": {
+        "class": "sequential",
+        "name": "Scientific colour / batlow 10",
+        "colors": ["#011959", "#103F60", "#3C6D56", "#687B3E", "#D29343", "#F8A17B", "#FACCFA"]
+      }
+    },
+    "palmer-penguins-box": {
+      "file": "figures/palmer-penguins-box.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Box plots compare body mass for Adelie, Chinstrap, and Gentoo penguins, with every supplied observation overlaid as a jittered point. Adelie and Chinstrap have similar medians near 3,700 g, while Gentoo has a higher median near 5,000 g.",
+      "palette": {
+        "class": "categorical",
+        "name": "Masataka Okabe / Color Blind",
+        "colors": ["#e69f00", "#56b4e9", "#009e73"]
+      }
+    },
+    "wine-correlation-heatmap": {
+      "file": "figures/wine-correlation-heatmap.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "A 12-by-12 heatmap displays Pearson correlations among red-wine physicochemical variables and quality on a common scale from -1 to 1. Blue cells indicate negative correlations, near-white cells values near zero, and brown-red cells positive correlations; a labeled colour bar shows the scale.",
+      "palette": {
+        "class": "diverging",
+        "name": "Scientific colour maps / vik",
+        "colors": [
+          "#001261", "#021f69", "#022b71", "#023779", "#034582", "#05528a", "#0e6093", "#1e6f9d",
+          "#3681a9", "#4e92b4", "#67a2c0", "#80b2ca", "#9dc4d6", "#b6d3e1", "#cfe0e8", "#e5e7e8",
+          "#eee0d8", "#ecd1c3", "#e5c1ad", "#dfb298", "#d7a081", "#d1926d", "#cb835a", "#c57548",
+          "#be6533", "#b55521", "#a74310", "#963107", "#832106", "#741506", "#670a07", "#590008"
+        ]
+      }
+    },
+    "auto-mpg-scatter": {
+      "file": "figures/auto-mpg-scatter.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Scatter plot of vehicle weight against fuel economy for 398 Auto MPG records, grouped by USA, Europe, and Japan using both colour and marker shape. The point cloud runs from lighter, higher-mileage vehicles toward heavier, lower-mileage vehicles, with no fitted line.",
+      "palette": {
+        "class": "categorical",
+        "name": "Masataka Okabe / Color Blind",
+        "colors": ["#0071b2", "#e69f00", "#009e73"]
+      }
+    },
+    "usgs-earthquake-histogram": {
+      "file": "figures/usgs-earthquake-histogram.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Histogram of 2,128 reviewed global earthquakes of magnitude 5 or greater in 2025, using 0.1-magnitude bins and percentages of all events. Events are concentrated near magnitude 5.0 to 5.5, with a sparse tail extending to magnitude 8.8.",
+      "palette": {
+        "class": "sequential",
+        "name": "Scientific colour / batlow 10",
+        "colors": ["#011959", "#103F60", "#1C5A62", "#3C6D56", "#687B3E", "#9D892B", "#D29343", "#F8A17B", "#FDB7BC", "#FACCFA"]
+      }
+    }
+  }
+}
