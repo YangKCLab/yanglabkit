@@ -1,0 +1,14 @@
+[project]
+name = "yanglabkit-public-data-figure-comparison"
+version = "0.1.0"
+description = "Reproducible Python environment for the YangLabKit public-data figure comparison task"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "matplotlib>=3.10,<4",
+  "numpy>=2,<3",
+  "pandas>=2.2,<4",
+  "seaborn>=0.13,<1",
+]
+
+[tool.uv]
+package = false

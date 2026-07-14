@@ -14,15 +14,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 HEX_COLOR = re.compile(r"^#[0-9A-Fa-f]{6}$")
 PLACEHOLDERS = ("replace", "yyyy-mm-dd")
+PALETTE_CLASSES = {"categorical", "sequential", "diverging", "multi-sequential"}
 
 
-def parse_png(path: Path) -> dict[str, object]:
+def parse_png(path: Path) -> tuple[int, int, float | None, float | None]:
     content = path.read_bytes()
     if not content.startswith(b"\x89PNG\r\n\x1a\n"):
         raise ValueError("not a PNG file")
     offset = 8
     width = height = None
-    dpi = None
+    dpi_x = dpi_y = None
     while offset + 12 <= len(content):
         length = struct.unpack(">I", content[offset : offset + 4])[0]
         chunk_type = content[offset + 4 : offset + 8]
@@ -30,15 +31,16 @@ def parse_png(path: Path) -> dict[str, object]:
         if chunk_type == b"IHDR":
             width, height = struct.unpack(">II", chunk[:8])
         elif chunk_type == b"pHYs" and len(chunk) == 9:
-            pixels_per_meter_x, _, unit = struct.unpack(">IIB", chunk)
+            pixels_per_meter_x, pixels_per_meter_y, unit = struct.unpack(">IIB", chunk)
             if unit == 1:
-                dpi = pixels_per_meter_x * 0.0254
-        elif chunk_type == b"IEND":
+                dpi_x = pixels_per_meter_x * 0.0254
+                dpi_y = pixels_per_meter_y * 0.0254
+        if chunk_type == b"IEND":
             break
         offset += 12 + length
     if width is None or height is None:
         raise ValueError("PNG has no IHDR dimensions")
-    return {"width": width, "height": height, "dpi": dpi}
+    return width, height, dpi_x, dpi_y
 
 
 def safe_path(root: Path, relative: str) -> Path:
@@ -77,6 +79,8 @@ def validate_submission(submission_dir: Path) -> tuple[list[str], list[str], dic
         errors.append("submission schema_version must be 1")
     if metadata.get("task_id") != task["task_id"]:
         errors.append(f"task_id must be {task['task_id']}")
+    if metadata.get("task_version") != task["task_version"]:
+        errors.append(f"task_version must be {task['task_version']}")
     if metadata.get("submission_id") != submission_dir.name:
         errors.append("submission_id must exactly match its directory name")
     if contains_placeholder(metadata.get("submission_id")):
@@ -113,7 +117,6 @@ def validate_submission(submission_dir: Path) -> tuple[list[str], list[str], dic
         if extra:
             errors.append(f"unexpected figure metadata: {', '.join(extra)}")
 
-    minimum_width = int(task["output"]["dpi"] * task["output"]["source_width_inches"] * 0.8)
     for figure in task["figures"]:
         figure_id = figure["id"]
         entry = figure_metadata.get(figure_id)
@@ -132,17 +135,15 @@ def validate_submission(submission_dir: Path) -> tuple[list[str], list[str], dic
             errors.append(f"{figure_id}: missing {expected_file}")
         else:
             try:
-                png = parse_png(image_path)
-                if int(png["width"]) < minimum_width:
+                _, _, dpi_x, dpi_y = parse_png(image_path)
+                required_dpi = float(task["output"]["dpi"])
+                if dpi_x is None or dpi_y is None:
+                    errors.append(f"{figure_id}: PNG has no physical-resolution metadata")
+                elif abs(dpi_x - required_dpi) > 1 or abs(dpi_y - required_dpi) > 1:
                     errors.append(
-                        f"{figure_id}: PNG width {png['width']} px is below {minimum_width} px"
+                        f"{figure_id}: PNG must be {required_dpi:g} dpi; "
+                        f"metadata reports {dpi_x:.1f} x {dpi_y:.1f} dpi"
                     )
-                if int(png["height"]) < 800:
-                    errors.append(f"{figure_id}: PNG height {png['height']} px is below 800 px")
-                if png["dpi"] is None:
-                    warnings.append(f"{figure_id}: PNG has no physical-resolution metadata")
-                elif not 295 <= float(png["dpi"]) <= 305:
-                    warnings.append(f"{figure_id}: PNG metadata reports {float(png['dpi']):.1f} dpi")
             except (OSError, ValueError, struct.error) as exc:
                 errors.append(f"{figure_id}: invalid PNG: {exc}")
 
@@ -165,12 +166,10 @@ def validate_submission(submission_dir: Path) -> tuple[list[str], list[str], dic
         if not isinstance(palette, dict):
             errors.append(f"{figure_id}: palette must be an object")
         else:
-            expected_class = figure["palette_class"]
             palette_class = palette.get("class")
-            if not isinstance(palette_class, str) or not palette_class:
-                errors.append(f"{figure_id}: palette.class is required")
-            if palette_class != expected_class:
-                errors.append(f"{figure_id}: palette.class must be {expected_class}")
+            if palette_class not in PALETTE_CLASSES:
+                allowed = ", ".join(sorted(PALETTE_CLASSES))
+                errors.append(f"{figure_id}: palette.class must be one of: {allowed}")
             name = palette.get("name")
             if not isinstance(name, str) or not name.strip() or contains_placeholder(name):
                 errors.append(f"{figure_id}: exact palette.name is required")

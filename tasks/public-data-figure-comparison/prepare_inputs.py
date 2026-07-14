@@ -271,7 +271,7 @@ def main() -> None:
     manifest = {
         "schema_version": 1,
         "task_id": "yanglabkit-public-data-figures-v1",
-        "task_version": "1.0.0",
+        "task_version": "1.2.0",
         "snapshot_date": SNAPSHOT_DATE,
         "files": files,
         "sources": sources,

@@ -22,6 +22,8 @@ tasks/
     README.md          # human-readable task contract
     task.json          # versioned machine-readable contract, when applicable
     data/              # fixed task inputs, provenance, and checksums
+    pyproject.toml     # shared Python environment, when applicable
+    uv.lock            # exact Python dependency lock, when applicable
     submission-template/ # required candidate output structure
     submissions/       # isolated candidate runs
 scripts/               # build-time-only scripts (NOT loaded as skills)
@@ -114,6 +116,7 @@ The package owns these roles:
 - `task.json` — versioned six-figure input/output contract;
 - `data/` — small derived CSV snapshots plus authoritative provenance,
   transformations, reuse terms, row counts, and SHA-256 checksums;
+- `pyproject.toml` + `uv.lock` — shared Python 3.12 plotting/tool environment;
 - `submission-template/` — required PNG, source, notes, alt-text, palette, and
   hidden generator-metadata structure;
 - `validate_submission.py` — standard-library structural validator;
@@ -124,20 +127,26 @@ The package owns these roles:
 Rules when working with evaluation tasks:
 
 1. **Task-specific contracts may override a general skill default.** For
-   example, the public-data task requires 300 dpi PNG because its candidates are
+   example, the public-data task requires 300 DPI PNG because its candidates are
    for a web README, even though `yanglabkit-figures` correctly prefers PDF for
-   paper figures.
+   paper figures. Its `task.json` deliberately avoids prescribed visual styles:
+   agents must determine visual design by applying the installed figure and
+   colour skills while showing all required figure elements.
 2. **Do not silently refresh fixed inputs.** Candidate runs use the committed
    files without network access. Any regeneration requires provenance review,
    checksum updates, and a task-version bump because upstream products can
    change.
-3. **Keep candidate work isolated and attributable.** Generation code and
+3. **Use the locked Python environment.** From the task directory, run
+   `uv sync --frozen`, then execute Python generation and task utilities with
+   `uv run --frozen python ...`. Do not edit `pyproject.toml` or `uv.lock` during
+   an individual candidate run.
+4. **Keep candidate work isolated and attributable.** Generation code and
    outputs belong under `submissions/<agent-harness>_<model>_<run-id>/`, never
    in the immutable task root or canonical `skills/` directories. The directory
    name and `submission_id` must identify the agent harness and model; the
    comparison builder is responsible for replacing them with blinded slot paths
    during review.
-4. **Never inspect competing submissions during a candidate run.** The agent may
+5. **Never inspect competing submissions during a candidate run.** The agent may
    use the task, fixed inputs, linked skills, repository instructions, and its
    own submission directory only. Do not list, search, open, read, diff, copy,
    execute, or summarize sibling submissions; inspect `_comparison/` or its
@@ -145,16 +154,16 @@ Rules when working with evaluation tasks:
    caches, or another copy. Prefer a clean worktree with prior candidates and
    comparison artifacts absent. Record accidental exposure in the run's
    `NOTES.md` so the evaluator can judge comparability.
-5. **Retain complete audit metadata.** A submission includes source code,
+6. **Retain complete audit metadata.** A submission includes source code,
    `NOTES.md`, alt text, exact palette names and hex values, and agent/model/run
    identity in `submission.json`.
-6. **Validate before comparison.** Only validator-passing submissions enter the
+7. **Validate before comparison.** Only validator-passing submissions enter the
    blinded comparison. Do not inspect the generated identity key until rubric
    scoring is complete.
-7. **Do not generate candidates while scaffolding a task.** Task definition,
+8. **Do not generate candidates while scaffolding a task.** Task definition,
    candidate generation, human selection, and README promotion are distinct
    stages.
-8. **Keep task instructions portable.** Do not require Claude Code commands,
+9. **Keep task instructions portable.** Do not require Claude Code commands,
    Codex tools, hidden prompts, or another vendor-specific runtime unless the
    task explicitly exists to evaluate that runtime.
 

@@ -12,7 +12,7 @@ Create one polished PNG for each of six figure types:
 
 1. NASA GISTEMP zonal-anomaly line chart;
 2. World Bank regional-urbanization horizontal bar chart;
-3. Palmer Penguins body-mass box plot with jittered observations;
+3. Palmer Penguins body-mass box plot;
 4. UCI red-wine correlation heatmap;
 5. UCI Auto MPG weight-versus-economy scatter plot; and
 6. USGS 2025 earthquake-magnitude percentage histogram.
@@ -29,9 +29,11 @@ Read and apply these repository-local documents before writing plotting code:
 - [`yanglabkit-scicolor`](../../skills/yanglabkit-scicolor/SKILL.md) and its
   [selection guide](../../skills/yanglabkit-scicolor/reference/selection-guide.md).
 
-The task-specific contract below overrides a general skill default when they
-differ. In particular, these are web-gallery candidates, so PNG is required
-even though the figure skill correctly prefers vector PDF for papers.
+The task-specific contract overrides a general skill default only where it says
+so explicitly. These are web-gallery candidates, so 300 DPI PNG is required
+even though the figure skill correctly prefers vector PDF for papers. The
+agents remain responsible for visual and style decisions under the two
+installed skills.
 
 ## Fixed inputs
 
@@ -40,9 +42,10 @@ plot-ready snapshots made from the authoritative public sources documented in
 [`data/README.md`](data/README.md). Do not fetch fresher values or substitute a
 similar dataset: identical inputs are essential for comparison.
 
-The exact plot requirements and filenames are machine-readable in
-[`task.json`](task.json). The essential transformations have already been
-frozen into the inputs where doing so removes avoidable analytical variation:
+The exact data mappings, plot types, analytical constraints, and filenames are
+machine-readable in [`task.json`](task.json). The essential transformations
+have already been frozen into the inputs where doing so removes avoidable
+analytical variation:
 
 - the GISTEMP series already contain centered five-year rolling means;
 - the World Bank regions are already sorted by the 2024 value;
@@ -51,22 +54,57 @@ frozen into the inputs where doing so removes avoidable analytical variation:
 - Auto MPG origin codes are already mapped to labels; and
 - the USGS input is the reviewed 2025 M≥5 event snapshot.
 
-## Shared figure contract
+## Python environment with uv
 
-- Produce exactly the six PNG filenames listed in `task.json`.
-- Use a six-inch source width and plot-appropriate height. Save at 300 dpi with
-  a white background and a tight bounding box.
-- Use DejaVu Sans and no more than two font sizes. Start from 14 pt ordinary
-  text and 12 pt only for a smaller legend or annotation.
-- Do not put a title inside the figure. The eventual README caption supplies it.
-- Keep labels concise and in sentence case, put units in parentheses, and keep
-  all text readable when displayed about 3.5 inches wide.
-- Apply the figure-type-specific spines, ticks, grids, legends, direct labels,
-  markers, and reference lines from `yanglabkit-figures`.
-- Choose every colour through `yanglabkit-scicolor`. Record the palette class,
-  exact palette name, and actual hexadecimal colours in `submission.json`.
-- Use redundant line styles or marker shapes for multiple series or groups.
-- Use a deterministic jitter seed of `20260713` for the penguin observations.
+The task includes a Python 3.12 environment defined by `pyproject.toml` and
+locked by `uv.lock`. It provides matplotlib, NumPy, pandas, and seaborn for
+candidate generation, plus the standard-library task utilities. Install
+[`uv`](https://docs.astral.sh/uv/) and create the environment from the task
+directory:
+
+```bash
+cd tasks/public-data-figure-comparison
+uv sync --frozen
+```
+
+Run Python commands through the managed environment rather than system Python
+or an ad hoc virtual environment:
+
+```bash
+uv run --frozen python submissions/<agent-harness>_<model>_<run-id>/source/<script>.py
+uv run --frozen python validate_submission.py \
+  submissions/<agent-harness>_<model>_<run-id>
+uv run --frozen python build_comparison.py
+```
+
+Do not edit `pyproject.toml` or `uv.lock` during an individual candidate run.
+This keeps Python-based submissions on the same dependency set. Record the
+locked package versions and the reproduction command in `NOTES.md`. Agents may
+use another programming language, but the committed validator and comparison
+tools should still be run through this uv environment.
+
+## Task contract and agent-owned style
+
+`task.json` intentionally contains no prescribed visual styles. It fixes task
+identity/version, 300 DPI PNG output, committed inputs, plot types, variable
+mappings, analytical constraints, and the elements every figure must show so
+the candidates remain comparable.
+
+The agent must determine how to present those required elements by applying
+`yanglabkit-figures` and `yanglabkit-scicolor`, including figure dimensions,
+typography, backgrounds, titles, spines, ticks, grids, placement, marker/line
+treatment, palette class, palette selection, and exact colours. Do not treat
+choices made by another submission as guidance.
+
+The shared non-style requirements are:
+
+- Produce exactly the six 300 DPI PNG filenames listed in `task.json`.
+- Use only the committed inputs and the mappings in `task.json`.
+- Include every figure-specific element listed in each figure's `requirements`
+  array in `task.json`.
+- Record the agent-selected palette class, exact palette name, and hexadecimal
+  colours in `submission.json` for later review.
+- Retain the complete generating source and reproduction instructions.
 - Do not redistribute additional upstream data inside a submission.
 
 ## Independent-run rule
@@ -118,6 +156,7 @@ agent harness and model used. Use a file-safe form such as
 `codex_gpt-5_20260713-01` or `claude-code_claude-opus-4_20260713-01`. The run ID
 distinguishes repeated attempts with the same harness/model pair. Record the
 full harness, model, provider, date, and run reference in `submission.json`.
+The metadata must also match the `task_id` and `task_version` in `task.json`.
 The comparison builder copies images to anonymous slot paths, so descriptive
 submission names do not reveal generator identity during scoring.
 
@@ -127,13 +166,13 @@ reviewer.
 
 ## Validate and compare
 
-From the repository root:
+From `tasks/public-data-figure-comparison/` after `uv sync --frozen`:
 
 ```bash
-python tasks/public-data-figure-comparison/validate_submission.py \
-  tasks/public-data-figure-comparison/submissions/<agent-harness>_<model>_<run-id>
+uv run --frozen python validate_submission.py \
+  submissions/<agent-harness>_<model>_<run-id>
 
-python tasks/public-data-figure-comparison/build_comparison.py
+uv run --frozen python build_comparison.py
 ```
 
 The comparison builder scans validator-passing submission layouts and writes a

@@ -7,8 +7,8 @@ the upstream datasets.
 
 [`manifest.json`](manifest.json) records row counts, columns, file checksums,
 upstream URLs, upstream download checksums, reuse terms, and transformations.
-The committed CSV checksums define task version `1.0.0`; a future refresh must
-bump the task version and regenerate the manifest.
+The committed CSV checksums are used by task version `1.2.0`; a future refresh
+must bump the task version and regenerate the manifest.
 
 ## Sources and attribution
 
@@ -32,10 +32,12 @@ bump the task version and regenerate the manifest.
 
 `prepare_inputs.py` uses the Python standard library and falls back to `curl`
 when the local Python TLS stack cannot reach an upstream source. It is a
-maintainer tool, not part of a candidate run:
+maintainer tool, not part of a candidate run. Run it through the locked task
+environment from `tasks/public-data-figure-comparison/`:
 
 ```bash
-python tasks/public-data-figure-comparison/prepare_inputs.py
+uv sync --frozen
+uv run --frozen python prepare_inputs.py
 ```
 
 Upstream products can be revised. Regenerating at a later date creates a new
