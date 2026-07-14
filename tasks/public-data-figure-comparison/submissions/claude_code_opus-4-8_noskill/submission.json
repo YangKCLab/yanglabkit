@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "yanglabkit-public-data-figures-v1",
+  "task_version": "1.2.0",
+  "submission_id": "claude_code_opus-4-8_noskill",
+  "generator": {
+    "agent": "claude-code",
+    "model": "opus-4-8",
+    "provider": "anthropic",
+    "run_date": "2026-07-14",
+    "prompt_or_run_reference": "no-skill control: yanglabkit-figures and yanglabkit-scicolor guidance documents were not consulted; ordinary matplotlib/seaborn defaults only"
+  },
+  "figures": {
+    "gistemp-zonal-lines": {
+      "file": "figures/gistemp-zonal-lines.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Line chart of GISTEMP five-year rolling temperature anomalies for the northern extratropics, tropics, and southern extratropics from the 1880s to the 2020s, all rising above a zero reference line, with the northern extratropics warming fastest.",
+      "palette": {
+        "class": "categorical",
+        "name": "matplotlib tab10",
+        "colors": ["#1f77b4", "#ff7f0e", "#2ca02c"]
+      }
+    },
+    "world-bank-urbanization-bars": {
+      "file": "figures/world-bank-urbanization-bars.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Horizontal bar chart of 2024 urban population share by World Bank region, ascending from South Asia at about 35 percent up to Latin America and the Caribbean at about 81 percent, with each bar directly labeled with its percentage.",
+      "palette": {
+        "class": "categorical",
+        "name": "single-hue (seaborn deep blue #4C72B0)",
+        "colors": ["#4c72b0"]
+      }
+    },
+    "palmer-penguins-box": {
+      "file": "figures/palmer-penguins-box.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Box plot of Palmer penguin body mass in grams for Adelie, Chinstrap, and Gentoo species with all individual observations overlaid as jittered points; Gentoo penguins are clearly heavier than the other two species.",
+      "palette": {
+        "class": "categorical",
+        "name": "matplotlib tab10",
+        "colors": ["#1f77b4", "#ff7f0e", "#2ca02c"]
+      }
+    },
+    "wine-correlation-heatmap": {
+      "file": "figures/wine-correlation-heatmap.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Heatmap of the Pearson correlation matrix among eleven red-wine physicochemical variables plus quality, on a diverging red-to-blue scale from minus one to one centered at zero, with a labeled colour bar.",
+      "palette": {
+        "class": "diverging",
+        "name": "matplotlib RdBu_r",
+        "colors": ["#053061", "#f7f7f7", "#67001f"]
+      }
+    },
+    "auto-mpg-scatter": {
+      "file": "figures/auto-mpg-scatter.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Scatter plot of vehicle fuel economy in miles per gallon against weight in pounds, with points coloured by origin (USA, Europe, Japan); heavier vehicles have lower fuel economy and USA cars dominate the heavy, low-economy region.",
+      "palette": {
+        "class": "categorical",
+        "name": "matplotlib tab10",
+        "colors": ["#1f77b4", "#ff7f0e", "#2ca02c"]
+      }
+    },
+    "usgs-earthquake-histogram": {
+      "file": "figures/usgs-earthquake-histogram.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Histogram of 2025 reviewed earthquakes of magnitude five and greater, in 0.1-magnitude bins, with bar heights as percentage of all events; the distribution falls off steeply from a peak just above magnitude five.",
+      "palette": {
+        "class": "categorical",
+        "name": "single-hue (seaborn green #55A868)",
+        "colors": ["#55a868"]
+      }
+    }
+  }
+}
