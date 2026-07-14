@@ -88,7 +88,9 @@ generation code belongs inside each submission rather than in the task itself.
 
 1. Open the task's `README.md` and its linked YangLabKit skill files.
 2. Use the committed inputs without fetching replacements or newer values.
-3. Copy the submission template into an opaque submission directory.
+3. Copy the submission template into a directory named
+   `<agent-harness>_<model>_<run-id>` and use the same `submission_id` in its
+   metadata.
 4. Produce the required outputs and retain the complete generating source.
 5. Run the task's validator before adding the submission to a comparison.
 6. Keep generator identity hidden until rubric-based scoring is complete.

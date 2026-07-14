@@ -52,6 +52,11 @@ def contains_placeholder(value: object) -> bool:
     return isinstance(value, str) and any(token in value.lower() for token in PLACEHOLDERS)
 
 
+def file_safe_slug(value: str) -> str:
+    """Normalize metadata text for comparison with a submission directory name."""
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+
 def validate_submission(submission_dir: Path) -> tuple[list[str], list[str], dict]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -85,6 +90,15 @@ def validate_submission(submission_dir: Path) -> tuple[list[str], list[str], dic
             value = generator.get(field)
             if not isinstance(value, str) or not value.strip() or contains_placeholder(value):
                 errors.append(f"generator.{field} must be filled in")
+        submission_slug = file_safe_slug(str(metadata.get("submission_id", "")))
+        for field in ("agent", "model"):
+            value = generator.get(field)
+            if isinstance(value, str) and value.strip() and not contains_placeholder(value):
+                expected_token = file_safe_slug(value)
+                if expected_token and expected_token not in submission_slug:
+                    errors.append(
+                        f"submission_id must identify generator.{field} ({expected_token})"
+                    )
 
     figure_metadata = metadata.get("figures")
     if not isinstance(figure_metadata, dict):

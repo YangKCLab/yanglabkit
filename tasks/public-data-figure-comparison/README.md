@@ -72,10 +72,10 @@ frozen into the inputs where doing so removes avoidable analytical variation:
 ## Submission layout
 
 Copy [`submission-template/`](submission-template/) to
-`submissions/<submission-id>/`, then replace its placeholders:
+`submissions/<agent-harness>_<model>_<run-id>/`, then replace its placeholders:
 
 ```text
-submissions/<submission-id>/
+submissions/<agent-harness>_<model>_<run-id>/
 ├── submission.json
 ├── NOTES.md
 ├── figures/
@@ -89,9 +89,14 @@ submissions/<submission-id>/
     └── <the code used to generate all six figures>
 ```
 
-Use an opaque submission ID that does not reveal the agent or model. Put agent,
-model, and run information only in `submission.json`; the comparison page hides
-those fields.
+The submission directory name and matching `submission_id` must identify the
+agent harness and model used. Use a file-safe form such as
+`<agent-harness>_<model>_<run-id>`; for example,
+`codex_gpt-5_20260713-01` or `claude-code_claude-opus-4_20260713-01`. The run ID
+distinguishes repeated attempts with the same harness/model pair. Record the
+full harness, model, provider, date, and run reference in `submission.json`.
+The comparison builder copies images to anonymous slot paths, so descriptive
+submission names do not reveal generator identity during scoring.
 
 `NOTES.md` should briefly identify implementation choices, dependencies, and
 any limitation. It must not contain a self-evaluation or instructions to the
@@ -103,7 +108,7 @@ From the repository root:
 
 ```bash
 python tasks/public-data-figure-comparison/validate_submission.py \
-  tasks/public-data-figure-comparison/submissions/<submission-id>
+  tasks/public-data-figure-comparison/submissions/<agent-harness>_<model>_<run-id>
 
 python tasks/public-data-figure-comparison/build_comparison.py
 ```
@@ -121,4 +126,3 @@ complete.
 - producing PDF/SVG versions;
 - a tutorial, notebook collection, or scientific analysis; or
 - changing either YangLabKit skill to suit a submission.
-

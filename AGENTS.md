@@ -131,9 +131,12 @@ Rules when working with evaluation tasks:
    files without network access. Any regeneration requires provenance review,
    checksum updates, and a task-version bump because upstream products can
    change.
-3. **Keep candidate work isolated.** Generation code and outputs belong under
-   `submissions/<opaque-id>/`, never in the immutable task root or canonical
-   `skills/` directories.
+3. **Keep candidate work isolated and attributable.** Generation code and
+   outputs belong under `submissions/<agent-harness>_<model>_<run-id>/`, never
+   in the immutable task root or canonical `skills/` directories. The directory
+   name and `submission_id` must identify the agent harness and model; the
+   comparison builder is responsible for replacing them with blinded slot paths
+   during review.
 4. **Retain complete audit metadata.** A submission includes source code,
    `NOTES.md`, alt text, exact palette names and hex values, and agent/model/run
    identity in `submission.json`.
