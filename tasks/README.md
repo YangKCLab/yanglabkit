@@ -37,6 +37,35 @@ Candidate figures are intentionally separate from the task definition. The
 task can therefore be reused across multiple agents and runs without changing
 the inputs or instructions.
 
+## Recommended setup
+
+Run tasks from a local checkout of this repository. Before starting a new task
+or candidate run, pull the latest task definitions, fixed inputs, validators,
+and canonical skill sources together:
+
+```bash
+git clone git@github.com:YangKCLab/yanglabkit.git
+cd yanglabkit
+git pull --ff-only
+```
+
+If the repository is already cloned, only the final two commands are needed.
+Use a clean checkout at the intended commit so every candidate receives the
+same task version and skill version.
+
+It is also recommended to install the task's linked skills into the local agent
+environment before testing. Follow the agent-appropriate method in the root
+[`Installation`](../README.md#installation) section and install from this
+checkout's canonical [`skills/`](../skills/) directories. This tests the skills
+through the agent's normal discovery and activation mechanism rather than
+treating their Markdown files as an ad hoc prompt.
+
+Local installers may create copies or symlinks under `.agents/skills/` or
+`.claude/skills/`, plus `skills-lock.json`. Those repository-local installation
+artifacts are gitignored; the tracked source of truth remains `skills/`. Reload
+or start a fresh agent session after installation if the agent caches its skill
+registry.
+
 ## Standard task layout
 
 Tasks should use the following structure where applicable:
@@ -74,4 +103,3 @@ generation code belongs inside each submission rather than in the task itself.
 - Provide machine validation for objective requirements and a rubric for
   judgments that require human review.
 - Add every new task to the index above.
-
