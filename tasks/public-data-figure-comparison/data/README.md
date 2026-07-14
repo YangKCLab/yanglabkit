@@ -7,7 +7,7 @@ the upstream datasets.
 
 [`manifest.json`](manifest.json) records row counts, columns, file checksums,
 upstream URLs, upstream download checksums, reuse terms, and transformations.
-The committed CSV checksums are used by task version `1.1.0`; a future refresh
+The committed CSV checksums are used by task version `1.2.0`; a future refresh
 must bump the task version and regenerate the manifest.
 
 ## Sources and attribution

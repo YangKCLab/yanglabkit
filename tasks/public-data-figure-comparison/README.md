@@ -30,9 +30,10 @@ Read and apply these repository-local documents before writing plotting code:
   [selection guide](../../skills/yanglabkit-scicolor/reference/selection-guide.md).
 
 The task-specific contract overrides a general skill default only where it says
-so explicitly. These are web-gallery candidates, so PNG is required even though
-the figure skill correctly prefers vector PDF for papers. All visual and style
-decisions remain the agent's responsibility under the two installed skills.
+so explicitly. These are web-gallery candidates, so 300 DPI PNG is required
+even though the figure skill correctly prefers vector PDF for papers. The
+agents remain responsible for visual and style decisions under the two
+installed skills.
 
 ## Fixed inputs
 
@@ -84,22 +85,23 @@ tools should still be run through this uv environment.
 
 ## Task contract and agent-owned style
 
-`task.json` intentionally contains no style choices. It fixes only task
-identity/version, PNG output names, committed inputs, plot types, variable
-mappings, and analytical constraints needed for comparable data content.
+`task.json` intentionally contains no prescribed visual styles. It fixes task
+identity/version, 300 DPI PNG output, committed inputs, plot types, variable
+mappings, analytical constraints, and the elements every figure must show so
+the candidates remain comparable.
 
-The agent must determine all visual decisions by applying
-`yanglabkit-figures` and `yanglabkit-scicolor`, including figure dimensions and
-resolution, typography, backgrounds, titles, labels, spines, ticks, grids,
-legends, direct labels, annotations, reference lines, marker/line treatment,
-palette class, palette selection, and exact colours. Do not treat choices made
-by another submission as guidance.
+The agent must determine how to present those required elements by applying
+`yanglabkit-figures` and `yanglabkit-scicolor`, including figure dimensions,
+typography, backgrounds, titles, spines, ticks, grids, placement, marker/line
+treatment, palette class, palette selection, and exact colours. Do not treat
+choices made by another submission as guidance.
 
 The shared non-style requirements are:
 
-- Produce exactly the six PNG filenames listed in `task.json`.
+- Produce exactly the six 300 DPI PNG filenames listed in `task.json`.
 - Use only the committed inputs and the mappings in `task.json`.
-- Preserve the histogram's fixed bin start, width, and percentage normalization.
+- Include every figure-specific element listed in each figure's `requirements`
+  array in `task.json`.
 - Record the agent-selected palette class, exact palette name, and hexadecimal
   colours in `submission.json` for later review.
 - Retain the complete generating source and reproduction instructions.

@@ -21,7 +21,7 @@ Do not score a candidate if any of these apply:
 
 | Category | Points | What to evaluate |
 |---|---:|---|
-| Data and encoding fidelity | 25 | Inputs, values, variable mappings, plot type, transformations, and fixed histogram constraints match `task.json`. |
+| Data and encoding fidelity | 25 | Inputs, values, variable mappings, plot type, transformations, and all required figure elements match `task.json`. |
 | Figure-convention adherence | 25 | Agent-selected axes, units, reference points, redundant encodings, spines/ticks, grid, legend/direct labels, typography, whitespace, marker scale, and layout follow `yanglabkit-figures`. |
 | Colour quality | 20 | Palette class fits the variable semantics; palette is CVD-safe and perceptually appropriate; continuous colour has a scale; metadata matches the rendered choice. |
 | Legibility and accessibility | 20 | The figure reads at about 3.5 inches wide, distinctions do not depend on colour alone, labels are concise, and submitted alt text accurately describes the visible figure. |

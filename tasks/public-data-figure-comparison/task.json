@@ -1,10 +1,11 @@
 {
   "schema_version": 1,
   "task_id": "yanglabkit-public-data-figures-v1",
-  "task_version": "1.1.0",
+  "task_version": "1.2.0",
   "snapshot_date": "2026-07-13",
   "output": {
-    "format": "png"
+    "format": "png",
+    "dpi": 300
   },
   "figures": [
     {
@@ -17,6 +18,12 @@
         "northern_extratropics_anomaly_c",
         "tropics_anomaly_c",
         "southern_extratropics_anomaly_c"
+      ],
+      "requirements": [
+        "Plot all three centered five-year rolling anomaly series.",
+        "Include a zero-anomaly reference line.",
+        "Include a legend identifying all three series.",
+        "Label the time and anomaly axes, including degrees Celsius."
       ]
     },
     {
@@ -25,7 +32,12 @@
       "input": "data/world-bank-urbanization-2024.csv",
       "output": "world-bank-urbanization-bars.png",
       "category": "region",
-      "value": "urban_population_percent"
+      "value": "urban_population_percent",
+      "requirements": [
+        "Keep the supplied ascending region order.",
+        "Directly label every bar with its percentage.",
+        "Label and format the value axis as percent of population."
+      ]
     },
     {
       "id": "palmer-penguins-box",
@@ -33,14 +45,25 @@
       "input": "data/palmer-penguins-body-mass.csv",
       "output": "palmer-penguins-box.png",
       "category": "species",
-      "value": "body_mass_g"
+      "value": "body_mass_g",
+      "requirements": [
+        "Draw one box plot per species in the order Adelie, Chinstrap, Gentoo.",
+        "Overlay all supplied observations.",
+        "Label the species and body-mass axes, including grams."
+      ]
     },
     {
       "id": "wine-correlation-heatmap",
       "type": "heatmap",
       "input": "data/uci-red-wine-correlations.csv",
       "output": "wine-correlation-heatmap.png",
-      "row_label": "variable"
+      "row_label": "variable",
+      "requirements": [
+        "Preserve the supplied row and column order.",
+        "Display the complete correlation matrix on a common scale from -1 to 1 centered at zero.",
+        "Include a colour bar labeled as Pearson correlation.",
+        "Keep every row and column variable label visible."
+      ]
     },
     {
       "id": "auto-mpg-scatter",
@@ -49,7 +72,13 @@
       "output": "auto-mpg-scatter.png",
       "x": "weight_lb",
       "y": "mpg",
-      "group": "origin"
+      "group": "origin",
+      "requirements": [
+        "Plot every supplied vehicle's weight against fuel economy.",
+        "Group points by origin and include a legend identifying USA, Europe, and Japan.",
+        "Do not add a fitted or trend line.",
+        "Label the axes, including pounds and miles per gallon."
+      ]
     },
     {
       "id": "usgs-earthquake-histogram",
@@ -59,7 +88,12 @@
       "value": "magnitude",
       "bin_start": 5.0,
       "bin_width": 0.1,
-      "normalization": "percent_of_events"
+      "normalization": "percent_of_events",
+      "requirements": [
+        "Use 0.1-magnitude bins beginning at 5.0 and covering the observed maximum.",
+        "Normalize bar heights to percentage of all supplied events.",
+        "Label the axes as magnitude and percentage of events."
+      ]
     }
   ]
 }

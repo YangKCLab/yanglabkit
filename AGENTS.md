@@ -127,10 +127,11 @@ The package owns these roles:
 Rules when working with evaluation tasks:
 
 1. **Task-specific contracts may override a general skill default.** For
-   example, the public-data task requires PNG because its candidates are for a
-   web README, even though `yanglabkit-figures` correctly prefers PDF for paper
-   figures. Its `task.json` deliberately contains no style choices: agents must
-   determine visual design by applying the installed figure and colour skills.
+   example, the public-data task requires 300 DPI PNG because its candidates are
+   for a web README, even though `yanglabkit-figures` correctly prefers PDF for
+   paper figures. Its `task.json` deliberately avoids prescribed visual styles:
+   agents must determine visual design by applying the installed figure and
+   colour skills while showing all required figure elements.
 2. **Do not silently refresh fixed inputs.** Candidate runs use the committed
    files without network access. Any regeneration requires provenance review,
    checksum updates, and a task-version bump because upstream products can
