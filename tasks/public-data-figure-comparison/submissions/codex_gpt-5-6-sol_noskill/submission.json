@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "yanglabkit-public-data-figures-v1",
+  "task_version": "1.2.0",
+  "submission_id": "codex_gpt-5-6-sol_noskill",
+  "generator": {
+    "agent": "Codex",
+    "model": "gpt-5.6-sol",
+    "provider": "OpenAI",
+    "run_date": "2026-07-14",
+    "prompt_or_run_reference": "noskill baseline"
+  },
+  "figures": {
+    "gistemp-zonal-lines": {
+      "file": "figures/gistemp-zonal-lines.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Line chart of centered five-year temperature anomalies from 1882 to 2023 for the northern extratropics, tropics, and southern extratropics. All three series rise above the dashed zero-anomaly line in recent decades, with the northern extratropics ending highest.",
+      "palette": {
+        "class": "categorical",
+        "name": "Okabe-Ito three-colour subset",
+        "colors": ["#0072B2", "#E69F00", "#009E73"]
+      }
+    },
+    "world-bank-urbanization-bars": {
+      "file": "figures/world-bank-urbanization-bars.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Horizontal bars show the urban share of population in seven World Bank regions in ascending supplied order. Values range from 35.5% in South Asia to 81.3% in Latin America and the Caribbean, and every bar is directly labeled.",
+      "palette": {
+        "class": "sequential",
+        "name": "ColorBrewer Blues 7",
+        "colors": ["#DCEAF6", "#C6DBEF", "#9ECAE1", "#6BAED6", "#4292C6", "#2171B5", "#084594"]
+      }
+    },
+    "palmer-penguins-box": {
+      "file": "figures/palmer-penguins-box.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Box plots compare body mass for Adelie, Chinstrap, and Gentoo penguins, with all 342 observations overlaid as jittered points. Gentoo penguins have a visibly higher median and distribution than the other two species.",
+      "palette": {
+        "class": "categorical",
+        "name": "Okabe-Ito three-colour subset",
+        "colors": ["#56B4E9", "#E69F00", "#009E73"]
+      }
+    },
+    "wine-correlation-heatmap": {
+      "file": "figures/wine-correlation-heatmap.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "A complete 12-by-12 heatmap shows Pearson correlations among red-wine physicochemical variables and quality on a common scale from blue at negative one through white at zero to red at positive one. The diagonal is positive one, while off-diagonal cells include strong positive and negative relationships.",
+      "palette": {
+        "class": "diverging",
+        "name": "Custom blue-white-red diverging map",
+        "colors": ["#2166AC", "#F7F7F7", "#B2182B"]
+      }
+    },
+    "auto-mpg-scatter": {
+      "file": "figures/auto-mpg-scatter.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Scatter plot of fuel economy against vehicle weight for all 398 Auto MPG vehicles, grouped by origin using both colour and marker shape. Heavier vehicles occupy the lower-fuel-economy portion of the plot, while European and Japanese vehicles cluster toward lighter weights.",
+      "palette": {
+        "class": "categorical",
+        "name": "Okabe-Ito three-colour subset",
+        "colors": ["#0072B2", "#E69F00", "#009E73"]
+      }
+    },
+    "usgs-earthquake-histogram": {
+      "file": "figures/usgs-earthquake-histogram.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Histogram of 2,128 reviewed earthquakes in 2025 using 0.1-magnitude bins beginning at magnitude 5.0 and extending through the observed maximum of 8.8. Bar heights show percentage of all events and fall sharply as magnitude increases.",
+      "palette": {
+        "class": "sequential",
+        "name": "Custom eight-step blue sequence",
+        "colors": ["#DCE9F2", "#C7DCEB", "#ABCBE1", "#83B2D2", "#5B97C2", "#367DB3", "#1E639B", "#114C7D"]
+      }
+    }
+  }
+}
