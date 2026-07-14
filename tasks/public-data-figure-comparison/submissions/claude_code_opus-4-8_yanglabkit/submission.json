@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "yanglabkit-public-data-figures-v1",
+  "task_version": "1.2.0",
+  "submission_id": "claude_code_opus-4-8_yanglabkit",
+  "generator": {
+    "agent": "Claude Code",
+    "model": "opus-4-8",
+    "provider": "Anthropic",
+    "run_date": "2026-07-14",
+    "prompt_or_run_reference": "Anthropic Claude Opus 4.8 (model id claude-opus-4-8); generated with the yanglabkit-figures and yanglabkit-scicolor skills installed."
+  },
+  "figures": {
+    "gistemp-zonal-lines": {
+      "file": "figures/gistemp-zonal-lines.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Line chart of centered five-year rolling temperature anomalies from 1882 to 2023 for three zones. All three rise above the zero-anomaly baseline over the past century, with the northern extratropics warming fastest to about 1.7 degrees Celsius.",
+      "palette": {
+        "class": "categorical",
+        "name": "Masataka Okabe / Color Blind",
+        "colors": ["#d55e00", "#0071b2", "#009e73"]
+      }
+    },
+    "world-bank-urbanization-bars": {
+      "file": "figures/world-bank-urbanization-bars.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Horizontal bar chart of the 2024 urban share of population across seven World Bank regions, from South Asia at 35 percent up to Latin America and Caribbean at 81 percent.",
+      "palette": {
+        "class": "categorical",
+        "name": "Masataka Okabe / Color Blind",
+        "colors": ["#0071b2"]
+      }
+    },
+    "palmer-penguins-box": {
+      "file": "figures/palmer-penguins-box.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Box plots of penguin body mass in grams for Adelie, Chinstrap, and Gentoo species with every observation overlaid as jittered points. Gentoo penguins are clearly heaviest, centered near 5000 grams, while Adelie and Chinstrap overlap around 3700 grams.",
+      "palette": {
+        "class": "categorical",
+        "name": "Masataka Okabe / Color Blind",
+        "colors": ["#0071b2", "#d55e00", "#009e73"]
+      }
+    },
+    "wine-correlation-heatmap": {
+      "file": "figures/wine-correlation-heatmap.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Heatmap of the Pearson correlation matrix among twelve red-wine physicochemical variables and quality, on a diverging blue-to-red scale from minus one to plus one centered at zero. Alcohol shows the strongest positive correlation with quality; volatile acidity the strongest negative.",
+      "palette": {
+        "class": "diverging",
+        "name": "Scientific colour maps / vik",
+        "colors": ["#001261", "#05528a", "#67a2c0", "#cfe0e8", "#e5e7e8", "#e5c1ad", "#cb835a", "#a74310", "#590008"]
+      }
+    },
+    "auto-mpg-scatter": {
+      "file": "figures/auto-mpg-scatter.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Scatter plot of vehicle weight in pounds against fuel economy in miles per gallon, grouped by origin (USA, Europe, Japan) with distinct marker shapes. Fuel economy falls as weight rises; heavier cars are predominantly from the USA and lighter, more efficient cars from Japan and Europe.",
+      "palette": {
+        "class": "categorical",
+        "name": "Masataka Okabe / Color Blind",
+        "colors": ["#d55e00", "#0071b2", "#009e73"]
+      }
+    },
+    "usgs-earthquake-histogram": {
+      "file": "figures/usgs-earthquake-histogram.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Histogram of magnitude-5-and-above earthquakes in 2025 using 0.1-magnitude bins from 5.0, with bar heights as a percentage of all events. The distribution falls off sharply: over a quarter of events sit in the first bin near magnitude 5.0 and large events above 7 are rare.",
+      "palette": {
+        "class": "categorical",
+        "name": "Masataka Okabe / Color Blind",
+        "colors": ["#0071b2"]
+      }
+    }
+  }
+}
