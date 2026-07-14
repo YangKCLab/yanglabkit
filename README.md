@@ -76,7 +76,9 @@ See [`tasks/`](tasks/README.md) for the task format, workflow, and full index.
   — Give different coding agents the same six plot-ready public-data inputs and
   compare how they apply `yanglabkit-figures` and `yanglabkit-scicolor`. The
   versioned task includes an agent-neutral brief, submission contract,
-  validator, blinded comparison builder, provenance, and scoring rubric.
+  validator, blinded comparison builder, provenance, and scoring rubric. Six
+  candidate submissions (four baseline, two using the skills) are included —
+  see [example outcomes](tasks/public-data-figure-comparison/README.md#example-outcomes).
 
 ## Related projects 
 
