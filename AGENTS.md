@@ -16,6 +16,14 @@ skills/
     SKILL.md           # skill definition (frontmatter + When to Use / Workflow / Rules)
     reference/         # on-demand reference docs
     data/              # bundled data the skill reads at runtime
+tasks/
+  README.md            # task-system overview, workflow, and task index
+  <task-name>/
+    README.md          # human-readable task contract
+    task.json          # versioned machine-readable contract, when applicable
+    data/              # fixed task inputs, provenance, and checksums
+    submission-template/ # required candidate output structure
+    submissions/       # isolated candidate runs
 scripts/               # build-time-only scripts (NOT loaded as skills)
 README.md              # user-facing install + skill list
 ```
@@ -23,7 +31,8 @@ README.md              # user-facing install + skill list
 The whole repo is a single plugin: the marketplace entry uses `source: "./"`, so
 the plugin root is the repo root. On install, the entire repo (including
 `README.md`, `scripts/`, etc.) is copied into the plugin cache, but only
-`skills/<name>/` directories load as skills.
+`skills/<name>/` directories load as skills. Files under `tasks/` are inert
+evaluation materials: agents use them only when explicitly asked to run a task.
 
 ## Skills
 
@@ -80,11 +89,70 @@ colour choice to the sibling `yanglabkit-scicolor` skill.
   notebooks and interview. The vault guide stays the canonical source; this skill
   ships the sanitized conventions only.
 
-## Data provenance & regeneration
+## Evaluation tasks
 
-Both data files derive from the lab's [scicolor](https://github.com/yang3kc/scicolor)
-repo. There is **no Python dependency at runtime** — extraction is a build-time
-step whose committed JSON output is all the skill reads.
+`tasks/` contains versioned, agent-neutral packages for exercising and
+comparing YangLabKit skills under controlled conditions. Tasks are not new
+skills: they link to the canonical guidance in `skills/` and add a concrete
+objective, fixed inputs, output requirements, validation, and a human review
+rubric.
+
+Read [`tasks/README.md`](tasks/README.md) before adding or running a task. Every
+new task must also be added to its task index.
+
+### Public-data figure comparison
+
+`tasks/public-data-figure-comparison/` is the first included task. It gives
+different coding agents identical plot-ready public-data snapshots and asks each
+to produce the same six scientific figure types using `yanglabkit-figures` and
+`yanglabkit-scicolor`. Kaicheng will compare the candidates later and promote
+only selected PNGs into the public README.
+
+The package owns these roles:
+
+- `README.md` — human-readable, vendor- and programming-language-neutral brief;
+- `task.json` — versioned six-figure input/output contract;
+- `data/` — small derived CSV snapshots plus authoritative provenance,
+  transformations, reuse terms, row counts, and SHA-256 checksums;
+- `submission-template/` — required PNG, source, notes, alt-text, palette, and
+  hidden generator-metadata structure;
+- `validate_submission.py` — standard-library structural validator;
+- `build_comparison.py` — blinded HTML matrix builder with a separate identity
+  key; and
+- `RUBRIC.md` — per-figure scoring and final collection-coherence review.
+
+Rules when working with evaluation tasks:
+
+1. **Task-specific contracts may override a general skill default.** For
+   example, the public-data task requires 300 dpi PNG because its candidates are
+   for a web README, even though `yanglabkit-figures` correctly prefers PDF for
+   paper figures.
+2. **Do not silently refresh fixed inputs.** Candidate runs use the committed
+   files without network access. Any regeneration requires provenance review,
+   checksum updates, and a task-version bump because upstream products can
+   change.
+3. **Keep candidate work isolated.** Generation code and outputs belong under
+   `submissions/<opaque-id>/`, never in the immutable task root or canonical
+   `skills/` directories.
+4. **Retain complete audit metadata.** A submission includes source code,
+   `NOTES.md`, alt text, exact palette names and hex values, and agent/model/run
+   identity in `submission.json`.
+5. **Validate before comparison.** Only validator-passing submissions enter the
+   blinded comparison. Do not inspect the generated identity key until rubric
+   scoring is complete.
+6. **Do not generate candidates while scaffolding a task.** Task definition,
+   candidate generation, human selection, and README promotion are distinct
+   stages.
+7. **Keep task instructions portable.** Do not require Claude Code commands,
+   Codex tools, hidden prompts, or another vendor-specific runtime unless the
+   task explicitly exists to evaluate that runtime.
+
+## Skill data provenance & regeneration
+
+Both scicolor palette data files derive from the lab's
+[scicolor](https://github.com/yang3kc/scicolor) repo. There is **no Python
+dependency at runtime** — extraction is a build-time step whose committed JSON
+output is all the skill reads.
 
 - **Discrete (`colors.json`):** copy verbatim from scicolor's
   `colorpicker/public/colors/colors.json`. Do not re-curate by hand.
@@ -143,6 +211,15 @@ branches before announcing. Install:
 
 See `README.md` for clone-based and `skills`-CLI install alternatives.
 
+## Local skill installations
+
+The canonical, tracked skill sources are always `skills/<name>/`. Local agent
+installers may create copies or symlinks under `.agents/skills/` and
+`.claude/skills/`, plus a root `skills-lock.json`. These paths are intentionally
+gitignored to prevent duplicate skill content from entering commits. Do not edit
+an installed copy as the source of truth; make changes in `skills/` and
+reinstall or refresh the local copy as needed.
+
 ## Conventions
 
 - Keep `SKILL.md` lean and delegate substance to `reference/` docs; avoid
@@ -150,3 +227,5 @@ See `README.md` for clone-based and `skills`-CLI install alternatives.
 - Never hand-transcribe colormaps or re-curate palettes — reuse scicolor's data
   and the build script.
 - Ground the selection logic and guardrails in the Crameri (2020) paper.
+- Keep task definitions agent-neutral, version fixed inputs, and separate
+  candidate submissions from immutable task materials.
