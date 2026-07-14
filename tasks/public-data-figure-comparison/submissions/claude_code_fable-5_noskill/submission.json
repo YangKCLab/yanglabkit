@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "yanglabkit-public-data-figures-v1",
+  "task_version": "1.2.0",
+  "submission_id": "claude_code_fable-5_noskill",
+  "generator": {
+    "agent": "Claude Code",
+    "model": "Fable 5",
+    "provider": "Anthropic",
+    "run_date": "2026-07-14",
+    "prompt_or_run_reference": "No-skill baseline run: the yanglabkit-figures and yanglabkit-scicolor skill documents were deliberately not read; all styling reflects the model's own defaults."
+  },
+  "figures": {
+    "gistemp-zonal-lines": {
+      "file": "figures/gistemp-zonal-lines.png",
+      "source": "source/make_figures.py",
+      "alt_text": "Line chart of centered five-year rolling surface temperature anomalies from NASA GISTEMP v4 for the northern extratropics, tropics, and southern extratropics, 1882 to 2023. All three bands hover near or below the dashed zero line until the mid twentieth century and then rise, with the northern extratropics climbing fastest to about 1.7 degrees Celsius by 2023.",
+      "palette": {
+        "class": "categorical",
+        "name": "Okabe-Ito (subset: vermillion, bluish green, blue)",
+        "colors": ["#D55E00", "#009E73", "#0072B2"]
+      }
+    },
+    "world-bank-urbanization-bars": {
+      "file": "figures/world-bank-urbanization-bars.png",
+      "source": "source/make_figures.py",
+      "alt_text": "Horizontal bar chart of 2024 urban population share for seven World Bank regions, ordered from South Asia at 35.5 percent at the bottom to Latin America and the Caribbean at 81.3 percent at the top, with each bar labeled directly with its percentage.",
+      "palette": {
+        "class": "categorical",
+        "name": "Okabe-Ito blue (single hue)",
+        "colors": ["#0072B2"]
+      }
+    },
+    "palmer-penguins-box": {
+      "file": "figures/palmer-penguins-box.png",
+      "source": "source/make_figures.py",
+      "alt_text": "Box plots of body mass in grams for Adelie, Chinstrap, and Gentoo penguins with all individual observations overlaid as jittered points. Adelie and Chinstrap medians sit near 3700 grams while Gentoo penguins are distinctly heavier with a median around 5000 grams.",
+      "palette": {
+        "class": "categorical",
+        "name": "Okabe-Ito (subset: blue, orange, bluish green)",
+        "colors": ["#0072B2", "#E69F00", "#009E73"]
+      }
+    },
+    "wine-correlation-heatmap": {
+      "file": "figures/wine-correlation-heatmap.png",
+      "source": "source/make_figures.py",
+      "alt_text": "Heatmap of the Pearson correlation matrix for twelve red-wine physicochemical variables and quality on a blue-to-red diverging scale from minus one to one centered at zero. Strong positive correlations appear between fixed acidity, citric acid, and density, and strong negative correlations between pH and fixed acidity and between alcohol and density.",
+      "palette": {
+        "class": "diverging",
+        "name": "matplotlib RdBu_r",
+        "colors": ["#053061", "#3885BC", "#A5CEE3", "#F7F6F6", "#F7B596", "#CB4942", "#67001F"]
+      }
+    },
+    "auto-mpg-scatter": {
+      "file": "figures/auto-mpg-scatter.png",
+      "source": "source/make_figures.py",
+      "alt_text": "Scatter plot of fuel economy in miles per gallon against vehicle weight in pounds for 398 automobiles, colored by origin. Fuel economy declines as weight increases; heavy low-economy vehicles are almost all from the USA while Japanese and European cars cluster at lower weights and higher economy.",
+      "palette": {
+        "class": "categorical",
+        "name": "Okabe-Ito (subset: blue, orange, bluish green)",
+        "colors": ["#0072B2", "#E69F00", "#009E73"]
+      }
+    },
+    "usgs-earthquake-histogram": {
+      "file": "figures/usgs-earthquake-histogram.png",
+      "source": "source/make_figures.py",
+      "alt_text": "Histogram of 2025 reviewed earthquake magnitudes of five or greater in 0.1-magnitude bins, with bar heights as the percentage of all 2128 events. The distribution decays steeply from about 26 percent in the 5.0 bin toward a long sparse tail reaching magnitude 8.8.",
+      "palette": {
+        "class": "categorical",
+        "name": "Okabe-Ito blue (single hue)",
+        "colors": ["#0072B2"]
+      }
+    }
+  }
+}
