@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "yanglabkit-public-data-figures-v1",
+  "task_version": "1.2.0",
+  "submission_id": "codex_gpt-5-5_noskill",
+  "generator": {
+    "agent": "codex",
+    "model": "gpt-5-5",
+    "provider": "OpenAI",
+    "run_date": "2026-07-14",
+    "prompt_or_run_reference": "User requested branch creation and submission codex_gpt-5-5_noskill"
+  },
+  "figures": {
+    "gistemp-zonal-lines": {
+      "file": "figures/gistemp-zonal-lines.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Line chart of centered five-year rolling temperature anomalies from 1882 onward for the northern extratropics, tropics, and southern extratropics, with a dashed zero-anomaly reference line.",
+      "palette": {
+        "class": "categorical",
+        "name": "Matplotlib tab10 subset",
+        "colors": ["#1f77b4", "#ff7f0e", "#2ca02c", "#666666"]
+      }
+    },
+    "world-bank-urbanization-bars": {
+      "file": "figures/world-bank-urbanization-bars.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Horizontal bar chart showing 2024 urban population percentages for seven World Bank regions in the supplied ascending order, with every bar directly labeled.",
+      "palette": {
+        "class": "sequential",
+        "name": "Matplotlib tab10 blue single hue",
+        "colors": ["#1f77b4"]
+      }
+    },
+    "palmer-penguins-box": {
+      "file": "figures/palmer-penguins-box.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Box plots compare body mass in grams for Adelie, Chinstrap, and Gentoo penguins, with all supplied observations overlaid as jittered points.",
+      "palette": {
+        "class": "categorical",
+        "name": "Matplotlib tab10 subset",
+        "colors": ["#1f77b4", "#ff7f0e", "#2ca02c"]
+      }
+    },
+    "wine-correlation-heatmap": {
+      "file": "figures/wine-correlation-heatmap.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Heatmap of the complete UCI red-wine Pearson correlation matrix on a shared negative-to-positive scale from -1 to 1, with all variable labels visible.",
+      "palette": {
+        "class": "diverging",
+        "name": "Matplotlib RdBu_r",
+        "colors": ["#053061", "#f7f7f7", "#67001f"]
+      }
+    },
+    "auto-mpg-scatter": {
+      "file": "figures/auto-mpg-scatter.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Scatter plot of every supplied vehicle's weight in pounds against fuel economy in miles per gallon, with points grouped by USA, Europe, and Japan origin.",
+      "palette": {
+        "class": "categorical",
+        "name": "Matplotlib tab10 subset",
+        "colors": ["#1f77b4", "#ff7f0e", "#2ca02c"]
+      }
+    },
+    "usgs-earthquake-histogram": {
+      "file": "figures/usgs-earthquake-histogram.png",
+      "source": "source/generate_figures.py",
+      "alt_text": "Histogram of reviewed 2025 USGS magnitude 5 and larger earthquake events using 0.1-magnitude bins, with bar heights normalized to percentage of events.",
+      "palette": {
+        "class": "sequential",
+        "name": "Matplotlib tab10 purple single hue",
+        "colors": ["#9467bd"]
+      }
+    }
+  }
+}
