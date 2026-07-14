@@ -70,6 +70,8 @@ request matches its description.
 
 ## Evaluation tasks
 
+See [`tasks/`](tasks/README.md) for the task format, workflow, and full index.
+
 - **[Public-data figure comparison](tasks/public-data-figure-comparison/README.md)**
   — Give different coding agents the same six plot-ready public-data inputs and
   compare how they apply `yanglabkit-figures` and `yanglabkit-scicolor`. The
