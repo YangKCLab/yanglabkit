@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "task_id": "yanglabkit-public-data-figures-v1",
+  "task_version": "1.0.0",
+  "snapshot_date": "2026-07-13",
+  "output": {
+    "format": "png",
+    "dpi": 300,
+    "source_width_inches": 6,
+    "background": "white",
+    "tight_bounds": true,
+    "in_figure_title": false,
+    "target_display_width_inches": 3.5,
+    "ordinary_font_points": 14,
+    "secondary_font_points": 12,
+    "font_family": "DejaVu Sans"
+  },
+  "figures": [
+    {
+      "id": "gistemp-zonal-lines",
+      "type": "line",
+      "palette_class": "categorical",
+      "input": "data/gistemp-zonal-rolling.csv",
+      "output": "gistemp-zonal-lines.png",
+      "x": "year",
+      "series": [
+        "northern_extratropics_anomaly_c",
+        "tropics_anomaly_c",
+        "southern_extratropics_anomaly_c"
+      ],
+      "requirements": [
+        "Plot all three centered five-year rolling anomaly series.",
+        "Use distinct CVD-safe categorical colours plus distinct line styles.",
+        "Add a gray dashed zero-anomaly reference line.",
+        "Use a frameless legend and label the anomaly in degrees Celsius."
+      ]
+    },
+    {
+      "id": "world-bank-urbanization-bars",
+      "type": "horizontal-bar",
+      "palette_class": "sequential",
+      "input": "data/world-bank-urbanization-2024.csv",
+      "output": "world-bank-urbanization-bars.png",
+      "category": "region",
+      "value": "urban_population_percent",
+      "requirements": [
+        "Keep the supplied ascending order.",
+        "Use a CVD-safe sequential treatment.",
+        "Directly label every bar with its percentage.",
+        "Format the value axis as percentages and retain only the bottom value spine and ticks."
+      ]
+    },
+    {
+      "id": "palmer-penguins-box",
+      "type": "box",
+      "palette_class": "categorical",
+      "input": "data/palmer-penguins-body-mass.csv",
+      "output": "palmer-penguins-box.png",
+      "category": "species",
+      "value": "body_mass_g",
+      "category_order": ["Adelie", "Chinstrap", "Gentoo"],
+      "jitter_seed": 20260713,
+      "requirements": [
+        "Draw one box plot per species in the supplied category order.",
+        "Overlay all observations with light deterministic horizontal jitter.",
+        "Use CVD-safe categorical colours without relying on colour for group identity.",
+        "Label body mass in grams and keep overplotting subordinate to the boxes."
+      ]
+    },
+    {
+      "id": "wine-correlation-heatmap",
+      "type": "heatmap",
+      "palette_class": "diverging",
+      "input": "data/uci-red-wine-correlations.csv",
+      "output": "wine-correlation-heatmap.png",
+      "row_label": "variable",
+      "value_range": [-1, 1],
+      "midpoint": 0,
+      "requirements": [
+        "Preserve the supplied row and column order.",
+        "Use a continuous, CVD-safe, perceptually uniform diverging colormap centered at zero.",
+        "Include a labeled colour bar spanning -1 to 1.",
+        "Separate cells visually and remove all plot spines and tick marks while keeping labels."
+      ]
+    },
+    {
+      "id": "auto-mpg-scatter",
+      "type": "scatter",
+      "palette_class": "categorical",
+      "input": "data/uci-auto-mpg.csv",
+      "output": "auto-mpg-scatter.png",
+      "x": "weight_lb",
+      "y": "mpg",
+      "group": "origin",
+      "requirements": [
+        "Plot vehicle weight against fuel economy with no fitted line.",
+        "Encode USA, Europe, and Japan with both CVD-safe categorical colours and distinct marker shapes.",
+        "Use print-scale markers and a frameless non-overlapping legend.",
+        "Label weight in pounds and fuel economy in miles per gallon."
+      ]
+    },
+    {
+      "id": "usgs-earthquake-histogram",
+      "type": "histogram",
+      "palette_class": "sequential",
+      "input": "data/usgs-2025-reviewed-m5.csv",
+      "output": "usgs-earthquake-histogram.png",
+      "value": "magnitude",
+      "bin_width": 0.1,
+      "normalization": "percent_of_events",
+      "requirements": [
+        "Use 0.1-magnitude bins beginning at 5.0 and covering the observed maximum.",
+        "Normalize bar heights to percentage of all supplied events.",
+        "Use a CVD-safe sequential or single-hue treatment.",
+        "Format the y axis as percentages and label magnitude without implying one uniform magnitude type."
+      ]
+    }
+  ]
+}

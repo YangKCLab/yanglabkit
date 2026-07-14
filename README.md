@@ -68,6 +68,14 @@ request matches its description.
   write plotting code or ask how to style/export a scientific figure. No runtime
   dependencies — pure markdown guidance.
 
+## Evaluation tasks
+
+- **[Public-data figure comparison](tasks/public-data-figure-comparison/README.md)**
+  — Give different coding agents the same six plot-ready public-data inputs and
+  compare how they apply `yanglabkit-figures` and `yanglabkit-scicolor`. The
+  versioned task includes an agent-neutral brief, submission contract,
+  validator, blinded comparison builder, provenance, and scoring rubric.
+
 ## Related projects 
 
 

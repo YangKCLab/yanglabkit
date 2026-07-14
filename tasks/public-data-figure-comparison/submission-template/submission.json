@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "yanglabkit-public-data-figures-v1",
+  "submission_id": "replace-with-opaque-id",
+  "generator": {
+    "agent": "replace",
+    "model": "replace",
+    "provider": "replace",
+    "run_date": "YYYY-MM-DD",
+    "prompt_or_run_reference": "optional non-sensitive reference"
+  },
+  "figures": {
+    "gistemp-zonal-lines": {
+      "file": "figures/gistemp-zonal-lines.png",
+      "source": "source/replace-with-code-file",
+      "alt_text": "Replace with one or two descriptive sentences.",
+      "palette": {
+        "class": "categorical",
+        "name": "replace with exact scicolor palette name",
+        "colors": ["#000000"]
+      }
+    },
+    "world-bank-urbanization-bars": {
+      "file": "figures/world-bank-urbanization-bars.png",
+      "source": "source/replace-with-code-file",
+      "alt_text": "Replace with one or two descriptive sentences.",
+      "palette": {
+        "class": "sequential",
+        "name": "replace with exact scicolor palette name",
+        "colors": ["#000000"]
+      }
+    },
+    "palmer-penguins-box": {
+      "file": "figures/palmer-penguins-box.png",
+      "source": "source/replace-with-code-file",
+      "alt_text": "Replace with one or two descriptive sentences.",
+      "palette": {
+        "class": "categorical",
+        "name": "replace with exact scicolor palette name",
+        "colors": ["#000000"]
+      }
+    },
+    "wine-correlation-heatmap": {
+      "file": "figures/wine-correlation-heatmap.png",
+      "source": "source/replace-with-code-file",
+      "alt_text": "Replace with one or two descriptive sentences.",
+      "palette": {
+        "class": "diverging",
+        "name": "replace with exact scicolor palette name",
+        "colors": ["#000000"]
+      }
+    },
+    "auto-mpg-scatter": {
+      "file": "figures/auto-mpg-scatter.png",
+      "source": "source/replace-with-code-file",
+      "alt_text": "Replace with one or two descriptive sentences.",
+      "palette": {
+        "class": "categorical",
+        "name": "replace with exact scicolor palette name",
+        "colors": ["#000000"]
+      }
+    },
+    "usgs-earthquake-histogram": {
+      "file": "figures/usgs-earthquake-histogram.png",
+      "source": "source/replace-with-code-file",
+      "alt_text": "Replace with one or two descriptive sentences.",
+      "palette": {
+        "class": "sequential",
+        "name": "replace with exact scicolor palette name",
+        "colors": ["#000000"]
+      }
+    }
+  }
+}
+

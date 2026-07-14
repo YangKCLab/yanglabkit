@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "task_id": "yanglabkit-public-data-figures-v1",
+  "task_version": "1.0.0",
+  "snapshot_date": "2026-07-13",
+  "files": [
+    {
+      "file": "gistemp-zonal-rolling.csv",
+      "source_id": "gistemp",
+      "rows": 142,
+      "columns": [
+        "year",
+        "northern_extratropics_anomaly_c",
+        "tropics_anomaly_c",
+        "southern_extratropics_anomaly_c"
+      ],
+      "sha256": "9785669828574040dca604d91c842b1b5f1cd0b382eac8a88375d44d21347694",
+      "transformation": "Selected 24N-90N, 24S-24N, and 90S-24S annual anomalies; calculated centered five-year means; dropped the two edge years on each side."
+    },
+    {
+      "file": "world-bank-urbanization-2024.csv",
+      "source_id": "world_bank",
+      "rows": 7,
+      "columns": [
+        "region_code",
+        "region",
+        "year",
+        "urban_population_percent"
+      ],
+      "sha256": "d47acb56248752a69638476902a78cb5568ee04f32d1f5528eca496a5fd2b760",
+      "transformation": "Selected seven standard regional aggregates for indicator SP.URB.TOTL.IN.ZS in 2024 and sorted them by value ascending."
+    },
+    {
+      "file": "palmer-penguins-body-mass.csv",
+      "source_id": "penguins",
+      "rows": 342,
+      "columns": [
+        "observation_id",
+        "species",
+        "body_mass_g"
+      ],
+      "sha256": "8ea480cdb5f72a5e9da16236cde55146e72600069cea50b8105f649b2e09701a",
+      "transformation": "Selected species and body_mass_g and removed the two observations with missing body mass."
+    },
+    {
+      "file": "uci-red-wine-correlations.csv",
+      "source_id": "wine",
+      "rows": 12,
+      "columns": [
+        "variable",
+        "fixed acidity",
+        "volatile acidity",
+        "citric acid",
+        "residual sugar",
+        "chlorides",
+        "free sulfur dioxide",
+        "total sulfur dioxide",
+        "density",
+        "pH",
+        "sulphates",
+        "alcohol",
+        "quality"
+      ],
+      "sha256": "fa212d9b78403802008f1ea0b58ecf9ac495a948e842a36df5224b6079122f58",
+      "transformation": "Selected the red-wine file and calculated the Pearson correlation matrix for its 11 physicochemical variables plus quality in source-column order."
+    },
+    {
+      "file": "uci-auto-mpg.csv",
+      "source_id": "auto_mpg",
+      "rows": 398,
+      "columns": [
+        "observation_id",
+        "mpg",
+        "weight_lb",
+        "origin"
+      ],
+      "sha256": "5ad7dc12b23edbab7f796ef6fd29735d05d763f6673bc81a50e18f6bde4a7a19",
+      "transformation": "Selected mpg, weight, and origin; mapped origin codes 1/2/3 to USA/Europe/Japan."
+    },
+    {
+      "file": "usgs-2025-reviewed-m5.csv",
+      "source_id": "usgs",
+      "rows": 2128,
+      "columns": [
+        "event_id",
+        "time_utc",
+        "magnitude",
+        "magnitude_type"
+      ],
+      "sha256": "2ccae361341b0433659a3a7969b342ccb3b422820dba30cd73284ac6eca541c9",
+      "transformation": "Queried reviewed global earthquakes from 2025-01-01 through 2026-01-01 with M≥5 and retained event ID, time, preferred magnitude, and magnitude type."
+    }
+  ],
+  "sources": {
+    "gistemp": {
+      "name": "NASA GISTEMP v4 zonal annual means",
+      "url": "https://data.giss.nasa.gov/gistemp/tabledata_v4/ZonAnn.Ts+dSST.csv",
+      "landing_page": "https://data.giss.nasa.gov/gistemp/",
+      "reuse": "NASA GISS/GISTEMP derived-graphic permission with requested citation and credit; not labeled CC0",
+      "snapshot_date": "2026-07-13",
+      "upstream_sha256": "d9fc1a2e279e951ec7c3f53efca16c877f9e24e9038756c019b79bdc24a23d31"
+    },
+    "world_bank": {
+      "name": "World Bank WDI urban population (% of total population)",
+      "url": "https://api.worldbank.org/v2/country/EAS;ECS;LCN;MEA;NAC;SAS;SSF/indicator/SP.URB.TOTL.IN.ZS?date=2024&format=json&per_page=100",
+      "landing_page": "https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS",
+      "reuse": "CC BY 4.0",
+      "snapshot_date": "2026-07-13",
+      "upstream_sha256": "baf1e740051636ff70b06b8b3d2f7202ecdef2ac71bfcbb253152b51343e62a0"
+    },
+    "penguins": {
+      "name": "Palmer Penguins",
+      "url": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv",
+      "landing_page": "https://allisonhorst.github.io/palmerpenguins/",
+      "reuse": "CC0 with scholarly attribution requested",
+      "snapshot_date": "2026-07-13",
+      "upstream_sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93"
+    },
+    "wine": {
+      "name": "UCI Wine Quality",
+      "url": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
+      "landing_page": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+      "doi": "10.24432/C56S3T",
+      "reuse": "CC BY 4.0",
+      "snapshot_date": "2026-07-13",
+      "upstream_sha256": "3ed56667f4b828242bd732d7d1dd7f2861e54432239d7fa63877014cbb0304d4"
+    },
+    "auto_mpg": {
+      "name": "UCI Auto MPG",
+      "url": "https://archive.ics.uci.edu/static/public/9/auto+mpg.zip",
+      "landing_page": "https://archive.ics.uci.edu/dataset/9/auto",
+      "doi": "10.24432/C5859H",
+      "reuse": "CC BY 4.0",
+      "snapshot_date": "2026-07-13",
+      "upstream_sha256": "5fc1507522b73b8050d3aa45df51eefe1b666ae5f428a5f1347b6483339f1003"
+    },
+    "usgs": {
+      "name": "USGS Earthquake Catalog / ANSS",
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query.csv?starttime=2025-01-01&endtime=2026-01-01&minmagnitude=5&eventtype=earthquake&reviewstatus=reviewed&orderby=time-asc&limit=20000",
+      "landing_page": "https://earthquake.usgs.gov/fdsnws/event/1/",
+      "reuse": "Public domain; credit USGS/ANSS",
+      "snapshot_date": "2026-07-13",
+      "upstream_sha256": "659af7efba16bea8c683471932abac9185b32ac908cc0e894a3491b96637a801"
+    }
+  }
+}
