@@ -96,8 +96,8 @@ colour choice to the sibling `yanglabkit-scicolor` skill.
 Tightens and revises prose to Kaicheng Yang's line-editing standard, and drafts
 new prose to the same standard. Two layers: a **core prose-tightening layer**
 (always on — never add explanation a sentence already carries, merge redundant
-sentences, delete padding not content, order claims general → specific, one
-paragraph one theme, parallelism as compression, prefer removals) and an
+sentences, delete padding not content, one paragraph one theme, prefer
+removals) and an
 **academic-revision layer** (activates for manuscripts/referee responses/grant
 text — significance over novelty, one head term for the spine concept, pitch
 the thesis at the right link of the causal chain, claims precise enough to
@@ -113,13 +113,13 @@ rationales, and never applies edits without approval.
     the hard invariants (prefer removals, condense without losing content, no
     restructure when a local fix exists, propose-before-apply, inherit the
     writer's own standard). Delegates the substance to the reference docs.
-  - `reference/prose-principles.md` — solely owns the eight core tightening
+  - `reference/prose-principles.md` — solely owns the six core tightening
     principles (each with its tell and fix) and the delivery method
     (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,
     recommended-vs-aggressive option, "Net:" bottom line). Do not re-duplicate
     in `SKILL.md`.
   - `reference/academic-revision.md` — solely owns the academic layer: its
-    activation conditions and principles 9–14 for reviewer-driven manuscript
+    activation conditions and principles 7–12 for reviewer-driven manuscript
     revision.
 - **Provenance:** the public sanitized distillation of a live manuscript
   revision session; the private vault worklogs and handoff notes remain the

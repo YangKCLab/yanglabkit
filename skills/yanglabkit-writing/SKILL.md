@@ -6,7 +6,7 @@ description: >-
   Tighten and revise prose the Yang Lab way, and draft new prose to the same
   standard. Applies a distilled line-editing method — never add explanation a
   sentence already carries, merge redundant sentences, delete padding not
-  content, order claims general → specific, one paragraph one theme — plus an
+  content, one paragraph one theme — plus an
   academic layer for reviewer-driven manuscript revision (significance over
   novelty, terminology discipline, claims precise enough to survive their own
   counterexamples). In revision mode it diagnoses by line and proposes drop-in
@@ -61,8 +61,7 @@ This skill is pure markdown guidance with two layers:
    accepted edits exactly as approved.
 
 **Drafting mode** (new text) — apply the same principles while writing: state
-each message once, order claims general → specific, one theme per paragraph,
-compress parallel structure, no padding. No proposal step — but flag any spot
+each message once, one theme per paragraph, no padding. No proposal step — but flag any spot
 where you consciously traded concision for something else.
 
 ## Rules

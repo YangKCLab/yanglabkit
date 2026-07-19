@@ -41,37 +41,19 @@ redundancy, not help.
   halves the words and loses zero content; if an idea disappeared, the cut went
   too deep.
 
-## 5. Order claims general → specific
-
-- *Tell:* a specific instance appears *before* the general claim it
-  instantiates, pre-empting it — the general claim then arrives deflated,
-  after one of its own examples.
-- *Fix:* move the specific claim to *follow* the general one, where it works as
-  an intensifier. A marker word ("even", "especially") may be warranted to
-  signal the general→specific relationship — that is an added word doing
-  load-bearing work (principle 8).
-
-## 6. One paragraph, one theme
+## 5. One paragraph, one theme
 
 - *Tell:* a sentence whose theme belongs to a different paragraph — it reads
   fine alone but pulls the paragraph sideways.
 - *Fix:* relocate it to the paragraph that owns its theme. Done right, the move
   purifies *both* paragraphs at once.
 
-## 7. Parallelism is compression
-
-- *Tell:* repeated clause scaffolding — "they are less likely to X, to be Y-ed,
-  or to Z" — where the frame repeats and only the payload varies.
-- *Fix:* collapse to a parallel list that states the frame once ("less X, less
-  Y, less Z"). The rhythm also strengthens the rhetoric.
-
-## 8. Prefer removals; an added word must earn its place
+## 6. Prefer removals; an added word must earn its place
 
 - *Tell:* any edit whose diff adds words.
 - *Fix:* default to deletion and merging. Permit an addition only when it does
-  structural, load-bearing work (e.g. marking a general→specific relationship)
-  rather than explaining. In a healthy tightening pass, additions are rare
-  enough to count on one hand.
+  structural, load-bearing work rather than explaining. In a healthy tightening
+  pass, additions are rare enough to count on one hand.
 
 ---
 
@@ -80,7 +62,7 @@ redundancy, not help.
 How the diagnosis is presented matters as much as what it says.
 
 - **Read the whole passage first.** Local edits made without the full context
-  break paragraph-level structure (principles 5–6 are invisible line-by-line).
+  break paragraph-level structure (principle 5 is invisible line-by-line).
 - **Affirm before critique.** Open with what already lands well, as its own
   section, so the writer knows what to preserve. Only then list issues.
 - **Diagnose by line, not in the abstract.** Name the exact sentences and the
