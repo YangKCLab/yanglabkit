@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "yanglabkit",
-      "description": "Yang Lab-specific research skills, including scicolor-based scientific colour-scheme guidance, matplotlib/seaborn figure styling, and prose tightening / academic revision",
+      "description": "Yang Lab-specific research skills, including scicolor-based scientific colour-scheme guidance, matplotlib/seaborn figure styling, and prose tightening",
       "source": "./",
       "skills": [
         "./skills/yanglabkit-scicolor",

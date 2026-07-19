@@ -1,6 +1,6 @@
-# Core prose-tightening principles
+# Prose-tightening principles
 
-The always-on layer of `yanglabkit-writing`. Each principle is stated with its
+The principles of `yanglabkit-writing`. Each principle is stated with its
 *tell* — the textual symptom that signals it applies — and its *fix*. Principles
 are ordered roughly by how often they fire; the first is the north star that
 anchors all the others.
