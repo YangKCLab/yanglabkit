@@ -45,9 +45,10 @@ redundancy, not help.
 
 - *Tell:* a sentence the reader must parse twice — nested subordinate clauses,
   stacked qualifiers or parentheticals, the subject and its verb far apart.
-- *Fix:* split into shorter sentences that each advance one step, in reading
-  order. A complex idea does not license complex syntax; linear sentences are
-  how a complex idea stays readable.
+- *Fix:* restructure so each sentence advances one step in reading order,
+  splitting only where needed. The target is linearity, not brevity: a clause
+  or two is fine as long as it doesn't nest, and over-splitting produces
+  choppy prose that reads worse than the original.
 
 ## 6. One paragraph, one theme
 
