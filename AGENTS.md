@@ -91,6 +91,41 @@ colour choice to the sibling `yanglabkit-scicolor` skill.
   notebooks and interview. The vault guide stays the canonical source; this skill
   ships the sanitized conventions only.
 
+### `yanglabkit-writing`
+
+Tightens and revises prose to Kaicheng Yang's line-editing standard, and drafts
+new prose to the same standard. Two layers: a **core prose-tightening layer**
+(always on — never add explanation a sentence already carries, merge redundant
+sentences, delete padding not content, order claims general → specific, one
+paragraph one theme, parallelism as compression, prefer removals) and an
+**academic-revision layer** (activates for manuscripts/referee responses/grant
+text — significance over novelty, one head term for the spine concept, pitch
+the thesis at the right link of the causal chain, claims precise enough to
+survive their own counterexamples, adopt-and-show over defend). In revision
+mode the skill diagnoses by line, proposes drop-in replacements with
+rationales, and never applies edits without approval.
+
+- **Pure markdown guidance, no runtime dependency.** No bundled data, no code
+  execution, no worked examples — principles and method only.
+- **File roles:**
+  - `SKILL.md` — the always-loaded orchestrator: the two modes
+    (revision: diagnose → propose → wait; drafting: apply while writing) and
+    the hard invariants (prefer removals, condense without losing content, no
+    restructure when a local fix exists, propose-before-apply, inherit the
+    writer's own standard). Delegates the substance to the reference docs.
+  - `reference/prose-principles.md` — solely owns the eight core tightening
+    principles (each with its tell and fix) and the delivery method
+    (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,
+    recommended-vs-aggressive option, "Net:" bottom line). Do not re-duplicate
+    in `SKILL.md`.
+  - `reference/academic-revision.md` — solely owns the academic layer: its
+    activation conditions and principles 9–14 for reviewer-driven manuscript
+    revision.
+- **Provenance:** the public sanitized distillation of a live manuscript
+  revision session; the private vault worklogs and handoff notes remain the
+  canonical source (with the original worked before/after evidence). This skill
+  ships the sanitized principles only — no manuscript text.
+
 ## Evaluation tasks
 
 `tasks/` contains versioned, agent-neutral packages for exercising and
