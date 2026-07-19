@@ -41,14 +41,22 @@ redundancy, not help.
   halves the words and loses zero content; if an idea disappeared, the cut went
   too deep.
 
-## 5. One paragraph, one theme
+## 5. Prefer shorter, linear sentences
+
+- *Tell:* a sentence the reader must parse twice — nested subordinate clauses,
+  stacked qualifiers or parentheticals, the subject and its verb far apart.
+- *Fix:* split into shorter sentences that each advance one step, in reading
+  order. A complex idea does not license complex syntax; linear sentences are
+  how a complex idea stays readable.
+
+## 6. One paragraph, one theme
 
 - *Tell:* a sentence whose theme belongs to a different paragraph — it reads
   fine alone but pulls the paragraph sideways.
 - *Fix:* relocate it to the paragraph that owns its theme. Done right, the move
   purifies *both* paragraphs at once.
 
-## 6. Prefer removals; an added word must earn its place
+## 7. Prefer removals; an added word must earn its place
 
 - *Tell:* any edit whose diff adds words.
 - *Fix:* default to deletion and merging. Permit an addition only when it does
@@ -62,7 +70,7 @@ redundancy, not help.
 How the diagnosis is presented matters as much as what it says.
 
 - **Read the whole passage first.** Local edits made without the full context
-  break paragraph-level structure (principle 5 is invisible line-by-line).
+  break paragraph-level structure (principle 6 is invisible line-by-line).
 - **Affirm before critique.** Open with what already lands well, as its own
   section, so the writer knows what to preserve. Only then list issues.
 - **Diagnose by line, not in the abstract.** Name the exact sentences and the

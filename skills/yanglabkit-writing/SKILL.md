@@ -6,7 +6,8 @@ description: >-
   Tighten and revise prose the Yang Lab way, and draft new prose to the same
   standard. Applies a distilled line-editing method — never add explanation a
   sentence already carries, merge redundant sentences, delete padding not
-  content, one paragraph one theme. In revision mode it diagnoses by line and
+  content, prefer shorter linear sentences, one paragraph one theme. In
+  revision mode it diagnoses by line and
   proposes drop-in replacements with rationales, and never applies edits
   without approval. Trigger when the user asks to tighten, condense, polish,
   review, or revise prose, or asks the agent to draft substantive prose (an
@@ -21,7 +22,7 @@ message.**
 
 This skill is pure markdown guidance and applies to any writing — papers,
 posts, letters, documentation. The substance lives in
-`reference/prose-principles.md`: six tightening principles (each with its tell
+`reference/prose-principles.md`: seven tightening principles (each with its tell
 and fix) and the delivery method for presenting a diagnosis. This file only
 orchestrates.
 

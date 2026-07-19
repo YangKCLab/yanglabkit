@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Yang Lab skill set for AI agents — a focused collection of skills tailored to the lab's own research workflows, not a general-purpose research toolkit",
-    "version": "0.1.7"
+    "version": "0.1.8"
   },
   "plugins": [
     {

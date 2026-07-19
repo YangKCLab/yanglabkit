@@ -70,8 +70,9 @@ request matches its description.
 - **[`yanglabkit-writing`](skills/yanglabkit-writing/SKILL.md)** — Tighten and
   revise prose the Yang Lab way, and draft new prose to the same standard. A
   distilled line-editing method: never add explanation a sentence already
-  carries, merge redundancy, delete padding not content, one paragraph one
-  theme, prefer removals. In revision mode it diagnoses by line and proposes
+  carries, merge redundancy, delete padding not content, prefer shorter linear
+  sentences, one paragraph one theme, prefer removals. In revision mode it
+  diagnoses by line and proposes
   drop-in replacements with rationales, never applying edits without approval.
   No runtime dependencies — pure markdown guidance.
 

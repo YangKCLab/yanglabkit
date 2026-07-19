@@ -95,8 +95,9 @@ colour choice to the sibling `yanglabkit-scicolor` skill.
 
 Tightens and revises prose to Kaicheng Yang's line-editing standard, and drafts
 new prose to the same standard: never add explanation a sentence already
-carries, merge redundant sentences, delete padding not content, one paragraph
-one theme, prefer removals. In revision mode the skill diagnoses by line,
+carries, merge redundant sentences, delete padding not content, prefer shorter
+linear sentences, one paragraph one theme, prefer removals. In revision mode
+the skill diagnoses by line,
 proposes drop-in replacements with rationales, and never applies edits without
 approval.
 
@@ -108,7 +109,7 @@ approval.
     the two invariants the reference doesn't own (propose-before-apply; no
     restructure when a lighter local fix exists). Delegates everything else to
     the reference doc without restating it.
-  - `reference/prose-principles.md` — solely owns the six tightening
+  - `reference/prose-principles.md` — solely owns the seven tightening
     principles (each with its tell and fix) and the delivery method
     (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,
     recommended-vs-aggressive option, "Net:" bottom line). Do not re-duplicate
