@@ -110,7 +110,7 @@ approval.
     the two invariants the reference doesn't own (propose-before-apply; no
     restructure when a lighter local fix exists). Delegates everything else to
     the reference doc without restating it.
-  - `reference/prose-principles.md` — solely owns the nine tightening
+  - `reference/prose-principles.md` — solely owns the eleven tightening
     principles (each with its tell and fix) and the delivery method
     (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,
     recommended-vs-aggressive option, "Net:" bottom line). Do not re-duplicate

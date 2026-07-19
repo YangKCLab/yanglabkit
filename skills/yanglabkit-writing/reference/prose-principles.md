@@ -11,7 +11,9 @@ anchors all the others.
 redundancy, not help.
 
 - *Tell:* the urge to append "in other words…", "this means that…", or a
-  restatement "for clarity".
+  restatement "for clarity". The test spans the whole document, not just
+  neighbors: a sentence that re-derives a point an earlier section already
+  established fails it too.
 - *Fix:* delete the would-be addition. If the original sentence genuinely fails
   to carry the message, revise *that sentence* instead of adding a second one.
 
@@ -22,7 +24,9 @@ redundancy, not help.
   effects match, they are one message.
 - *Fix:* merge into a single sentence that states the effect once and the cause
   once. The merged sentence is usually stronger than either original because
-  cause and effect now sit together.
+  cause and effect now sit together. A special case: when one sentence merely
+  defines or unpacks a noun in the other, fold it in as an appositive rather
+  than keeping two sentences.
 
 ## 3. Cut connective verbs that merely restate the premise
 
@@ -46,25 +50,33 @@ redundancy, not help.
 - *Tell:* a sentence the reader must parse twice — nested subordinate clauses,
   stacked qualifiers or parentheticals, the subject and its verb far apart.
 - *Fix:* restructure so each sentence advances one step in reading order,
-  splitting only where needed. The target is linearity, not brevity: a clause
+  splitting only where needed — a multi-clause pile-up often splits naturally
+  into cause → effect steps. The target is linearity, not brevity: a clause
   or two is fine as long as it doesn't nest, and over-splitting produces
-  choppy prose that reads worse than the original.
+  choppy prose that reads worse than the original. Work two knobs in order:
+  first pick the right sentence *unit* (how much belongs together), then
+  simplify the structure within it.
 
 ## 6. One paragraph, one theme
 
 - *Tell:* a sentence whose theme belongs to a different paragraph — it reads
   fine alone but pulls the paragraph sideways.
 - *Fix:* relocate it to the paragraph that owns its theme. Done right, the move
-  purifies *both* paragraphs at once.
+  purifies *both* paragraphs at once. When a theme recurs in several places,
+  consolidate it into one paragraph — and place that paragraph where the theme
+  does its work (e.g. a constraint goes *after* the things it constrains).
 
 ## 7. Arrange paragraphs by linear dependency
 
 - *Tell:* a paragraph that leans on something only explained later, or one that
   could be moved elsewhere without anything breaking — either way the sequence
-  isn't carrying the argument.
+  isn't carrying the argument. At section scale: content organized by a surface
+  taxonomy (by actor, by category) instead of by the argument's logic — a
+  taxonomy is not an argument.
 - *Fix:* order paragraphs so each builds only on what earlier ones established —
   conditions before consequences, problem before remedy. Nothing may depend on
-  material that arrives later.
+  material that arrives later. Fold taxonomy items in at their causal position
+  instead of listing them flat.
 
 ## 8. Lead each paragraph with its claim
 
@@ -76,7 +88,25 @@ redundancy, not help.
   build-up-then-payoff paragraph stays legal as a deliberate, marked choice —
   not a habit.
 
-## 9. Prefer removals; an added word must earn its place
+## 9. Frame a sentence by its local function, not its grandest possible framing
+
+- *Tell:* a sentence that re-sounds the piece's thesis when its job where it
+  sits is smaller — qualifying, bridging, scoping.
+- *Fix:* match the frame to the work the sentence does in place. A constraint
+  paragraph opens as a constraint, not as another statement of the spine; not
+  every sentence gets the biggest framing it could carry.
+
+## 10. Prefer a concrete pointer over an abstract label
+
+- *Tell:* an abstract label ("this asymmetry", "the paradox") that needs an
+  inline definition to be understood — especially when that definition would
+  restate material from elsewhere in the document.
+- *Fix:* drop the label and state the concrete thing itself, adding new content
+  rather than re-deriving old. Beware that "make it explicit" can *create*
+  restatement (principle 1); a label that requires a gloss is usually a signal
+  to just name the thing.
+
+## 11. Prefer removals; an added word must earn its place
 
 - *Tell:* any edit whose diff adds words.
 - *Fix:* default to deletion and merging. Permit an addition only when it does
@@ -110,4 +140,6 @@ How the diagnosis is presented matters as much as what it says.
   undifferentiated menu of possibilities.
 - **Respect workflow constraints.** Before offering to apply edits, honor the
   project's rules (pull before editing live-synced files, branch conventions,
-  approval gates).
+  approval gates) — including staging preferences: if the writer wants edits
+  applied but uncommitted so they can review one accumulated diff, never
+  auto-commit per edit.

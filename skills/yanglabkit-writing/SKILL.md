@@ -23,7 +23,7 @@ message.**
 
 This skill is pure markdown guidance and applies to any writing — papers,
 posts, letters, documentation. The substance lives in
-`reference/prose-principles.md`: nine tightening principles (each with its tell
+`reference/prose-principles.md`: eleven tightening principles (each with its tell
 and fix) and the delivery method for presenting a diagnosis. This file only
 orchestrates.
 
