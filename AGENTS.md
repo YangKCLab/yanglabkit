@@ -112,10 +112,11 @@ approval.
     aggressive removal/relocation when that's what truly helps). Delegates
     everything else to the reference doc without restating it.
   - `reference/prose-principles.md` — solely owns the eleven tightening
-    principles (each with its tell and fix) and the delivery method
+    principles (each with its tell and fix), the delivery method
     (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,
-    recommended-vs-aggressive option, "Net:" bottom line). Do not re-duplicate
-    in `SKILL.md`.
+    recommended-vs-aggressive option, "Net:" bottom line), and the revision
+    checklist (11 yes/no items numbered 1:1 to the principles). Do not
+    re-duplicate in `SKILL.md`.
 - **Provenance:** the public sanitized distillation of a live manuscript
   revision session; the private vault worklogs and handoff notes remain the
   canonical source (with the original worked before/after evidence). This skill

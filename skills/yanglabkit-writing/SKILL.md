@@ -24,8 +24,8 @@ message.**
 This skill is pure markdown guidance and applies to any writing — papers,
 posts, letters, documentation. The substance lives in
 `reference/prose-principles.md`: eleven tightening principles (each with its tell
-and fix) and the delivery method for presenting a diagnosis. This file only
-orchestrates.
+and fix), the delivery method for presenting a diagnosis, and a revision
+checklist numbered to the principles. This file only orchestrates.
 
 ## When to Use
 
@@ -39,8 +39,8 @@ orchestrates.
 **Revision mode** (existing text) — diagnose, propose, wait:
 
 1. Diagnose the passage against the principles in
-   `reference/prose-principles.md`, and present the result following its
-   delivery method.
+   `reference/prose-principles.md`, run its revision checklist over the
+   proposed result, and present the diagnosis following its delivery method.
 2. **Apply nothing until the user approves.** Only after approval, apply the
    accepted edits exactly as approved.
 
