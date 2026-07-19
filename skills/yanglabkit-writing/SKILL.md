@@ -1,6 +1,6 @@
 ---
 name: yanglabkit-writing
-user_invocable: true
+user-invocable: true
 disable-model-invocation: false
 description: >-
   Tighten and revise prose the Yang Lab way, and draft new prose to the same

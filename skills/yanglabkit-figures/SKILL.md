@@ -1,6 +1,6 @@
 ---
 name: yanglabkit-figures
-user_invocable: true
+user-invocable: true
 disable-model-invocation: false
 description: >-
   Style scientific figures the Yang Lab way when writing matplotlib/seaborn

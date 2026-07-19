@@ -1,6 +1,6 @@
 ---
 name: yanglabkit-scicolor
-user_invocable: true
+user-invocable: true
 disable-model-invocation: false
 description: >-
   Pick a scientifically sound colour palette for a figure, chart, plot, heatmap,
