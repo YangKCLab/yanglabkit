@@ -107,9 +107,10 @@ approval.
 - **File roles:**
   - `SKILL.md` — the always-loaded orchestrator: the two modes
     (revision: diagnose → propose → wait; drafting: apply while writing) and
-    the two invariants the reference doesn't own (propose-before-apply; no
-    restructure when a lighter local fix exists). Delegates everything else to
-    the reference doc without restating it.
+    the two invariants the reference doesn't own (propose-before-apply; match
+    the force of the edit to the problem — lighter fix when one suffices,
+    aggressive removal/relocation when that's what truly helps). Delegates
+    everything else to the reference doc without restating it.
   - `reference/prose-principles.md` — solely owns the eleven tightening
     principles (each with its tell and fix) and the delivery method
     (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,

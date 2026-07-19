@@ -131,7 +131,10 @@ How the diagnosis is presented matters as much as what it says.
   serves — a verdict without a fix is half an edit.
 - **Recommended option and aggressive option, kept distinct.** Where deeper
   cuts are possible, present the safe recommendation and, separately, what to
-  cut if space gets tight — the writer owns the trade-off.
+  cut if space gets tight — the writer owns the trade-off. But when the
+  aggressive edit is genuinely the better one, make *it* the recommendation:
+  don't downgrade a bold cut or relocation to an "optional extra" out of
+  caution.
 - **Tie every fix to the writer's stated principle.** The advice inherits the
   writer's own standard; it never imports an external house style.
 - **Flag out-of-scope issues; don't fix them.** Cross-section redundancy or

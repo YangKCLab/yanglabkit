@@ -52,7 +52,10 @@ something else.
 
 - **Never apply edits without approval** in revision mode — propose first,
   always.
-- **Don't restructure when a lighter local fix exists.** Relocation and
-  rewrites are last resorts after merging and trimming.
+- **Match the force of the edit to the problem.** Don't restructure when a
+  lighter local fix exists — but when the structure *is* the problem, be
+  aggressive: propose the deletion or relocation outright, not a timid local
+  patch. Propose-before-apply makes boldness safe; shyness, not overreach, is
+  the failure mode to avoid.
 - Everything else — what to fix and how to present it — lives in
   `reference/prose-principles.md`; follow it rather than improvising.
