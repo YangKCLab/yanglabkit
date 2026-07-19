@@ -57,7 +57,26 @@ redundancy, not help.
 - *Fix:* relocate it to the paragraph that owns its theme. Done right, the move
   purifies *both* paragraphs at once.
 
-## 7. Prefer removals; an added word must earn its place
+## 7. Arrange paragraphs by linear dependency
+
+- *Tell:* a paragraph that leans on something only explained later, or one that
+  could be moved elsewhere without anything breaking — either way the sequence
+  isn't carrying the argument.
+- *Fix:* order paragraphs so each builds only on what earlier ones established —
+  conditions before consequences, problem before remedy. Nothing may depend on
+  material that arrives later.
+
+## 8. Lead each paragraph with its claim
+
+- *Tell:* skimming the first sentence of each paragraph doesn't reconstruct the
+  argument; points surface mid-paragraph or at the end.
+- *Fix:* state the paragraph's point in its opening sentence and spend the rest
+  supporting it. When principle 8 holds, checking principle 7 is cheap: the
+  first sentences read top to bottom should form the argument's chain. A
+  build-up-then-payoff paragraph stays legal as a deliberate, marked choice —
+  not a habit.
+
+## 9. Prefer removals; an added word must earn its place
 
 - *Tell:* any edit whose diff adds words.
 - *Fix:* default to deletion and merging. Permit an addition only when it does
@@ -71,7 +90,7 @@ redundancy, not help.
 How the diagnosis is presented matters as much as what it says.
 
 - **Read the whole passage first.** Local edits made without the full context
-  break paragraph-level structure (principle 6 is invisible line-by-line).
+  break paragraph-level structure (principles 6–8 are invisible line-by-line).
 - **Affirm before critique.** Open with what already lands well, as its own
   section, so the writer knows what to preserve. Only then list issues.
 - **Diagnose by line, not in the abstract.** Name the exact sentences and the
