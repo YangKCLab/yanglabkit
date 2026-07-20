@@ -63,6 +63,9 @@ choices and refusing rainbow/jet.
     class/CVD/perceptual-uniformity metadata), **extracted** from the scicolor
     Python package.
   - `data/SOURCE.md` — provenance + re-sync instructions for both data files.
+  - `reference/target.md` — the acceptance spec (see "Instructions vs targets"
+    below): items `C1`–`C10`, tiered, citing the guide's Step 5 guardrails and
+    the SKILL.md rules.
 
 ### `yanglabkit-figures`
 
@@ -115,15 +118,34 @@ approval.
     aggressive removal/relocation when that's what truly helps). Delegates
     everything else to the reference doc without restating it.
   - `reference/prose-principles.md` — solely owns the eleven tightening
-    principles (each with its tell and fix), the delivery method
+    principles (each with its tell and fix) and the delivery method
     (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,
-    recommended-vs-aggressive option, "Net:" bottom line), and the revision
-    checklist (11 yes/no items numbered 1:1 to the principles). Do not
-    re-duplicate in `SKILL.md`.
+    recommended-vs-aggressive option, "Net:" bottom line). Do not re-duplicate
+    in `SKILL.md`.
+  - `reference/target.md` — the acceptance spec (see "Instructions vs targets"
+    below): items `W1`–`W11`, numbered 1:1 to the principles, all judged or
+    advisory (no mechanical items, by design).
 - **Provenance:** the public sanitized distillation of a live manuscript
   revision session; the private vault worklogs and handoff notes remain the
   canonical source (with the original worked before/after evidence). This skill
   ships the sanitized principles only — no manuscript text.
+
+### `yanglabkit-goalrun`
+
+The automated-mode runner: drives any domain skill to its acceptance target
+without a human in the loop, on explicit opt-in only (a Claude Code `/goal`
+run or a direct user request). Does the work with the domain skill's method,
+iterates until every `[mechanical]` and `[judged]` target item passes (or is
+`n/a` with reason), and writes `<artifact-stem>.target-report.md` next to the
+output as the decidable done-state for a goal evaluator. Owns the per-skill
+carve-outs (writing: apply-and-iterate but leave all edits uncommitted for one
+accumulated-diff review). Domain skills stay purely interactive; a new skill
+becomes automatable by adding only its `reference/target.md`.
+
+- **Pure markdown guidance, no runtime dependency, no bundled data.**
+- **File roles:** `SKILL.md` only — the runner contract (workflow, goal
+  condition template, rules, known-targets table). The per-skill substance it
+  consumes lives in each domain skill's `reference/target.md`.
 
 ## Instructions vs targets (skill authoring)
 
@@ -152,11 +174,13 @@ doc section or principle that motivates the item.
   **never blocks**. This is the anti-Goodhart guarantee — do not add a config
   that lets advisory items block.
 
-**Automated mode** (defined per skill in `SKILL.md`): only on explicit opt-in
-(a `/goal` run or the user asking). The working agent iterates against the
-target and writes `<artifact-stem>.target-report.md` next to the output —
-item id → pass/fail/n/a → one-line evidence. A goal condition should test the
-report, not the artifact's quality directly ("report exists, no failing
+**Automated mode** is owned by a single runner skill, `yanglabkit-goalrun` —
+domain skills stay purely interactive and carry only a pointer section. The
+runner activates on explicit opt-in only (a `/goal` run or the user asking),
+does the work with the domain skill's method, iterates against the target,
+and writes `<artifact-stem>.target-report.md` next to the output — item id →
+pass/fail/n/a → one-line evidence. A goal condition should test the report,
+not the artifact's quality directly ("report exists, no failing
 mechanical/judged items") — judgment stays with the strong model doing the
 work; the goal evaluator only needs decidable state. Skills whose interactive
 contract is propose-before-apply (writing) relax it in automated mode to
@@ -167,10 +191,9 @@ accumulated-diff review.
 cites its source. When editing a convention or principle, update both files in
 the same commit, and never re-duplicate item text between them.
 
-**Rollout status:** figures has the full convention (`target.md` +
-Automated mode). Writing and scicolor still carry their checklists inside the
-method docs — migrate them to `target.md` after the figures `/goal` prototype
-validates.
+**Rollout status:** all three domain skills have `reference/target.md`
+(figures F1–F19, writing W1–W11, scicolor C1–C10); `yanglabkit-goalrun`
+consumes them. A new skill becomes automatable by adding only its target.
 
 ## Evaluation tasks
 

@@ -151,27 +151,8 @@ How the diagnosis is presented matters as much as what it says.
 
 # Revision checklist
 
-Run this before a diagnosis ships (or before drafted prose is handed over).
-Items are numbered to match the principles; every "no" points to exactly one
-rule to apply. These are strong proxies, not mechanical tests — each pass/fail
-is still a judgment call.
-
-1. [ ] No sentence restates a point already made — by its neighbor or by an
-   earlier section?
-2. [ ] No two sentences assert the same effect, and no sentence survives whose
-   only job is defining a noun in the previous one?
-3. [ ] No connective verb that merely restates the section's premise?
-4. [ ] No sentence could lose words without losing an idea?
-5. [ ] Every sentence parses in one pass — no nested clauses, subject near its
-   verb — without collapsing into choppy fragments?
-6. [ ] Each paragraph holds one theme, and each recurring theme lives in one
-   place, located where it does its work?
-7. [ ] Each paragraph builds only on what earlier ones established — ordered by
-   the argument's logic, not a surface taxonomy?
-8. [ ] Reading only the first sentence of each paragraph reconstructs the
-   argument?
-9. [ ] Every sentence is framed by its local job, not by the grandest framing
-   it could carry?
-10. [ ] No abstract label that needs a gloss where the concrete thing could be
-    named?
-11. [ ] Every word the revision *added* does load-bearing work?
+Moved to [`target.md`](target.md) — the skill's acceptance spec (items
+`W1`–`W11`, numbered 1:1 to the principles above, tiered
+`[judged]`/`[advisory]`). Interactive sessions run it before a diagnosis
+ships; automated runs use it as the definition of done via
+`yanglabkit-goalrun`.

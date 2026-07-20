@@ -78,19 +78,10 @@ the procedure:
 
 ## Automated mode
 
-Only on explicit opt-in — a `/goal` run or the user asking for an unattended
-pass; never self-initiated. Iterate the figure against `reference/target.md`
-and write the target report it specifies (`<figure-stem>.target-report.md`,
-next to the output). Done = every `[mechanical]` and `[judged]` item passes
-with one line of evidence; `[advisory]` items are reported, never blocking.
-
-Goal condition template:
-
-    /goal <figure>.pdf exists and <figure>.target-report.md marks every
-    mechanical and judged item of the yanglabkit-figures target pass or n/a
-
-Interactive sessions instead finish by running the target as the step-4
-revision checklist.
+Handled by the sibling `yanglabkit-goalrun` skill (explicit opt-in only),
+which iterates a figure against `reference/target.md` and writes the target
+report. This skill's own workflow is interactive and ends at step 4 — the
+target run as a revision checklist.
 
 ## Cross-skill
 

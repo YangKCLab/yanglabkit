@@ -76,6 +76,13 @@ request matches its description.
   diagnoses by line and proposes
   drop-in replacements with rationales, never applying edits without approval.
   No runtime dependencies — pure markdown guidance.
+- **[`yanglabkit-goalrun`](skills/yanglabkit-goalrun/SKILL.md)** — Run any of
+  the above unattended against its acceptance target
+  (`reference/target.md`): does the work with the domain skill's method,
+  iterates until every mechanical and judged target item passes, and writes a
+  target report that a Claude Code `/goal` condition (or you) can check.
+  Explicit opt-in only; advisory items are reported, never blocking. No
+  runtime dependencies — pure markdown guidance.
 
 ## Evaluation tasks
 

@@ -22,10 +22,11 @@ north star: **don't add explanation if an existing sentence already carries the
 message.**
 
 This skill is pure markdown guidance and applies to any writing — papers,
-posts, letters, documentation. The substance lives in
-`reference/prose-principles.md`: eleven tightening principles (each with its tell
-and fix), the delivery method for presenting a diagnosis, and a revision
-checklist numbered to the principles. This file only orchestrates.
+posts, letters, documentation. The substance lives in two reference docs:
+`reference/prose-principles.md` (eleven tightening principles, each with its
+tell and fix, plus the delivery method for presenting a diagnosis) and
+`reference/target.md` (the acceptance checklist, numbered to the principles).
+This file only orchestrates.
 
 ## When to Use
 
@@ -39,8 +40,9 @@ checklist numbered to the principles. This file only orchestrates.
 **Revision mode** (existing text) — diagnose, propose, wait:
 
 1. Diagnose the passage against the principles in
-   `reference/prose-principles.md`, run its revision checklist over the
-   proposed result, and present the diagnosis following its delivery method.
+   `reference/prose-principles.md`, run the target checklist
+   (`reference/target.md`) over the proposed result, and present the diagnosis
+   following the delivery method.
 2. **Apply nothing until the user approves.** Only after approval, apply the
    accepted edits exactly as approved.
 
@@ -59,3 +61,10 @@ something else.
   the failure mode to avoid.
 - Everything else — what to fix and how to present it — lives in
   `reference/prose-principles.md`; follow it rather than improvising.
+
+## Automated mode
+
+Handled by the sibling `yanglabkit-goalrun` skill (explicit opt-in only): it
+applies and iterates against `reference/target.md`, leaving every edit
+uncommitted for one accumulated-diff review. The interactive contract above —
+propose before apply — is unchanged.

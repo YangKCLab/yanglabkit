@@ -1,6 +1,6 @@
 {
   "name": "yanglabkit",
-  "description": "Yang Lab-specific research skills, including scicolor-based scientific colour-scheme guidance, matplotlib/seaborn figure styling, and prose tightening",
+  "description": "Yang Lab-specific research skills, including scicolor-based scientific colour-scheme guidance, matplotlib/seaborn figure styling, prose tightening, and an automated goal runner",
   "version": "0.1.9",
   "author": {
     "name": "Kaicheng Yang",
