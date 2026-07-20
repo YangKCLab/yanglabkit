@@ -121,9 +121,11 @@ item-by-item record of why the run counts as done.
    the report file doubles as the audit trail.
 
 Safety notes: advisory items can never fail a run (checklist-chasing shouldn't
-flatten quality), `n/a` needs a stated reason, and for prose the runner
-applies edits but **never commits** — you always get one accumulated diff to
-review at the end.
+flatten quality), and `n/a` needs a stated reason. In a git repository the
+runner never touches your current branch: it works on a dedicated
+`goalrun/<slug>` branch, committing and pushing as it progresses, so nothing
+is lost if a run dies and every iteration is auditable — you review the
+branch diff and decide whether to merge.
 
 ## Evaluation tasks
 

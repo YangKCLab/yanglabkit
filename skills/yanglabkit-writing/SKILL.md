@@ -65,6 +65,7 @@ something else.
 ## Automated mode
 
 Handled by the sibling `yanglabkit-goalrun` skill (explicit opt-in only): it
-applies and iterates against `reference/target.md`, leaving every edit
-uncommitted for one accumulated-diff review. The interactive contract above —
-propose before apply — is unchanged.
+applies and iterates against `reference/target.md` on a dedicated
+`goalrun/<slug>` branch, committing and pushing as it progresses; the user
+reviews the branch diff and merges. The interactive contract above — propose
+before apply — is unchanged.

@@ -32,7 +32,8 @@ automated contract: **iterate against the target, prove it with a report.**
 
 1. **Resolve the domain skill and its target.** Targets live at a fixed path:
    `skills/<name>/reference/target.md` (figures, writing, scicolor). Load the
-   target and the domain skill's method docs.
+   target and the domain skill's method docs. If the artifact lives in a git
+   repository, create the working branch now (see Rules).
 2. **Do the work with the domain skill's method.** The runner changes the
    *contract*, not the craft — conventions, principles, and hard invariants
    (never pie charts, never rainbow, colour via scicolor) all still bind.
@@ -65,11 +66,20 @@ decidable state.
   panel, deliberate payoff paragraph).
 - **Honest reports only.** Evidence lines cite the actual code/text/render —
   a false `pass` is worse than a failed run.
-- **Per-skill carve-out — writing:** the interactive propose-before-apply gate
-  relaxes to apply-and-iterate, but every edit stays **uncommitted**; finish
-  by presenting the accumulated diff for one human review. Never commit.
+- **Work on a dedicated branch, committing as you go.** In a git repository,
+  never run on the user's current branch: create `goalrun/<artifact-slug>`
+  from it, commit at each meaningful checkpoint (at minimum, every iteration
+  that improves the target report, plus a final commit that includes the
+  report), and push as you progress. The human gate is **branch review**: the
+  user inspects the branch diff and merges; the runner never merges back and
+  never force-pushes. Outside a git repository, the target report alone is
+  the record.
+- **Per-skill note — writing:** the interactive propose-before-apply gate is
+  overridden in automated mode by the branch contract above — edits are
+  applied and committed on the goalrun branch, and review happens on the
+  accumulated branch diff.
 - **Respect workflow constraints** from the surrounding project (pull before
-  editing live-synced files, branch conventions).
+  branching off live-synced repos, naming conventions).
 
 ## Known targets
 

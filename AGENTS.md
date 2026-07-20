@@ -137,10 +137,12 @@ without a human in the loop, on explicit opt-in only (a Claude Code `/goal`
 run or a direct user request). Does the work with the domain skill's method,
 iterates until every `[mechanical]` and `[judged]` target item passes (or is
 `n/a` with reason), and writes `<artifact-stem>.target-report.md` next to the
-output as the decidable done-state for a goal evaluator. Owns the per-skill
-carve-outs (writing: apply-and-iterate but leave all edits uncommitted for one
-accumulated-diff review). Domain skills stay purely interactive; a new skill
-becomes automatable by adding only its `reference/target.md`.
+output as the decidable done-state for a goal evaluator. In git repositories
+it works on a dedicated `goalrun/<artifact-slug>` branch, committing and
+pushing as it progresses — the human gate is branch review + merge (this
+overrides the writing skill's propose-before-apply gate in automated mode).
+Domain skills stay purely interactive; a new skill becomes automatable by
+adding only its `reference/target.md`.
 
 - **Pure markdown guidance, no runtime dependency, no bundled data.**
 - **File roles:** `SKILL.md` only — the runner contract (workflow, goal
@@ -182,10 +184,12 @@ and writes `<artifact-stem>.target-report.md` next to the output — item id →
 pass/fail/n/a → one-line evidence. A goal condition should test the report,
 not the artifact's quality directly ("report exists, no failing
 mechanical/judged items") — judgment stays with the strong model doing the
-work; the goal evaluator only needs decidable state. Skills whose interactive
-contract is propose-before-apply (writing) relax it in automated mode to
-apply-and-iterate but must leave all edits **uncommitted** for one
-accumulated-diff review.
+work; the goal evaluator only needs decidable state. In a git repository the
+runner works on a dedicated `goalrun/<artifact-slug>` branch, committing and
+pushing at each meaningful checkpoint (never on the user's current branch,
+never merging back, never force-pushing); the human gate is reviewing and
+merging the branch. This branch contract also overrides the writing skill's
+interactive propose-before-apply gate in automated mode.
 
 **Anti-drift rule:** the target is derived from the method doc; every item
 cites its source. When editing a convention or principle, update both files in

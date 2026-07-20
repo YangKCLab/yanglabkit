@@ -45,7 +45,8 @@ Write `<text-stem>.target-report.md` next to the file, one line per item
 (`id pass|fail|n/a — one-line evidence`). Done = W1–W10 all `pass` or `n/a`
 with reason; W11 is reported either way and never blocks.
 
-Automated runs follow the carve-out in `yanglabkit-goalrun`: edits are applied
-and iterated but stay **uncommitted**, ending with one accumulated diff for
-human review. Interactive sessions keep propose-before-apply and run these
-items as the pre-ship checklist instead.
+Automated runs follow the branch contract in `yanglabkit-goalrun`: edits are
+applied and iterated on a dedicated `goalrun/<slug>` branch, committed and
+pushed as the run progresses, and reviewed as one branch diff before the user
+merges. Interactive sessions keep propose-before-apply and run these items as
+the pre-ship checklist instead.
