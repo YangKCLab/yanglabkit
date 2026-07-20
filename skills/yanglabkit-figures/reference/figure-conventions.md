@@ -437,30 +437,7 @@ plt.savefig("fig.png")                 # ✗ raster for a paper
 
 ## 7. Revision Checklist
 
-Run before a figure ships:
-
-1. Exported as **vector PDF** for the paper? (PNG @ dpi=300, `bbox_inches='tight'`
-   only for slides/web.)
-2. Spines correct for the plot type, with tick marks kept only where their spine
-   is — no orphaned ticks? (line/scatter: left+bottom on, top+right off;
-   horizontal bar: bottom value spine + x ticks only, category ticks off;
-   heatmap: all spines and all ticks off.)
-3. Grid dashed, `alpha ≤ 0.3`, on the value axis, **behind** the data — with a
-   tick above the data max and small headroom so the top gridline isn't clipped?
-4. Legend `frameon=False`, not covering data?
-5. Proportions shown as **percentages** (`PercentFormatter`), not raw fractions?
-6. All colours from **scicolor** — no rainbow/jet, greyscale-survivable?
-7. Same variable = same colour across every panel?
-8. Multiple series distinguished by more than colour (shape for scatter,
-   linestyle for lines), so they survive greyscale/colourblind?
-9. Multi-panel labelled `(a)(b)(c)` upper-left; no stray in-figure title on paper
-   figures?
-10. `tight_layout()` called; nothing clipped?
-11. Titles/axis labels short and within the figure width — long ones wrapped
-    across lines, not overrunning the axes?
-12. No more than **two distinct font sizes** in the figure?
-13. Sized for its target column (**single by default**), with the effective
-    on-page font landing **~6–9 pt**?
-14. Labels sentence-case with units in parentheses; decimals carry a leading
-    zero; maths/Greek use LaTeX/mathtext (`r"$\mu$"`, `r"$\pm$"`, `r"$\times$"`)?
-15. Readable at single-column width?
+Moved to [`target.md`](target.md) — the skill's acceptance spec (items
+`F1`–`F19`, tiered `[mechanical]`/`[judged]`/`[advisory]`). Run it before a
+figure ships; automated runs use it as the definition of done per the
+"Automated mode" section of `SKILL.md`.

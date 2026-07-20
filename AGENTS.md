@@ -81,11 +81,14 @@ colour choice to the sibling `yanglabkit-scicolor` skill.
     for papers, frameless legend, spines by plot type, no title on paper figures).
     Delegates the full detail to the reference doc.
   - `reference/figure-conventions.md` — the on-demand reference that solely owns
-    the full detail: the setup rcParams block, structure/sizing guidance,
+    the method detail: the setup rcParams block, structure/sizing guidance,
     element-level defaults (spines table, grid, legend, ticks, reference lines),
-    the scicolor colour policy, severity-ranked anti-patterns, annotated
-    examples, and the 10-item revision checklist. Keep this the single source for
-    that substance; do not re-duplicate it in `SKILL.md`.
+    the scicolor colour policy, severity-ranked anti-patterns, and annotated
+    examples. Keep this the single source for that substance; do not
+    re-duplicate it in `SKILL.md`.
+  - `reference/target.md` — the acceptance spec (see "Instructions vs targets"
+    below): items `F1`–`F19`, tiered, each citing its source section in
+    `figure-conventions.md`.
 - **Provenance:** the public sanitized derivative of the private vault style
   guide (`writing-samples/figures/style-guide.md`), distilled from real analysis
   notebooks and interview. The vault guide stays the canonical source; this skill
@@ -121,6 +124,53 @@ approval.
   revision session; the private vault worklogs and handoff notes remain the
   canonical source (with the original worked before/after evidence). This skill
   ships the sanitized principles only — no manuscript text.
+
+## Instructions vs targets (skill authoring)
+
+Skills separate **instructions** (how to work — the method, only meaningful
+with a human in the loop) from a **target** (what must be true of the finished
+artifact — mode-independent). Layout per skill:
+
+```
+skills/<name>/
+  SKILL.md              # orchestrator: interactive workflow + Automated mode
+  reference/<method>.md # instructions: conventions, principles, delivery
+  reference/target.md   # acceptance spec: the tiered checklist
+```
+
+**Target items** are structured markdown list items:
+`id [tier] check → source ref` — stable per-skill id prefix (`F` figures,
+`W` writing, `C` scicolor), one tier tag, and a back-reference to the method
+doc section or principle that motivates the item.
+
+**Tiers** (decidability, not importance):
+- `[mechanical]` — checkable from code or a trivial look at the output;
+  automated runs enforce, failures block.
+- `[judged]` — needs LLM/human inspection and a judgment call; automated runs
+  must pass each with one line of evidence, failures block.
+- `[advisory]` — judgment proxy that cannot be pass/failed honestly; reported,
+  **never blocks**. This is the anti-Goodhart guarantee — do not add a config
+  that lets advisory items block.
+
+**Automated mode** (defined per skill in `SKILL.md`): only on explicit opt-in
+(a `/goal` run or the user asking). The working agent iterates against the
+target and writes `<artifact-stem>.target-report.md` next to the output —
+item id → pass/fail/n/a → one-line evidence. A goal condition should test the
+report, not the artifact's quality directly ("report exists, no failing
+mechanical/judged items") — judgment stays with the strong model doing the
+work; the goal evaluator only needs decidable state. Skills whose interactive
+contract is propose-before-apply (writing) relax it in automated mode to
+apply-and-iterate but must leave all edits **uncommitted** for one
+accumulated-diff review.
+
+**Anti-drift rule:** the target is derived from the method doc; every item
+cites its source. When editing a convention or principle, update both files in
+the same commit, and never re-duplicate item text between them.
+
+**Rollout status:** figures has the full convention (`target.md` +
+Automated mode). Writing and scicolor still carry their checklists inside the
+method docs — migrate them to `target.md` after the figures `/goal` prototype
+validates.
 
 ## Evaluation tasks
 
