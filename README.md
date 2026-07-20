@@ -76,6 +76,56 @@ request matches its description.
   diagnoses by line and proposes
   drop-in replacements with rationales, never applying edits without approval.
   No runtime dependencies — pure markdown guidance.
+- **[`yanglabkit-goalrun`](skills/yanglabkit-goalrun/SKILL.md)** — Run any of
+  the above unattended against its acceptance target. Works differently from
+  the other skills — see [Automated mode](#automated-mode-yanglabkit-goalrun)
+  below. No runtime dependencies — pure markdown guidance.
+
+## Automated mode (`yanglabkit-goalrun`)
+
+The three domain skills are **interactive**: they activate automatically when
+your request matches, and (for writing) propose edits rather than apply them.
+`yanglabkit-goalrun` is the exception — a runner that drives a domain skill to
+a finished, verified artifact **without you in the loop**.
+
+It works because every domain skill ships an acceptance spec at
+`skills/<name>/reference/target.md`: a checklist of tiered items —
+`[mechanical]` (checkable from code/output), `[judged]` (needs a judgment
+call, passed with one line of evidence), `[advisory]` (reported, never
+blocking). The runner does the work with the domain skill's method, iterates
+until every mechanical and judged item passes, and writes
+`<artifact>.target-report.md` next to the output — an auditable
+item-by-item record of why the run counts as done.
+
+**It never self-activates.** You opt in explicitly, typically one of:
+
+1. **Ask for it, then set a goal** (the usual flow, in Claude Code):
+
+   ```
+   Use yanglabkit-goalrun: make a single-column bar chart of data.csv
+   as figs/fig1.pdf, run it to target.
+
+   /goal figs/fig1.pdf exists and figs/fig1.target-report.md marks
+   every mechanical and judged item pass or n/a
+   ```
+
+   The `/goal` condition tests the **report**, not the figure's quality —
+   that keeps it decidable for the goal evaluator while the judgment stays
+   with the model doing the work. Pair with auto-accepted permissions for a
+   truly unattended run.
+
+2. **Invoke it directly**: `/yanglabkit:yanglabkit-goalrun tighten
+   paper/discussion.tex to target`.
+
+3. **Headless**: `claude -p '…use yanglabkit-goalrun…'` for scripted runs;
+   the report file doubles as the audit trail.
+
+Safety notes: advisory items can never fail a run (checklist-chasing shouldn't
+flatten quality), and `n/a` needs a stated reason. In a git repository the
+runner never touches your current branch: it works on a dedicated
+`goalrun/<slug>` branch, committing and pushing as it progresses, so nothing
+is lost if a run dies and every iteration is auditable — you review the
+branch diff and decide whether to merge.
 
 ## Evaluation tasks
 

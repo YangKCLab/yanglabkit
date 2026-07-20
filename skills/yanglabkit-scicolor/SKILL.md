@@ -62,6 +62,13 @@ decision flow, and guardrails. This is the procedure:
 - **Enforce the full guardrail checklist** (perceptual uniformity, perceptual
   order / greyscale-safe, colour bar for continuous maps) from the guide's Step 5.
 
+## Automated mode
+
+Handled by the sibling `yanglabkit-goalrun` skill (explicit opt-in only),
+which checks a recommendation against `reference/target.md` (items C1–C10).
+When the palette is consumed inside a figure run, the figure's target report
+covers these items.
+
 ## Data & provenance
 
 See `data/SOURCE.md` for where the two data files come from and how to re-sync

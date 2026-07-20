@@ -11,12 +11,13 @@
   "plugins": [
     {
       "name": "yanglabkit",
-      "description": "Yang Lab-specific research skills, including scicolor-based scientific colour-scheme guidance, matplotlib/seaborn figure styling, and prose tightening",
+      "description": "Yang Lab-specific research skills, including scicolor-based scientific colour-scheme guidance, matplotlib/seaborn figure styling, prose tightening, and an automated goal runner",
       "source": "./",
       "skills": [
         "./skills/yanglabkit-scicolor",
         "./skills/yanglabkit-figures",
-        "./skills/yanglabkit-writing"
+        "./skills/yanglabkit-writing",
+        "./skills/yanglabkit-goalrun"
       ]
     }
   ]

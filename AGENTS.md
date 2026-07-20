@@ -63,6 +63,9 @@ choices and refusing rainbow/jet.
     class/CVD/perceptual-uniformity metadata), **extracted** from the scicolor
     Python package.
   - `data/SOURCE.md` — provenance + re-sync instructions for both data files.
+  - `reference/target.md` — the acceptance spec (see "Instructions vs targets"
+    below): items `C1`–`C10`, tiered, citing the guide's Step 5 guardrails and
+    the SKILL.md rules.
 
 ### `yanglabkit-figures`
 
@@ -81,11 +84,14 @@ colour choice to the sibling `yanglabkit-scicolor` skill.
     for papers, frameless legend, spines by plot type, no title on paper figures).
     Delegates the full detail to the reference doc.
   - `reference/figure-conventions.md` — the on-demand reference that solely owns
-    the full detail: the setup rcParams block, structure/sizing guidance,
+    the method detail: the setup rcParams block, structure/sizing guidance,
     element-level defaults (spines table, grid, legend, ticks, reference lines),
-    the scicolor colour policy, severity-ranked anti-patterns, annotated
-    examples, and the 10-item revision checklist. Keep this the single source for
-    that substance; do not re-duplicate it in `SKILL.md`.
+    the scicolor colour policy, severity-ranked anti-patterns, and annotated
+    examples. Keep this the single source for that substance; do not
+    re-duplicate it in `SKILL.md`.
+  - `reference/target.md` — the acceptance spec (see "Instructions vs targets"
+    below): items `F1`–`F19`, tiered, each citing its source section in
+    `figure-conventions.md`.
 - **Provenance:** the public sanitized derivative of the private vault style
   guide (`writing-samples/figures/style-guide.md`), distilled from real analysis
   notebooks and interview. The vault guide stays the canonical source; this skill
@@ -112,15 +118,86 @@ approval.
     aggressive removal/relocation when that's what truly helps). Delegates
     everything else to the reference doc without restating it.
   - `reference/prose-principles.md` — solely owns the eleven tightening
-    principles (each with its tell and fix), the delivery method
+    principles (each with its tell and fix) and the delivery method
     (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,
-    recommended-vs-aggressive option, "Net:" bottom line), and the revision
-    checklist (11 yes/no items numbered 1:1 to the principles). Do not
-    re-duplicate in `SKILL.md`.
+    recommended-vs-aggressive option, "Net:" bottom line). Do not re-duplicate
+    in `SKILL.md`.
+  - `reference/target.md` — the acceptance spec (see "Instructions vs targets"
+    below): items `W1`–`W11`, numbered 1:1 to the principles, all judged or
+    advisory (no mechanical items, by design).
 - **Provenance:** the public sanitized distillation of a live manuscript
   revision session; the private vault worklogs and handoff notes remain the
   canonical source (with the original worked before/after evidence). This skill
   ships the sanitized principles only — no manuscript text.
+
+### `yanglabkit-goalrun`
+
+The automated-mode runner: drives any domain skill to its acceptance target
+without a human in the loop, on explicit opt-in only (a Claude Code `/goal`
+run or a direct user request). Does the work with the domain skill's method,
+iterates until every `[mechanical]` and `[judged]` target item passes (or is
+`n/a` with reason), and writes `<artifact-stem>.target-report.md` next to the
+output as the decidable done-state for a goal evaluator. In git repositories
+it works on a dedicated `goalrun/<artifact-slug>` branch, committing and
+pushing as it progresses — the human gate is branch review + merge (this
+overrides the writing skill's propose-before-apply gate in automated mode).
+Domain skills stay purely interactive; a new skill becomes automatable by
+adding only its `reference/target.md`.
+
+- **Pure markdown guidance, no runtime dependency, no bundled data.**
+- **File roles:** `SKILL.md` only — the runner contract (workflow, goal
+  condition template, rules, known-targets table). The per-skill substance it
+  consumes lives in each domain skill's `reference/target.md`.
+
+## Instructions vs targets (skill authoring)
+
+Skills separate **instructions** (how to work — the method, only meaningful
+with a human in the loop) from a **target** (what must be true of the finished
+artifact — mode-independent). Layout per skill:
+
+```
+skills/<name>/
+  SKILL.md              # orchestrator: interactive workflow + Automated mode
+  reference/<method>.md # instructions: conventions, principles, delivery
+  reference/target.md   # acceptance spec: the tiered checklist
+```
+
+**Target items** are structured markdown list items:
+`id [tier] check → source ref` — stable per-skill id prefix (`F` figures,
+`W` writing, `C` scicolor), one tier tag, and a back-reference to the method
+doc section or principle that motivates the item.
+
+**Tiers** (decidability, not importance):
+- `[mechanical]` — checkable from code or a trivial look at the output;
+  automated runs enforce, failures block.
+- `[judged]` — needs LLM/human inspection and a judgment call; automated runs
+  must pass each with one line of evidence, failures block.
+- `[advisory]` — judgment proxy that cannot be pass/failed honestly; reported,
+  **never blocks**. This is the anti-Goodhart guarantee — do not add a config
+  that lets advisory items block.
+
+**Automated mode** is owned by a single runner skill, `yanglabkit-goalrun` —
+domain skills stay purely interactive and carry only a pointer section. The
+runner activates on explicit opt-in only (a `/goal` run or the user asking),
+does the work with the domain skill's method, iterates against the target,
+and writes `<artifact-stem>.target-report.md` next to the output — item id →
+pass/fail/n/a → one-line evidence. A goal condition should test the report,
+not the artifact's quality directly ("report exists, no failing
+mechanical/judged items") — judgment stays with the strong model doing the
+work; the goal evaluator only needs decidable state. In a git repository the
+runner works on a dedicated `goalrun/<artifact-slug>` branch, committing and
+pushing at each meaningful checkpoint (never on the user's current branch,
+never merging back, never force-pushing); the human gate is reviewing and
+merging the branch. This branch contract also overrides the writing skill's
+interactive propose-before-apply gate in automated mode.
+
+**Anti-drift rule:** the target is derived from the method doc; every item
+cites its source. When editing a convention or principle, update both files in
+the same commit, and never re-duplicate item text between them.
+
+**Rollout status:** all three domain skills have `reference/target.md`
+(figures F1–F19, writing W1–W11, scicolor C1–C10); `yanglabkit-goalrun`
+consumes them. A new skill becomes automatable by adding only its target.
 
 ## Evaluation tasks
 
