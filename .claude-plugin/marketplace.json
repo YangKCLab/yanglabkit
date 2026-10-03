@@ -6,12 +6,12 @@
   },
   "metadata": {
     "description": "Yang Lab skill set for AI agents — a focused collection of skills tailored to the lab's own research workflows, not a general-purpose research toolkit",
-    "version": "0.1.10"
+    "version": "0.1.11"
   },
   "plugins": [
     {
       "name": "yanglabkit",
-      "description": "Yang Lab-specific research skills, including scicolor-based scientific colour-scheme guidance, matplotlib/seaborn figure styling, prose tightening, and an automated goal runner",
+      "description": "Yang Lab-specific research skills, including scicolor-based scientific colour-scheme guidance, matplotlib/seaborn figure styling, prose revision at four levels (argument, structure, flow, polish), and an automated goal runner",
       "source": "./",
       "skills": [
         "./skills/yanglabkit-scicolor",
