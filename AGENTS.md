@@ -99,36 +99,50 @@ colour choice to the sibling `yanglabkit-scicolor` skill.
 
 ### `yanglabkit-writing`
 
-Tightens and revises prose to Kaicheng Yang's line-editing standard, and drafts
-new prose to the same standard: never add explanation a sentence already
-carries, merge redundant sentences, delete padding not content, prefer shorter
-linear sentences, one paragraph one theme, arrange paragraphs by linear
-dependency, lead each paragraph with its claim, prefer removals. In revision
-mode the skill diagnoses by line,
-proposes drop-in replacements with rationales, and never applies edits without
+Revises and tightens prose to Kaicheng Yang's standard, and drafts new prose to
+the same standard, at three levels in a fixed order: **argument** (is the claim
+stated, supported, and scoped for this reader), **structure** (proportion,
+background, explanation level, paragraph order), then **prose** (never add
+explanation a sentence already carries, merge redundant sentences, delete
+padding not content, prefer shorter linear sentences, one paragraph one theme,
+lead each paragraph with its claim, prefer removals, one name per thing). In
+revision mode the skill diagnoses with evidence, proposes an outline or
+drop-in replacements with rationales, and never applies edits without
 approval.
 
 - **Pure markdown guidance, no runtime dependency.** No bundled data, no code
   execution, no worked examples — principles and method only.
 - **File roles:**
-  - `SKILL.md` — the always-loaded orchestrator: the two modes
-    (revision: diagnose → propose → wait; drafting: apply while writing) and
-    the two invariants the reference doesn't own (propose-before-apply; match
-    the force of the edit to the problem — lighter fix when one suffices,
-    aggressive removal/relocation when that's what truly helps). Delegates
-    everything else to the reference doc without restating it.
-  - `reference/prose-principles.md` — solely owns the eleven tightening
-    principles (each with its tell and fix) and the delivery method
+  - `SKILL.md` — the always-loaded orchestrator: the scope choice (full
+    revision vs tightening), the two modes (revision: diagnose → propose →
+    wait; drafting: apply while writing), and the invariants the references
+    don't own (propose-before-apply; higher level first; match the force of
+    the edit to the problem; a good text may stay unchanged; never invent
+    content). Delegates everything else to the reference docs without
+    restating it.
+  - `reference/argument-structure.md` — solely owns the intake (claim,
+    reader, purpose), the argument principles A1–A6 and structure principles
+    S1–S3 (each with tell, fix, and exception), the preservation check K1–K4,
+    and the delivery method for those levels (reverse outline, proposed
+    outline, stop at the outline).
+  - `reference/prose-principles.md` — solely owns the twelve tightening
+    principles (each with its tell and fix) and the prose delivery method
     (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,
     recommended-vs-aggressive option, "Net:" bottom line). Do not re-duplicate
     in `SKILL.md`.
   - `reference/target.md` — the acceptance spec (see "Instructions vs targets"
-    below): items `W1`–`W11`, numbered 1:1 to the principles, all judged or
-    advisory (no mechanical items, by design).
-- **Provenance:** the public sanitized distillation of a live manuscript
-  revision session; the private vault worklogs and handoff notes remain the
-  canonical source (with the original worked before/after evidence). This skill
-  ships the sanitized principles only — no manuscript text.
+    below): argument items `WA1`–`WA6`, structure items `WS1`–`WS3`,
+    preservation items `WK1`–`WK4`, and prose items `W1`–`W12` numbered 1:1 to
+    the prose principles; all judged or advisory (no mechanical items, by
+    design).
+- **Provenance:** the prose principles are the public sanitized distillation
+  of a live manuscript revision session. The argument and structure levels
+  adapt the level ordering, intake, and preservation check of
+  [cida](https://github.com/mizzlelover/cida) (MIT) and were then pruned and
+  reworded against a blind test on a real proposal revision: principles that
+  did not match Kaicheng's own edits were dropped. The private vault worklogs
+  remain the canonical source (with the worked before/after evidence). This
+  skill ships the sanitized principles only — no manuscript text.
 
 ### `yanglabkit-goalrun`
 
@@ -196,7 +210,7 @@ cites its source. When editing a convention or principle, update both files in
 the same commit, and never re-duplicate item text between them.
 
 **Rollout status:** all three domain skills have `reference/target.md`
-(figures F1–F19, writing W1–W11, scicolor C1–C10); `yanglabkit-goalrun`
+(figures F1–F19, writing WA/WS/WK and W1–W12, scicolor C1–C10); `yanglabkit-goalrun`
 consumes them. A new skill becomes automatable by adding only its target.
 
 ## Evaluation tasks

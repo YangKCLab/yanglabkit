@@ -1,6 +1,7 @@
 # Prose-tightening principles
 
-The principles of `yanglabkit-writing`. Each principle is stated with its
+The prose-level principles of `yanglabkit-writing`. The argument and structure
+levels, which run first in a full revision, live in `argument-structure.md`. Each principle is stated with its
 *tell* — the textual symptom that signals it applies — and its *fix*. Principles
 are ordered roughly by how often they fire; the first is the north star that
 anchors all the others.
@@ -109,9 +110,23 @@ redundancy, not help.
 ## 11. Prefer removals; an added word must earn its place
 
 - *Tell:* any edit whose diff adds words.
+- *Scope:* the prose level. An argument-level fix may add a sentence — a
+  missing inference step, an unanswered reader question (see
+  `argument-structure.md`, A2 and A4) — and is marked as an addition when
+  proposed.
 - *Fix:* default to deletion and merging. Permit an addition only when it does
   structural, load-bearing work rather than explaining. In a healthy tightening
   pass, additions are rare enough to count on one hand.
+
+## 12. One name per thing
+
+- *Tell:* the same referent appears under rotating names — "AI assistant",
+  "agent", "language model system", "AI tool" — or one deliverable is named
+  differently in each section. The reader must decide whether each new name is
+  a new thing.
+- *Fix:* pick one term per referent and repeat it, across the whole document.
+  In scientific prose, repeating the term is correct; variation is a cost.
+- *Exception:* names that mark a real distinction stay distinct.
 
 ---
 
@@ -151,8 +166,9 @@ How the diagnosis is presented matters as much as what it says.
 
 # Revision checklist
 
-Moved to [`target.md`](target.md) — the skill's acceptance spec (items
-`W1`–`W11`, numbered 1:1 to the principles above, tiered
+Moved to [`target.md`](target.md) — the skill's acceptance spec (prose
+items `W1`–`W12`, numbered 1:1 to the principles above, plus the argument,
+structure, and preservation items, tiered
 `[judged]`/`[advisory]`). Interactive sessions run it before a diagnosis
 ships; automated runs use it as the definition of done via
 `yanglabkit-goalrun`.
