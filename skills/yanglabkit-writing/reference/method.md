@@ -135,6 +135,20 @@ These levels change sentences in place, so they are delivered line by line.
 - **Drop-in replacement + rationale, per change.** Every finding comes with
   concrete replacement text and a one-line reason naming the principle — a
   verdict without a fix is half an edit.
+- **Show each change as a diff, numbered.** Number the items in document
+  order so the writer can approve by number ("apply 1, 3, 4").
+  - If the harness provides a tool or skill for presenting proposed edits as
+    diffs (for example a `propose` tool that draws word-level diffs), use it:
+    one call per diagnosis, each item carrying the original, the replacement,
+    and the reason. Pass the file path when the tool can check the originals
+    against the file.
+  - Otherwise present each item as a fenced `diff` block with a `- original`
+    line and a `+ replacement` line, followed by the one-line reason.
+  - A deletion is an item with an empty replacement.
+- **Quote the original verbatim.** The original is the exact span an edit
+  would replace, copied from the file, not retyped from memory. Before
+  presenting, confirm that each original occurs in the file; an item whose
+  original cannot be found cannot be applied.
 - **Recommended option and aggressive option, kept distinct.** Where deeper
   cuts are possible, present the safe recommendation and, separately, what to
   cut if space gets tight — the writer owns the trade-off. But when the
