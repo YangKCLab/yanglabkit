@@ -99,36 +99,64 @@ colour choice to the sibling `yanglabkit-scicolor` skill.
 
 ### `yanglabkit-writing`
 
-Tightens and revises prose to Kaicheng Yang's line-editing standard, and drafts
-new prose to the same standard: never add explanation a sentence already
-carries, merge redundant sentences, delete padding not content, prefer shorter
-linear sentences, one paragraph one theme, arrange paragraphs by linear
-dependency, lead each paragraph with its claim, prefer removals. In revision
-mode the skill diagnoses by line,
-proposes drop-in replacements with rationales, and never applies edits without
+Revises and tightens prose to Kaicheng Yang's standard, and drafts new prose to
+the same standard, at four levels in a fixed order: **P0 Argument** (is the
+claim stated, supported, and scoped for this reader), **P1 Structure**
+(proportion, paragraph order, one theme per paragraph, lead with the claim),
+**P2 Flow** (each sentence does its local job, one name per thing, linear
+sentences), and **P3 Polish** (never add explanation a sentence already
+carries, merge redundant sentences, delete padding not content, prefer
+removals). A request can run all levels or a subset (e.g. polish only). In
+revision mode the skill diagnoses with evidence, proposes an outline or
+drop-in replacements with rationales, and never applies edits without
 approval.
 
 - **Pure markdown guidance, no runtime dependency.** No bundled data, no code
   execution, no worked examples — principles and method only.
 - **File roles:**
-  - `SKILL.md` — the always-loaded orchestrator: the two modes
-    (revision: diagnose → propose → wait; drafting: apply while writing) and
-    the two invariants the reference doesn't own (propose-before-apply; match
-    the force of the edit to the problem — lighter fix when one suffices,
-    aggressive removal/relocation when that's what truly helps). Delegates
-    everything else to the reference doc without restating it.
-  - `reference/prose-principles.md` — solely owns the eleven tightening
-    principles (each with its tell and fix) and the delivery method
-    (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,
-    recommended-vs-aggressive option, "Net:" bottom line). Do not re-duplicate
-    in `SKILL.md`.
+  - `SKILL.md` — the always-loaded orchestrator: the level table, the
+    request-to-scope table, the file-loading rules, the three-step workflow,
+    and the invariants (propose-before-apply; higher level first; name every
+    level; match the force of the edit to the problem; a good text may stay
+    unchanged; never invent content). Each rule has one owner: a rule stated
+    here is not restated in `method.md`, and the reverse.
+  - `reference/p0-argument.md`, `p1-structure.md`, `p2-flow.md`,
+    `p3-polish.md` — one file per level, each solely owning that level's
+    principles (tell, fix, exception), numbered `P<level>.<n>`. An agent loads
+    only the levels in scope. Do not re-duplicate principle text elsewhere.
+  - `reference/tells.md` — solely owns the AI tells `T1`–`T14` (moves by which
+    machine-written text is recognized), each tagged with the level it runs
+    with. Used three ways: scanned alongside the levels in scope, run alone
+    ("unslop"), and as the mandatory self-audit of the agent's own
+    replacements and drafts. Tell IDs are stable; do not renumber.
+  - `reference/method.md` — solely owns the cross-level method: the voice
+    rules (the text belongs to the writer), the intake (claim, reader, purpose), the delivery method (shared rules;
+    outline delivery for P0–P1; line-by-line delivery for P2–P3; the 40%
+    rule for widening a scope), the three special scopes (AI tells only; check
+    only; adapt for a new reader), the drafting sequence (input type → intake → claim →
+    outline → draft → check), the rules for applying edits (smallest span; LaTeX and Markdown elements left
+    untouched), and the preservation check K1–K4.
   - `reference/target.md` — the acceptance spec (see "Instructions vs targets"
-    below): items `W1`–`W11`, numbered 1:1 to the principles, all judged or
-    advisory (no mechanical items, by design).
-- **Provenance:** the public sanitized distillation of a live manuscript
-  revision session; the private vault worklogs and handoff notes remain the
-  canonical source (with the original worked before/after evidence). This skill
-  ships the sanitized principles only — no manuscript text.
+    below): items `W0.1`–`W3.5`, numbered 1:1 to the principles and grouped by
+    level, plus tell items `WT1`–`WT2`, drafting items `WD1`–`WD2`, and
+    preservation items `WK1`–`WK4`; all
+    judged or advisory (no
+    mechanical items, by design). A scoped run checks only its levels.
+- **Level names are part of the id in anything a user reads.** Reports and
+  diagnoses say "P1 Structure" and "P1.4 Structure — lead each paragraph with
+  its claim", never a bare number.
+- **Provenance:** the P2 Flow and P3 Polish principles, and P1.2–P1.4, are the
+  public sanitized distillation of a live manuscript revision session. P0
+  Argument, the rest of P1 Structure, the level ordering, the intake, and the
+  preservation check adapt ideas from
+  [cida](https://github.com/mizzlelover/cida) (MIT) and were then pruned and
+  reworded against a blind test on a real proposal revision: principles that
+  did not match Kaicheng's own edits were dropped. The private vault worklogs
+  remain the canonical source (with the worked before/after evidence). The
+  AI tells are adapted from the `unslop` skill in
+  [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan
+  (MIT), reworked from word lists into moves. This
+  skill ships the sanitized principles only — no manuscript text.
 
 ### `yanglabkit-goalrun`
 
@@ -196,7 +224,7 @@ cites its source. When editing a convention or principle, update both files in
 the same commit, and never re-duplicate item text between them.
 
 **Rollout status:** all three domain skills have `reference/target.md`
-(figures F1–F19, writing W1–W11, scicolor C1–C10); `yanglabkit-goalrun`
+(figures F1–F19, writing W0.1–W3.5, WT1–WT2, WD1–WD2, WK1–WK4, scicolor C1–C10); `yanglabkit-goalrun`
 consumes them. A new skill becomes automatable by adding only its target.
 
 ## Evaluation tasks

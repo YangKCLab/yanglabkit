@@ -67,15 +67,21 @@ request matches its description.
   `yanglabkit-scicolor`. Refuses pie charts and rainbow/jet. Triggers when you
   write plotting code or ask how to style/export a scientific figure. No runtime
   dependencies — pure markdown guidance.
-- **[`yanglabkit-writing`](skills/yanglabkit-writing/SKILL.md)** — Tighten and
-  revise prose the Yang Lab way, and draft new prose to the same standard. A
-  distilled line-editing method: never add explanation a sentence already
-  carries, merge redundancy, delete padding not content, prefer shorter linear
-  sentences, one paragraph one theme, arrange paragraphs by linear dependency,
-  lead each paragraph with its claim, prefer removals. In revision mode it
-  diagnoses by line and proposes
-  drop-in replacements with rationales, never applying edits without approval.
-  No runtime dependencies — pure markdown guidance.
+- **[`yanglabkit-writing`](skills/yanglabkit-writing/SKILL.md)** — Revise and
+  tighten prose the Yang Lab way, and draft new prose to the same standard.
+  Works at four levels in a fixed order: P0 Argument (is the claim stated,
+  supported, and scoped for this reader), P1 Structure (proportion, paragraph
+  order, lead with the claim), P2 Flow (each sentence does its local job, one
+  name per thing, linear sentences), and P3 Polish (never add explanation a
+  sentence already carries, merge redundancy, delete padding not content,
+  prefer removals). Ask for a full revision or for one level — "just polish
+  this" runs P3 Polish only. It also scans for AI-writing tells (14 moves such
+  as significance inflation and tail participle clauses), on request or as a
+  check on its own suggestions. It can also check a text without editing it,
+  adapt a text for a different venue or reader, and draft from bullet points,
+  notes, or dictation. In revision mode it diagnoses with evidence and
+  proposes an outline or drop-in replacements with rationales, never applying
+  edits without approval. No runtime dependencies — pure markdown guidance.
 - **[`yanglabkit-goalrun`](skills/yanglabkit-goalrun/SKILL.md)** — Run any of
   the above unattended against its acceptance target. Works differently from
   the other skills — see [Automated mode](#automated-mode-yanglabkit-goalrun)
@@ -156,6 +162,15 @@ cover the broad research lifecycle can refer to these skill sets:
   their final print width, defaulting to single-column layouts, label/number
   typography (sentence case, units in parentheses, leading-zero decimals,
   LaTeX/mathtext for maths and Greek), and print-scale marker sizing.
+- **[`yanglabkit-writing`](skills/yanglabkit-writing/SKILL.md)** drew on
+  [mizzlelover/cida](https://github.com/mizzlelover/cida), a skill for
+  high-quality modern Chinese writing (MIT), for its level-by-level order of
+  work (meaning and logic first, wording last), the intake of claim, reader,
+  and purpose, the argument-level checks, the preservation check after a
+  restructure, the drafting sequence, and the rule that a good text may stay
+  unchanged. Its AI tells are adapted from the `unslop` skill in
+  [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan
+  (MIT).
 
 ## License
 
