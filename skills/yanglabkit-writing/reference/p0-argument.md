@@ -46,7 +46,11 @@ writing. P0 delivers findings and a proposed outline, not sentences.
   **more support than the claim needs** — a chain of five results where the
   strongest one or two would carry it, so the claim is buried under its own
   evidence. Figures and tables are support too: each must have a claim it
-  serves.
+  serves. For cited support, the sentence must say what the source says: a
+  sentence that mischaracterizes or overstates its citation fails here. Check
+  the source, or the writer's notes on it, when they are available; when they
+  are not, say the citation was not checked — never guess what a source
+  claims. A claim resting on "studies show" with no citation is tell T5.
 - *Fix:* state the claim, then its support, in place. Where the support is
   weaker than the claim, narrow the claim to what the support shows (see
   P0.5) or flag that stronger support is needed. Where it is in excess, keep

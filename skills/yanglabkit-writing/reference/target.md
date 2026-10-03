@@ -5,8 +5,9 @@ interactive session runs it as the final check before a diagnosis ships; an
 automated run (via `yanglabkit-goalrun`) treats it as the definition of done.
 
 Items are numbered 1:1 to the principles in the level files — `W1.4` checks
-P1.4 — so every "no" points to exactly one rule to apply. `WK` items check the
-preservation rules in `method.md`. A run checks the items of the levels in its
+P1.4 — so every "no" points to exactly one rule to apply. `WT` items check the
+AI tells in `tells.md`, and `WK` items check the preservation rules in
+`method.md`. A run checks the items of the levels in its
 scope, highest level first; `WK` items apply whenever a P0 Argument or P1
 Structure change was made. There are deliberately **no mechanical items**:
 these checks are all judgment, which caps this skill's automation at
@@ -68,6 +69,13 @@ never blocking.
   thing could be named? → P3.4
 - W3.5 `[advisory]` Every word a P2 Flow or P3 Polish edit *added* does
   load-bearing work? → P3.5
+
+## Items — AI tells
+
+- WT1 `[judged]` No tell tagged with a level in scope remains in the text
+  (T5 may remain as an open question to the writer)? → `tells.md`
+- WT2 `[judged]` No replacement or drafted sentence introduces a tell?
+  → `tells.md`, `method.md` Voice
 
 ## Items — preservation (after a P0 Argument or P1 Structure change)
 

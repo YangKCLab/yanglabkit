@@ -75,7 +75,9 @@ request matches its description.
   name per thing, linear sentences), and P3 Polish (never add explanation a
   sentence already carries, merge redundancy, delete padding not content,
   prefer removals). Ask for a full revision or for one level — "just polish
-  this" runs P3 Polish only. In revision mode it diagnoses with evidence and
+  this" runs P3 Polish only. It also scans for AI-writing tells (14 moves such
+  as significance inflation and tail participle clauses), on request or as a
+  check on its own suggestions. In revision mode it diagnoses with evidence and
   proposes an outline or drop-in replacements with rationales, never applying
   edits without approval. No runtime dependencies — pure markdown guidance.
 - **[`yanglabkit-goalrun`](skills/yanglabkit-goalrun/SKILL.md)** — Run any of

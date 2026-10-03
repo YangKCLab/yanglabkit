@@ -1,8 +1,8 @@
-# Method — intake, delivery, preservation
+# Method — voice, intake, delivery, preservation
 
-How `yanglabkit-writing` works across its four levels: what to establish
-before diagnosing, how to present a diagnosis, and how to check that a
-restructure lost nothing. The principles themselves live in the level files
+How `yanglabkit-writing` works across its four levels: whose text it is, what
+to establish before diagnosing, how to present a diagnosis, how to touch the
+file, and how to check that a restructure lost nothing. The principles themselves live in the level files
 (`p0-argument.md`, `p1-structure.md`, `p2-flow.md`, `p3-polish.md`).
 
 The fixed order of levels, the intake, the preservation check, and the right
@@ -16,6 +16,26 @@ Structure**, **P2 Flow**, **P3 Polish** — never a bare "P1". Cite a principle
 by number and level name, with its short title on first mention in a report:
 "P1.4 Structure — lead each paragraph with its claim". The writer should never
 need to look a number up.
+
+## Voice — binds every level
+
+The text belongs to the writer, not to you. Your job is to remove what is not
+working, not to rewrite in your own voice.
+
+- Keep the writer's word choices, sentence rhythm, and claims unless a
+  principle requires a change.
+- Prefer deletion and merging over rewriting. When a rewrite is needed, keep
+  as many of the writer's words as possible.
+- Never change meaning, claims, numbers, citations, or hedges. If a claim
+  looks wrong, say so in the diagnosis; do not silently fix it.
+- Do not add transitions, summaries, restating topic sentences, or "in other
+  words" glosses.
+- Do not flatten rhythm. Keep the writer's mix of short and long sentences.
+  Uniform sentence length reads as machine-made.
+- Do not add opinions, first person, or asides the writer did not write.
+- **Audit your own text.** Every replacement and every draft is reread
+  against `tells.md` before it is presented. Replacements are where AI tells
+  enter.
 
 ## Intake — three facts before diagnosing P0 Argument or P1 Structure
 
@@ -115,6 +135,18 @@ These levels change sentences in place, so they are delivered line by line.
   aggressive edit is genuinely the better one, make *it* the recommendation:
   don't downgrade a bold cut or relocation to an "optional extra" out of
   caution.
+
+## Applying approved edits
+
+- Apply exactly what was approved, one accepted item at a time. Replace the
+  smallest span that carries the change; never re-paste a whole paragraph to
+  change one sentence.
+- **LaTeX:** do not touch `\cite`, `\ref`, `\label`, math, macros,
+  environments, comments, or the preamble. Edit the prose inside them.
+- **Markdown:** keep frontmatter, links, footnotes, and code blocks unchanged.
+- Keep the file's line-break convention (for example one sentence per line).
+- Do not fix issues outside the requested passage while applying; they were
+  flagged in the diagnosis.
 
 ## Preservation — after any P0 Argument or P1 Structure change
 

@@ -9,7 +9,8 @@ description: >-
   paragraph order, one theme per paragraph, lead with the claim), P2 Flow
   (each sentence does its local job, one name per thing, linear sentences),
   P3 Polish (never add explanation a sentence already carries, merge
-  redundant sentences, delete padding not content, prefer removals). A request
+  redundant sentences, delete padding not content, prefer removals) — plus a
+  scan for AI-writing tells, also run on its own ("unslop"). A request
   can run all levels or only some, e.g. polish only. In revision mode it
   diagnoses with evidence, proposes an outline or drop-in replacements with
   rationales, and never applies edits without approval. Trigger when the user
@@ -33,10 +34,12 @@ existing sentence already carries the message.**
 
 This skill is pure markdown guidance and applies to any writing — papers,
 proposals, posts, letters, documentation. Each level file owns its principles
-(tell, fix, exception). `reference/method.md` owns the intake, the delivery
-method, and the preservation check; `reference/target.md` owns the acceptance
+(tell, fix, exception). `reference/tells.md` owns the AI tells (T1–T14), a
+cross-level scan that is also the audit for your own replacement text.
+`reference/method.md` owns the voice rules, the intake, the delivery method,
+the rules for applying edits, and the preservation check; `reference/target.md` owns the acceptance
 checklist, numbered 1:1 to the principles. This file only orchestrates. Load
-`method.md` and the level files in scope — not the other level files — and
+`method.md`, `tells.md`, and the level files in scope — not the other level files — and
 `target.md` when you reach a checklist step. In an all-levels run, load the P2
 Flow and P3 Polish files only after the writer has decided on the outline.
 
@@ -64,6 +67,7 @@ Flow and P3 Polish files only after the writer has decided on the outline.
    | "does this flow", "smooth this" | P2 Flow |
    | "tighten", "condense", "line-edit" | P2 Flow + P3 Polish |
    | "polish", "trim" | P3 Polish |
+   | "unslop", "does this sound like AI" | AI tells only (`tells.md`) |
    | names a level or a range | exactly that |
 
 2. **Read the whole text**, whatever the scope.
@@ -74,6 +78,8 @@ Flow and P3 Polish files only after the writer has decided on the outline.
      in one line and continue. After the writer approves an outline, draft
      the restructured text from it and continue on that draft if lower levels
      are in scope.
+   - *AI tells:* in every level run, also scan for the tells tagged with
+     that level and list them with its findings.
    - *P2 Flow and P3 Polish:* diagnose, run the target checklist for the
      levels in scope over the proposed result, and present drop-in
      replacements.
@@ -86,8 +92,9 @@ Flow and P3 Polish files only after the writer has decided on the outline.
    accepted edits exactly as approved.
 
 **Drafting mode** (new text) — state the intake (claim, reader, purpose)
-before writing, then apply all four levels while writing. No proposal step —
-but flag any spot where you consciously traded concision for something else.
+before writing, then apply all four levels while writing. Reread the draft
+once against `tells.md` and fix what reads as machine-written before
+presenting it. No proposal step — but flag any spot where you consciously traded concision for something else.
 
 ## Rules
 
@@ -102,6 +109,10 @@ but flag any spot where you consciously traded concision for something else.
 - **The north star binds every level.** A fix at any level must not add
   explanation the text already carries (P3.1). The one licensed addition is a
   missing step or answer at P0 Argument, marked as an addition.
+- **The text belongs to the writer.** Keep their words, rhythm, claims, and
+  hedges unless a principle requires a change (`method.md`, Voice).
+- **Audit your own text for AI tells** before presenting any replacement or
+  draft (`tells.md`).
 - **Match the force of the edit to the problem.** Don't restructure when a
   lighter local fix exists — but when the structure *is* the problem, be
   aggressive: propose the deletion or relocation outright, not a timid local

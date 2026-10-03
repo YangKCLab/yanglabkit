@@ -89,7 +89,7 @@ decidable state.
 | Skill | Target | Artifact | Automation ceiling |
 |---|---|---|---|
 | `yanglabkit-figures` | `reference/target.md` (F1–F19) | figure file | mostly mechanical |
-| `yanglabkit-writing` | `reference/target.md` (W0.1–W3.5 by level, WK1–WK4) | passage/file | judged (no mechanical items, by design) |
+| `yanglabkit-writing` | `reference/target.md` (W0.1–W3.5 by level, WT1–WT2, WK1–WK4) | passage/file | judged (no mechanical items, by design) |
 | `yanglabkit-scicolor` | `reference/target.md` (C1–C10) | palette / its use in a figure | mixed |
 
 When a figure task uses scicolor (it always should), the figure's report
