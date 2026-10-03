@@ -78,6 +78,9 @@ decidable state.
   overridden in automated mode by the branch contract above — edits are
   applied and committed on the goalrun branch, and review happens on the
   accumulated branch diff.
+- **Per-skill note — writing scope:** the writing target is grouped by level
+  (P0 Argument, P1 Structure, P2 Flow, P3 Polish). Run and report only the
+  levels the user asked for; with no level named, run all four.
 - **Respect workflow constraints** from the surrounding project (pull before
   branching off live-synced repos, naming conventions).
 
@@ -86,7 +89,7 @@ decidable state.
 | Skill | Target | Artifact | Automation ceiling |
 |---|---|---|---|
 | `yanglabkit-figures` | `reference/target.md` (F1–F19) | figure file | mostly mechanical |
-| `yanglabkit-writing` | `reference/target.md` (WA, WS, WK, W1–W12) | passage/file | judged (no mechanical items, by design) |
+| `yanglabkit-writing` | `reference/target.md` (W0.1–W3.5 by level, WK1–WK4) | passage/file | judged (no mechanical items, by design) |
 | `yanglabkit-scicolor` | `reference/target.md` (C1–C10) | palette / its use in a figure | mixed |
 
 When a figure task uses scicolor (it always should), the figure's report

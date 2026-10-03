@@ -69,15 +69,15 @@ request matches its description.
   dependencies — pure markdown guidance.
 - **[`yanglabkit-writing`](skills/yanglabkit-writing/SKILL.md)** — Revise and
   tighten prose the Yang Lab way, and draft new prose to the same standard.
-  Works at three levels in a fixed order: argument (is the claim stated,
-  supported, and scoped for this reader), structure (proportion, background,
-  explanation level), then a distilled line-editing method (never add
-  explanation a sentence already carries, merge redundancy, delete padding not
-  content, prefer shorter linear sentences, one paragraph one theme, lead each
-  paragraph with its claim, prefer removals). In revision mode it diagnoses
-  with evidence and proposes an outline or drop-in replacements with
-  rationales, never applying edits without approval. No runtime dependencies —
-  pure markdown guidance.
+  Works at four levels in a fixed order: P0 Argument (is the claim stated,
+  supported, and scoped for this reader), P1 Structure (proportion, paragraph
+  order, lead with the claim), P2 Flow (each sentence does its local job, one
+  name per thing, linear sentences), and P3 Polish (never add explanation a
+  sentence already carries, merge redundancy, delete padding not content,
+  prefer removals). Ask for a full revision or for one level — "just polish
+  this" runs P3 Polish only. In revision mode it diagnoses with evidence and
+  proposes an outline or drop-in replacements with rationales, never applying
+  edits without approval. No runtime dependencies — pure markdown guidance.
 - **[`yanglabkit-goalrun`](skills/yanglabkit-goalrun/SKILL.md)** — Run any of
   the above unattended against its acceptance target. Works differently from
   the other skills — see [Automated mode](#automated-mode-yanglabkit-goalrun)

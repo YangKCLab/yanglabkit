@@ -100,12 +100,13 @@ colour choice to the sibling `yanglabkit-scicolor` skill.
 ### `yanglabkit-writing`
 
 Revises and tightens prose to Kaicheng Yang's standard, and drafts new prose to
-the same standard, at three levels in a fixed order: **argument** (is the claim
-stated, supported, and scoped for this reader), **structure** (proportion,
-background, explanation level, paragraph order), then **prose** (never add
-explanation a sentence already carries, merge redundant sentences, delete
-padding not content, prefer shorter linear sentences, one paragraph one theme,
-lead each paragraph with its claim, prefer removals, one name per thing). In
+the same standard, at four levels in a fixed order: **P0 Argument** (is the
+claim stated, supported, and scoped for this reader), **P1 Structure**
+(proportion, paragraph order, one theme per paragraph, lead with the claim),
+**P2 Flow** (each sentence does its local job, one name per thing, linear
+sentences), and **P3 Polish** (never add explanation a sentence already
+carries, merge redundant sentences, delete padding not content, prefer
+removals). A request can run all levels or a subset (e.g. polish only). In
 revision mode the skill diagnoses with evidence, proposes an outline or
 drop-in replacements with rationales, and never applies edits without
 approval.
@@ -113,31 +114,31 @@ approval.
 - **Pure markdown guidance, no runtime dependency.** No bundled data, no code
   execution, no worked examples — principles and method only.
 - **File roles:**
-  - `SKILL.md` — the always-loaded orchestrator: the scope choice (full
-    revision vs tightening), the two modes (revision: diagnose → propose →
+  - `SKILL.md` — the always-loaded orchestrator: the level table, the
+    request-to-scope table, the workflow (revision: diagnose → propose →
     wait; drafting: apply while writing), and the invariants the references
-    don't own (propose-before-apply; higher level first; match the force of
-    the edit to the problem; a good text may stay unchanged; never invent
-    content). Delegates everything else to the reference docs without
-    restating it.
-  - `reference/argument-structure.md` — solely owns the intake (claim,
-    reader, purpose), the argument principles A1–A6 and structure principles
-    S1–S3 (each with tell, fix, and exception), the preservation check K1–K4,
-    and the delivery method for those levels (reverse outline, proposed
-    outline, stop at the outline).
-  - `reference/prose-principles.md` — solely owns the twelve tightening
-    principles (each with its tell and fix) and the prose delivery method
-    (affirm-before-critique, line-anchored diagnosis, drop-in + rationale,
-    recommended-vs-aggressive option, "Net:" bottom line). Do not re-duplicate
-    in `SKILL.md`.
+    don't own (propose-before-apply; higher level first; name every level;
+    the north star binds every level; match the force of the edit to the
+    problem; a good text may stay unchanged; never invent content).
+  - `reference/p0-argument.md`, `p1-structure.md`, `p2-flow.md`,
+    `p3-polish.md` — one file per level, each solely owning that level's
+    principles (tell, fix, exception), numbered `P<level>.<n>`. An agent loads
+    only the levels in scope. Do not re-duplicate principle text elsewhere.
+  - `reference/method.md` — solely owns the cross-level method: how to name
+    levels in reports, the intake (claim, reader, purpose), the delivery
+    method (shared rules; outline delivery for P0–P1; line-by-line delivery
+    for P2–P3), and the preservation check K1–K4.
   - `reference/target.md` — the acceptance spec (see "Instructions vs targets"
-    below): argument items `WA1`–`WA6`, structure items `WS1`–`WS3`,
-    preservation items `WK1`–`WK4`, and prose items `W1`–`W12` numbered 1:1 to
-    the prose principles; all judged or advisory (no mechanical items, by
-    design).
-- **Provenance:** the prose principles are the public sanitized distillation
-  of a live manuscript revision session. The argument and structure levels
-  adapt the level ordering, intake, and preservation check of
+    below): items `W0.1`–`W3.5`, numbered 1:1 to the principles and grouped by
+    level, plus preservation items `WK1`–`WK4`; all judged or advisory (no
+    mechanical items, by design). A scoped run checks only its levels.
+- **Level names are part of the id in anything a user reads.** Reports and
+  diagnoses say "P1 Structure" and "P1.4 Structure — lead each paragraph with
+  its claim", never a bare number.
+- **Provenance:** the P2 Flow and P3 Polish principles, and P1.2–P1.4, are the
+  public sanitized distillation of a live manuscript revision session. P0
+  Argument, the rest of P1 Structure, the level ordering, the intake, and the
+  preservation check adapt ideas from
   [cida](https://github.com/mizzlelover/cida) (MIT) and were then pruned and
   reworded against a blind test on a real proposal revision: principles that
   did not match Kaicheng's own edits were dropped. The private vault worklogs
@@ -210,7 +211,7 @@ cites its source. When editing a convention or principle, update both files in
 the same commit, and never re-duplicate item text between them.
 
 **Rollout status:** all three domain skills have `reference/target.md`
-(figures F1–F19, writing WA/WS/WK and W1–W12, scicolor C1–C10); `yanglabkit-goalrun`
+(figures F1–F19, writing W0.1–W3.5 and WK1–WK4, scicolor C1–C10); `yanglabkit-goalrun`
 consumes them. A new skill becomes automatable by adding only its target.
 
 ## Evaluation tasks
