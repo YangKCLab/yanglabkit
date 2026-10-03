@@ -162,6 +162,15 @@ cover the broad research lifecycle can refer to these skill sets:
   their final print width, defaulting to single-column layouts, label/number
   typography (sentence case, units in parentheses, leading-zero decimals,
   LaTeX/mathtext for maths and Greek), and print-scale marker sizing.
+- **[`yanglabkit-writing`](skills/yanglabkit-writing/SKILL.md)** drew on
+  [mizzlelover/cida](https://github.com/mizzlelover/cida), a skill for
+  high-quality modern Chinese writing (MIT), for its level-by-level order of
+  work (meaning and logic first, wording last), the intake of claim, reader,
+  and purpose, the argument-level checks, the preservation check after a
+  restructure, the drafting sequence, and the rule that a good text may stay
+  unchanged. Its AI tells are adapted from the `unslop` skill in
+  [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan
+  (MIT).
 
 ## License
 
