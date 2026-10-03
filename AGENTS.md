@@ -132,12 +132,15 @@ approval.
   - `reference/method.md` — solely owns the cross-level method: the voice
     rules (the text belongs to the writer), how to name levels in reports,
     the intake (claim, reader, purpose), the delivery method (shared rules;
-    outline delivery for P0–P1; line-by-line delivery for P2–P3), the rules
-    for applying edits (smallest span; LaTeX and Markdown elements left
+    outline delivery for P0–P1; line-by-line delivery for P2–P3; the 40%
+    rule for widening a scope), the two special scopes (check only; adapt
+    for a new reader), the drafting sequence (input type → intake → claim →
+    outline → draft → check), the rules for applying edits (smallest span; LaTeX and Markdown elements left
     untouched), and the preservation check K1–K4.
   - `reference/target.md` — the acceptance spec (see "Instructions vs targets"
     below): items `W0.1`–`W3.5`, numbered 1:1 to the principles and grouped by
-    level, plus tell items `WT1`–`WT2` and preservation items `WK1`–`WK4`; all
+    level, plus tell items `WT1`–`WT2`, drafting items `WD1`–`WD2`, and
+    preservation items `WK1`–`WK4`; all
     judged or advisory (no
     mechanical items, by design). A scoped run checks only its levels.
 - **Level names are part of the id in anything a user reads.** Reports and
@@ -222,7 +225,7 @@ cites its source. When editing a convention or principle, update both files in
 the same commit, and never re-duplicate item text between them.
 
 **Rollout status:** all three domain skills have `reference/target.md`
-(figures F1–F19, writing W0.1–W3.5, WT1–WT2, WK1–WK4, scicolor C1–C10); `yanglabkit-goalrun`
+(figures F1–F19, writing W0.1–W3.5, WT1–WT2, WD1–WD2, WK1–WK4, scicolor C1–C10); `yanglabkit-goalrun`
 consumes them. A new skill becomes automatable by adding only its target.
 
 ## Evaluation tasks

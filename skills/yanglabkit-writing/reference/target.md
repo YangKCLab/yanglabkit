@@ -6,8 +6,8 @@ automated run (via `yanglabkit-goalrun`) treats it as the definition of done.
 
 Items are numbered 1:1 to the principles in the level files — `W1.4` checks
 P1.4 — so every "no" points to exactly one rule to apply. `WT` items check the
-AI tells in `tells.md`, and `WK` items check the preservation rules in
-`method.md`. A run checks the items of the levels in its
+AI tells in `tells.md`; `WD` items (drafting) and `WK` items (preservation)
+check rules in `method.md`. A run checks the items of the levels in its
 scope, highest level first; `WK` items apply whenever a P0 Argument or P1
 Structure change was made. There are deliberately **no mechanical items**:
 these checks are all judgment, which caps this skill's automation at
@@ -76,6 +76,14 @@ never blocking.
   (T5 may remain as an open question to the writer)? → `tells.md`
 - WT2 `[judged]` No replacement or drafted sentence introduces a tell?
   → `tells.md`, `method.md` Voice
+
+## Items — drafting (new text from the writer's input)
+
+- WD1 `[judged]` Every point the writer supplied is present, or listed as left
+  out with the reason? → `method.md` Drafting
+- WD2 `[judged]` Every fact, number, name, and hedge in the draft comes from
+  the input, with uncertain transcript items confirmed or flagged?
+  → `method.md` Drafting
 
 ## Items — preservation (after a P0 Argument or P1 Structure change)
 

@@ -18,7 +18,13 @@ writing. P0 delivers findings and a proposed outline, not sentences.
   summarizes never does. Report that under P0.2.
 - *Fix:* none available to an editor. Stop, say that the text needs a claim
   before it needs polish, and offer the candidate claims the material could
-  support. Do not tighten sentences around a missing claim.
+  support. Do not tighten sentences around a missing claim. Two ways to turn
+  a topic into a claim someone could dispute:
+  - *Add a limit.* Restrict the topic by time, object, or setting until the
+    statement can be wrong. "AI changes research" becomes "AI first changes
+    which errors a reviewer can catch".
+  - *Build the opposing side.* Ask who would object and what they would say;
+    the claim is the position that answers them.
 - *Exception:* purely descriptive passages — a schedule, a method recipe, a
   biography — carry facts, not a claim. Mark P0.1 `n/a` and move on.
 

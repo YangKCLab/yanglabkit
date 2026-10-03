@@ -15,8 +15,9 @@ description: >-
   diagnoses with evidence, proposes an outline or drop-in replacements with
   rationales, and never applies edits without approval. Trigger when the user
   asks to tighten, condense, polish, review, restructure, or revise prose,
-  asks whether a text argues or flows well, or asks the agent to draft
-  substantive prose (an abstract, section, letter, or post).
+  asks whether a text argues or flows well, asks to check a text or adapt it
+  for another venue or reader, or asks the agent to draft substantive prose
+  (an abstract, section, letter, or post) from a topic, notes, or dictation.
 ---
 
 # yanglabkit-writing — Argument, structure, flow, polish
@@ -37,20 +38,24 @@ proposals, posts, letters, documentation. Each level file owns its principles
 (tell, fix, exception). `reference/tells.md` owns the AI tells (T1–T14), a
 cross-level scan that is also the audit for your own replacement text.
 `reference/method.md` owns the voice rules, the intake, the delivery method,
-the rules for applying edits, and the preservation check; `reference/target.md` owns the acceptance
+the special scopes (check only, adapt for a new reader), the drafting
+sequence, the rules for applying edits, and the preservation check; `reference/target.md` owns the acceptance
 checklist, numbered 1:1 to the principles. This file only orchestrates. Load
 `method.md`, `tells.md`, and the level files in scope — not the other level files — and
 `target.md` when you reach a checklist step. In an all-levels run, load the P2
 Flow and P3 Polish files only after the writer has decided on the outline.
+Drafting mode uses all four level files.
 
 ## When to Use
 
 - Requests to revise, review, or restructure existing text, or questions like
   "does this argue well", "is the logic sound", "does this section flow".
 - Requests to tighten, condense, polish, or line-edit existing prose.
+- Requests to check a text against the standard without editing it, or to
+  adapt a text for a different venue or reader.
 - Drafting substantive new prose for the user — an abstract, paper section,
-  proposal, cover letter, blog post — so it comes out in-voice on the first
-  pass.
+  proposal, cover letter, blog post — from a topic, bullet points, notes, or
+  dictation, so it comes out in-voice on the first pass.
 
 ## Workflow
 
@@ -68,6 +73,8 @@ Flow and P3 Polish files only after the writer has decided on the outline.
    | "tighten", "condense", "line-edit" | P2 Flow + P3 Polish |
    | "polish", "trim" | P3 Polish |
    | "unslop", "does this sound like AI" | AI tells only (`tells.md`) |
+   | "check", "audit", "run the checklist" | check only — the target items, no edits (`method.md`, Check only) |
+   | "adapt this for <reader or venue>" | adapt for a new reader — the reader-dependent principles (`method.md`, Adapt for a new reader) |
    | names a level or a range | exactly that |
 
 2. **Read the whole text**, whatever the scope.
@@ -84,17 +91,23 @@ Flow and P3 Polish files only after the writer has decided on the outline.
      levels in scope over the proposed result, and present drop-in
      replacements.
 4. **Report what lies above the scope** in one line per problem, without
-   fixing it — the writer decides whether to widen the scope. Report only what
+   fixing it — the writer decides whether to widen the scope. If the in-scope
+   edits would rewrite more than about 40% of the passage, stop and recommend
+   a wider scope instead. Report only what
    you noticed while reading; do not search for more or load the higher level
    files. Name the level from the table above; no principle number is needed.
    Do not report problems below the scope.
 5. **Apply nothing until the user approves.** Only after approval, apply the
    accepted edits exactly as approved.
 
-**Drafting mode** (new text) — state the intake (claim, reader, purpose)
-before writing, then apply all four levels while writing. Reread the draft
-once against `tells.md` and fix what reads as machine-written before
-presenting it. No proposal step — but flag any spot where you consciously traded concision for something else.
+**Drafting mode** (new text from a topic, bullet points, notes, or dictation)
+— follow the drafting sequence in `method.md`: read the input for what it is,
+state the intake, sharpen the claim, write a one-line-per-paragraph outline,
+draft from it, then check that every supplied point is present and nothing
+was invented. Reread the draft against `tells.md` before presenting it. No
+proposal step for sentences — but for anything longer than a few paragraphs,
+show the outline first, and flag any spot where you consciously traded
+concision for something else.
 
 ## Rules
 

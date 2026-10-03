@@ -1,12 +1,14 @@
-# Method — voice, intake, delivery, preservation
+# Method — voice, intake, delivery, drafting, preservation
 
 How `yanglabkit-writing` works across its four levels: whose text it is, what
-to establish before diagnosing, how to present a diagnosis, how to touch the
-file, and how to check that a restructure lost nothing. The principles themselves live in the level files
+to establish before diagnosing, how to present a diagnosis, how to run the
+special scopes (check only, adapt for a new reader), how to draft new text,
+how to touch the file, and how to check that a restructure lost nothing. The principles themselves live in the level files
 (`p0-argument.md`, `p1-structure.md`, `p2-flow.md`, `p3-polish.md`).
 
-The fixed order of levels, the intake, the preservation check, and the right
-of a good text to stay unchanged are adapted from
+The fixed order of levels, the intake, the preservation check, the right of a
+good text to stay unchanged, the drafting sequence, and the scope-widening
+rule are adapted from
 [cida](https://github.com/mizzlelover/cida) (MIT).
 
 ## Naming levels and principles
@@ -80,6 +82,10 @@ How the diagnosis is presented matters as much as what it says.
   diagnosis. An in-scope edit that sits in such a passage is still proposed,
   with a note that it may be overtaken if the scope widens. Problems below the
   scope are not reported.
+- **Say when the scope is too narrow.** If the edits of a P2 Flow or P3 Polish
+  run would rewrite more than about 40% of the words in the passage, the
+  problem is above the scope. Stop, show the few edits that are safe, and
+  recommend widening to P1 Structure or P0 Argument with one line on why.
 - **A finding that fits two levels is filed under the higher one.** Moving
   content between paragraphs is P1 Structure even when the motive is
   redundancy; one thing under several names is P2 Flow, not P3 Polish.
@@ -135,6 +141,105 @@ These levels change sentences in place, so they are delivered line by line.
   aggressive edit is genuinely the better one, make *it* the recommendation:
   don't downgrade a bold cut or relocation to an "optional extra" out of
   caution.
+
+## Check only
+
+A request to "check", "audit", or "run the checklist" diagnoses and proposes
+nothing.
+
+- Run the items of `target.md` for the levels named, or for all levels when
+  none is named, highest level first. State the intake first if P0 Argument
+  or P1 Structure is included.
+- Output one line per item under its level name:
+  `id pass|fail|n/a — one-line evidence`. For each `fail`, name the paragraph
+  or sentence.
+- Skip the preservation items unless the writer names an earlier version to
+  compare against.
+- End with a "Net:" line naming the highest level that fails. Propose no
+  replacement text and no outline.
+
+## Adapt for a new reader
+
+A request to move a text to a different reader — another venue, another
+funder, a paper recast as a proposal, a technical report recast for a general
+audience. The content stays; what changes is what this reader needs from it.
+
+- **State two intakes:** the reader and purpose the text was written for, and
+  the reader and purpose it must now serve. The claim usually stays; say so
+  if it must change.
+- **Run only the principles that depend on the reader,** in level order:
+  - P0.2 Argument — the new reader's questions. Which are unanswered, and
+    which answers are now unnecessary?
+  - P0.3 Argument — the choice of evidence. Which support can this reader
+    judge, and which needs background they lack?
+  - P1.1 Structure — proportion. What was the argument for the old reader may
+    be setup for the new one.
+  - P1.6 Structure — explanation level. What is glossed that the new reader
+    knows, and what is assumed that they do not?
+  - P2.3 Flow — names. Terms, short names, and labels carried over from the
+    old venue.
+- **Load** the P0 Argument, P1 Structure, and P2 Flow files at the start.
+- **Deliver as P0 Argument and P1 Structure are delivered:** reverse outline,
+  proposed outline, proposed cuts, stop. The proposed outline may also apply
+  the other P1 Structure principles (order, one theme, claim first) where
+  moving content requires it; cite them. Deliver P2.3 as a list of term
+  choices, not as replacement sentences. Reach the new proportions by cutting
+  what served the old reader before adding anything.
+- **Other problems** — ones that do not depend on the reader — get one line
+  each with the level name, and no fix. Traces of the old venue outside the
+  passage in focus (an abstract, a disclosure, a short name) are flagged.
+- Requirements of the new venue that were not supplied (length, required
+  sections) are questions for the writer.
+- **The adapted text must stand alone.** Nothing may depend on the earlier
+  version or mention it, unless the venue asks for that history.
+
+## Drafting — new text
+
+The writer supplies a topic, bullet points, notes, or dictation and asks for
+prose. There is no proposal step for sentences, but the claim and the outline
+are settled before any paragraph is written.
+
+1. **Read the input for what it is.**
+   - *Bullet points or an outline:* the points are the content. Their order
+     is a suggestion.
+   - *Rough notes or dictation:* the claims are scattered, repeated, and in
+     speaking order. First list the distinct claims and the support given for
+     each. Treat repetition as the speaker's emphasis and keep the strongest
+     wording once. Drop false starts and filler. Do not carry the speaking
+     order into the outline.
+   - *A transcript from speech recognition:* names, numbers, and technical
+     terms may be wrong. List the ones the draft depends on, with your best
+     reading of each, and ask the writer to confirm them; a reading the
+     writer has not confirmed is flagged in the draft's notes.
+   - *Hedges and fillers:* drop spoken fillers ("um", "I guess", "you know").
+     Keep a hedge that qualifies a fact ("maybe half", "I think four", "I
+     didn't measure it").
+2. **State the intake:** claim, reader, purpose (see above).
+3. **Sharpen the claim until someone could disagree with it** (P0.1). If the
+   input gives only a topic, use the two methods in P0.1 to propose one to
+   three candidate claims and let the writer choose. Do not draft around a
+   topic.
+4. **Write the outline:** one line per paragraph stating its job in the
+   argument, in the order P1 Structure requires. Mark each line with the
+   input points it uses. Mark any line that needs a fact the input does not
+   contain — that is a question for the writer, not something to fill in.
+   For a draft of more than about five paragraphs, show the outline and wait
+   for the writer's decision before drafting. Ask the transcript
+   confirmations and any other questions in that same stop, not separately.
+   **Write to the length the content supports.** If the writer named a length
+   the input cannot fill, say so with the outline and name the material that
+   would fill it; never pad to reach a word count.
+5. **Draft from the outline,** applying P2 Flow and P3 Polish as you write.
+   Supply a title only when the genre needs one; a title may restate the
+   claim.
+   Keep the writer's own phrases from the input where they work; a draft from
+   dictation should still sound like its speaker (Voice).
+6. **Check before presenting:** every point the writer supplied is present or
+   listed as left out with the reason; every fact, number, and hedge comes
+   from the input; the draft passes the tells audit (`tells.md`) and the
+   target items. After the draft, add short notes: points left out and why,
+   unconfirmed readings, open questions, and any spot where you traded
+   concision for something else.
 
 ## Applying approved edits
 

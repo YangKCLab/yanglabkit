@@ -31,8 +31,11 @@ renaming — and polish then works on the sentences that result.
 - *Tell:* the same referent appears under rotating names — "AI assistant",
   "agent", "language model system", "AI tool" — or one deliverable is named
   differently in each section. The reader must decide whether each new name is
-  a new thing.
-- *Fix:* pick one term per referent and repeat it, across the whole document.
+  a new thing. The reverse case fails too: one name used for two things
+  ("evaluation" for benchmark testing in one paragraph and for human judgment
+  in the next).
+- *Fix:* pick one term per referent and repeat it, across the whole document;
+  give two things two names.
   In scientific prose, repeating the term is correct; variation is a cost.
 - *Exception:* names that mark a real distinction stay distinct.
 
