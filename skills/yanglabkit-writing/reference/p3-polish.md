@@ -1,17 +1,13 @@
 # P3 Polish
 
-The fourth and last level of `yanglabkit-writing`. It asks whether every
-sentence and every word carries something the text does not already say. Each
-principle is stated with its *tell* and its *fix*.
-
-P3 delivers drop-in replacements by line (see `method.md`). Its first
-principle is the north star of the whole skill and also binds the levels
-above: a fix at any level must not add explanation the text already carries.
+Does every sentence and every word carry something the text does not already
+say?
 
 ## P3.1 Don't add explanation if a sentence already carries the message
 
-**The north star.** If the point is already made, a clarifying sentence is
-redundancy, not help.
+**The north star, binding every level:** no fix anywhere may add explanation
+the text already carries. If the point is already made, a clarifying sentence
+is redundancy, not help.
 
 - *Tell:* the urge to append "in other words…", "this means that…", or a
   restatement "for clarity". The test spans the whole document, not just

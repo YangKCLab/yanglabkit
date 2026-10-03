@@ -24,42 +24,39 @@ description: >-
 
 Edit and draft prose to Kaicheng Yang's standard, at four levels in a fixed
 order. One north star binds all of them: **don't add explanation if an
-existing sentence already carries the message.**
+existing sentence already carries the message** (P3.1).
 
 | Level | Asks | Principles | Delivers |
 |---|---|---|---|
 | **P0 Argument** | Does the text assert something, support it, and answer what this reader needs? | `reference/p0-argument.md` (P0.1–P0.6) | findings + proposed outline |
 | **P1 Structure** | Is the argument in the right order, at the right length, in units that each do one job? | `reference/p1-structure.md` (P1.1–P1.6) | reverse outline + proposed outline |
-| **P2 Flow** | Does each sentence do its local job and read in one pass? | `reference/p2-flow.md` (P2.1–P2.4) | drop-in replacements |
-| **P3 Polish** | Does every sentence and word carry something not already said? | `reference/p3-polish.md` (P3.1–P3.5) | drop-in replacements |
+| **P2 Flow** | Does each sentence do its local job and read in one pass? | `reference/p2-flow.md` (P2.1–P2.4) | numbered diffs |
+| **P3 Polish** | Does every sentence and word carry something not already said? | `reference/p3-polish.md` (P3.1–P3.5) | numbered diffs |
 
-This skill is pure markdown guidance and applies to any writing — papers,
-proposals, posts, letters, documentation. Each level file owns its principles
-(tell, fix, exception). `reference/tells.md` owns the AI tells (T1–T14), a
-cross-level scan that is also the audit for your own replacement text.
-`reference/method.md` owns the voice rules, the intake, the delivery method,
-the special scopes (check only, adapt for a new reader), the drafting
-sequence, the rules for applying edits, and the preservation check; `reference/target.md` owns the acceptance
-checklist, numbered 1:1 to the principles. This file only orchestrates. Load
-`method.md`, `tells.md`, and the level files in scope — not the other level files — and
-`target.md` when you reach a checklist step. In an all-levels run, load the P2
-Flow and P3 Polish files only after the writer has decided on the outline.
-Drafting mode uses all four level files.
+Pure markdown guidance, for any writing — papers, proposals, posts, letters,
+documentation. This file picks the scope and states the invariants; the
+reference files own everything else:
+
+- `reference/method.md` — how to work: voice, intake, delivery, the special
+  scopes, drafting, applying edits, preservation. **Always load.**
+- `reference/tells.md` — the AI tells (T1–T14). **Always load.**
+- the level files — **load only the levels in scope.** In an all-levels run,
+  load P2 Flow and P3 Polish after the writer has decided on the outline.
+  Drafting uses all four.
+- `reference/target.md` — the acceptance checklist, numbered 1:1 to the
+  principles. Load before presenting P2 Flow or P3 Polish edits, a draft, or
+  a check-only report.
 
 ## When to Use
 
-- Requests to revise, review, or restructure existing text, or questions like
-  "does this argue well", "is the logic sound", "does this section flow".
-- Requests to tighten, condense, polish, or line-edit existing prose.
-- Requests to check a text against the standard without editing it, or to
-  adapt a text for a different venue or reader.
-- Drafting substantive new prose for the user — an abstract, paper section,
-  proposal, cover letter, blog post — from a topic, bullet points, notes, or
-  dictation, so it comes out in-voice on the first pass.
+Any request to revise, restructure, tighten, polish, check, or adapt existing
+prose, to judge whether it argues or flows well or sounds machine-written, or
+to draft substantive new prose from a topic, bullet points, notes, or
+dictation.
 
 ## Workflow
 
-**Revision mode** (existing text) — pick the scope, diagnose, propose, wait.
+**Revision** (existing text):
 
 1. **Pick the scope from the request.** When the wording fits no row, take the
    narrowest scope that covers what was asked, and say which one you chose.
@@ -72,60 +69,29 @@ Drafting mode uses all four level files.
    | "does this flow", "smooth this" | P2 Flow |
    | "tighten", "condense", "line-edit" | P2 Flow + P3 Polish |
    | "polish", "trim" | P3 Polish |
-   | "unslop", "does this sound like AI" | AI tells only (`tells.md`) |
-   | "check", "audit", "run the checklist" | check only — the target items, no edits (`method.md`, Check only) |
-   | "adapt this for <reader or venue>" | adapt for a new reader — the reader-dependent principles (`method.md`, Adapt for a new reader) |
    | names a level or a range | exactly that |
+   | "unslop", "does this sound like AI" | AI tells only (`tells.md`) |
+   | "check", "audit", "run the checklist" | check only (`method.md`) |
+   | "adapt this for <reader or venue>" | adapt for a new reader (`method.md`) |
 
-2. **Read the whole text**, whatever the scope.
-3. **Work from the highest level in scope down.**
-   - *P0 Argument and P1 Structure:* state the intake, diagnose, and present
-     the findings with the reverse outline and a proposed outline. **Stop
-     here** and wait for the writer's decision. When both levels hold, say so
-     in one line and continue. After the writer approves an outline, draft
-     the restructured text from it and continue on that draft if lower levels
-     are in scope.
-   - *AI tells:* in every level run, also scan for the tells tagged with
-     that level and list them with its findings.
-   - *P2 Flow and P3 Polish:* diagnose, run the target checklist for the
-     levels in scope over the proposed result, and present drop-in
-     replacements.
-4. **Report what lies above the scope** in one line per problem, without
-   fixing it — the writer decides whether to widen the scope. If the in-scope
-   edits would rewrite more than about 40% of the passage, stop and recommend
-   a wider scope instead. Report only what
-   you noticed while reading; do not search for more or load the higher level
-   files. Name the level from the table above; no principle number is needed.
-   Do not report problems below the scope.
-5. **Apply nothing until the user approves.** Only after approval, apply the
-   accepted edits exactly as approved.
+2. **Diagnose from the highest level in scope down, and present** as
+   `method.md` prescribes for those levels. A run that includes P0 Argument
+   or P1 Structure stops at the proposed outline and waits; the lower levels
+   then run on the text drafted from the approved outline.
+3. **Wait for approval, then apply** exactly what was approved.
 
-**Drafting mode** (new text from a topic, bullet points, notes, or dictation)
-— follow the drafting sequence in `method.md`: read the input for what it is,
-state the intake, sharpen the claim, write a one-line-per-paragraph outline,
-draft from it, then check that every supplied point is present and nothing
-was invented. Reread the draft against `tells.md` before presenting it. No
-proposal step for sentences — but for anything longer than a few paragraphs,
-show the outline first, and flag any spot where you consciously traded
-concision for something else.
+**Drafting** (new text) — follow the drafting sequence in `method.md`.
 
 ## Rules
 
-- **Never apply edits without approval** in revision mode — propose first,
-  always.
+- **Never apply edits without approval** in revision — propose first, always.
 - **Higher level first.** Within the scope, do not propose an edit in a
   passage that a higher-level finding will change. If the text has no
   statable claim (P0.1), say so and stop; do not tighten around it.
 - **Name every level.** Write "P1 Structure", never a bare "P1"; cite a
-  principle as "P1.4 Structure — lead each paragraph with its claim". The
-  writer should never need to look a number up.
-- **The north star binds every level.** A fix at any level must not add
-  explanation the text already carries (P3.1). The one licensed addition is a
-  missing step or answer at P0 Argument, marked as an addition.
-- **The text belongs to the writer.** Keep their words, rhythm, claims, and
-  hedges unless a principle requires a change (`method.md`, Voice).
-- **Audit your own text for AI tells** before presenting any replacement or
-  draft (`tells.md`).
+  principle as "P1.4 Structure — lead each paragraph with its claim", and a
+  tell as "T3 tail participle clause". The writer should never need to look
+  a number up.
 - **Match the force of the edit to the problem.** Don't restructure when a
   lighter local fix exists — but when the structure *is* the problem, be
   aggressive: propose the deletion or relocation outright, not a timid local
@@ -133,10 +99,8 @@ concision for something else.
   the failure mode to avoid.
 - **A good text may stay unchanged.** When a level holds, say so in one line
   and move on. Never manufacture findings to show effort.
-- **Never invent content.** An argument gap that needs a fact the text does
-  not contain is reported to the writer, not filled.
-- Everything else — what to fix and how to present it — lives in the
-  reference docs; follow them rather than improvising.
+- **Never invent content.** A gap that needs a fact the text or the input
+  does not contain is a question for the writer, not something to fill.
 
 ## Automated mode
 

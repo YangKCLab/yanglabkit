@@ -96,12 +96,13 @@ never blocking.
 - WK4 `[advisory]` The writer's phrasing survives wherever it was not the
   problem? → K4
 
-## Target report (automated mode)
+## Target report
 
-Write `<text-stem>.target-report.md` next to the file. State the scope on the
-first line, with level names, then one line per item in scope
+Report format (also used by a check-only run): the scope on the first line,
+with level names, then one line per item in scope
 (`id pass|fail|n/a — one-line evidence`), grouped under the level headings
-above. Done = every `[judged]` item in scope `pass` or `n/a` with reason;
+above. An automated run writes it to `<text-stem>.target-report.md` next to
+the file. Done = every `[judged]` item in scope `pass` or `n/a` with reason;
 `[advisory]` items (W0.6, W3.5, WK4) are reported either way and never block.
 A `fail` on W0.1, or a W0.2–W0.4 `fail` that needs a fact the text does not
 contain, cannot be fixed by iterating: stop the run, write the report, and

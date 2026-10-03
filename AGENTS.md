@@ -115,11 +115,11 @@ approval.
   execution, no worked examples — principles and method only.
 - **File roles:**
   - `SKILL.md` — the always-loaded orchestrator: the level table, the
-    request-to-scope table, the workflow (revision: diagnose → propose →
-    wait; drafting: apply while writing), and the invariants the references
-    don't own (propose-before-apply; higher level first; name every level;
-    the north star binds every level; match the force of the edit to the
-    problem; a good text may stay unchanged; never invent content).
+    request-to-scope table, the file-loading rules, the three-step workflow,
+    and the invariants (propose-before-apply; higher level first; name every
+    level; match the force of the edit to the problem; a good text may stay
+    unchanged; never invent content). Each rule has one owner: a rule stated
+    here is not restated in `method.md`, and the reverse.
   - `reference/p0-argument.md`, `p1-structure.md`, `p2-flow.md`,
     `p3-polish.md` — one file per level, each solely owning that level's
     principles (tell, fix, exception), numbered `P<level>.<n>`. An agent loads
@@ -130,11 +130,10 @@ approval.
     ("unslop"), and as the mandatory self-audit of the agent's own
     replacements and drafts. Tell IDs are stable; do not renumber.
   - `reference/method.md` — solely owns the cross-level method: the voice
-    rules (the text belongs to the writer), how to name levels in reports,
-    the intake (claim, reader, purpose), the delivery method (shared rules;
+    rules (the text belongs to the writer), the intake (claim, reader, purpose), the delivery method (shared rules;
     outline delivery for P0–P1; line-by-line delivery for P2–P3; the 40%
-    rule for widening a scope), the two special scopes (check only; adapt
-    for a new reader), the drafting sequence (input type → intake → claim →
+    rule for widening a scope), the three special scopes (AI tells only; check
+    only; adapt for a new reader), the drafting sequence (input type → intake → claim →
     outline → draft → check), the rules for applying edits (smallest span; LaTeX and Markdown elements left
     untouched), and the preservation check K1–K4.
   - `reference/target.md` — the acceptance spec (see "Instructions vs targets"

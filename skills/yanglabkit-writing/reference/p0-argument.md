@@ -1,13 +1,8 @@
 # P0 Argument
 
-The first level of `yanglabkit-writing`. It asks whether the text asserts
-something, supports it, and answers what this reader needs answered. Each
-principle is stated with its *tell*, its *fix*, and — where the rule has a
-legitimate one — its *exception*.
-
-P0 needs the intake (claim, reader, purpose; see `method.md`): every finding
-is judged against those three facts, not against a general idea of good
-writing. P0 delivers findings and a proposed outline, not sentences.
+Does the text assert something, support it, and answer what this reader
+needs answered? Every finding is judged against the intake (`method.md`), not
+against a general idea of good writing.
 
 ## P0.1 The piece states a claim the reader could dispute
 
@@ -39,7 +34,7 @@ writing. P0 delivers findings and a proposed outline, not sentences.
 - *Fix:* name the unanswered question and propose where its answer belongs —
   often by gathering sentences that are scattered across the text and stating
   the conclusion they share. If the material to answer it is absent, say so
-  and ask the writer for it — never invent the fact.
+  and ask the writer for it.
 - *Exception:* a question the venue or an earlier section already settles
   needs no second answer (P3.1).
 
@@ -48,15 +43,14 @@ writing. P0 delivers findings and a proposed outline, not sentences.
 - *Tell:* a claim with no support; support of the wrong kind (one example
   carrying a general claim, a citation that shows something adjacent); support
   with no stated reading (a number with no baseline, or one the reader cannot
-  tell is large or small); support that sits far from the claim it serves; or
-  **more support than the claim needs** — a chain of five results where the
+  tell is large or small); or **more support than the claim needs** — a chain of five results where the
   strongest one or two would carry it, so the claim is buried under its own
   evidence. Figures and tables are support too: each must have a claim it
   serves. For cited support, the sentence must say what the source says: a
   sentence that mischaracterizes or overstates its citation fails here. Check
   the source, or the writer's notes on it, when they are available; when they
   are not, say the citation was not checked — never guess what a source
-  claims. A claim resting on "studies show" with no citation is tell T5.
+  claims.
 - *Fix:* state the claim, then its support, in place. Where the support is
   weaker than the claim, narrow the claim to what the support shows (see
   P0.5) or flag that stronger support is needed. Where it is in excess, keep
@@ -68,11 +62,11 @@ writing. P0 delivers findings and a proposed outline, not sentences.
 - *Tell:* a conclusion — marked by "therefore", "thus", "clearly", "which
   makes", or unmarked — that does not follow from the sentences before it
   without an unstated premise; a sentence whose relation to its paragraph is
-  never stated. When the premise exists elsewhere in the text, this is the
-  same finding as P0.3's distant support: report it once, here.
-- *Fix:* state the missing step, once, at the gap. This is the one place where
-  adding a sentence is the right edit — mark it as an addition so the writer
-  sees it. If the step cannot be stated, the conclusion does not follow;
+  never stated. Support that sits far from the claim it serves is this
+  finding too: the reader meets the conclusion without its premise.
+- *Fix:* state the missing step, once, at the gap — by moving the premise
+  there if the text has it, by adding a sentence if not. Mark an added
+  sentence as an addition so the writer sees it. If the step cannot be stated, the conclusion does not follow;
   report that instead of bridging it with a connective.
 - *Exception:* steps the stated reader makes without effort. Spelling them out
   is over-explanation (P1.6).

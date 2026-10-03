@@ -1,13 +1,7 @@
 # P1 Structure
 
-The second level of `yanglabkit-writing`. It asks whether the text presents
-its argument in the right order, at the right length, in units that each do
-one job. Each principle is stated with its *tell*, its *fix*, and — where the
-rule has a legitimate one — its *exception*.
-
-P1 needs the intake (claim, reader, purpose; see `method.md`). It delivers a
-reverse outline and a proposed outline, not sentences, and every proposed
-restructure passes the preservation check in `method.md`.
+Does the text present its argument in the right order, at the right length,
+in units that each do one job?
 
 ## P1.1 Give space by importance
 

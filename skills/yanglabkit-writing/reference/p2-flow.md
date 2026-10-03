@@ -1,14 +1,9 @@
 # P2 Flow
 
-The third level of `yanglabkit-writing`. It asks whether each sentence does
-its local job and reads in one pass, and whether the sentences connect without
-the reader re-deriving what refers to what. Each principle is stated with its
-*tell*, its *fix*, and — where the rule has a legitimate one — its
-*exception*.
-
-P2 delivers drop-in replacements by line (see `method.md`). It runs before P3
-Polish because it can change the sentence unit — splitting, reordering,
-renaming — and polish then works on the sentences that result.
+Does each sentence do its local job, read in one pass, and connect to its
+neighbors without the reader re-deriving what refers to what? P2 Flow runs
+before P3 Polish because it can change the sentence unit — splitting,
+reordering, renaming — and polish then works on the sentences that result.
 
 ## P2.1 Frame a sentence by its local function, not its grandest possible framing
 
@@ -35,7 +30,8 @@ renaming — and polish then works on the sentences that result.
   ("evaluation" for benchmark testing in one paragraph and for human judgment
   in the next).
 - *Fix:* pick one term per referent and repeat it, across the whole document;
-  give two things two names.
+  give two things two names. When the text gives no reason to prefer one
+  name, propose one and ask the writer.
   In scientific prose, repeating the term is correct; variation is a cost.
 - *Exception:* names that mark a real distinction stay distinct.
 

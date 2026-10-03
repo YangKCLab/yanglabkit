@@ -1,28 +1,15 @@
 # AI tells
 
-A cross-level scan of `yanglabkit-writing`. The level files describe what good
-text does; this file lists the moves by which machine-written text is
-recognized. It serves two jobs:
+The moves by which machine-written text is recognized. A word list is only a
+hint: a model told to avoid a word switches to a synonym and keeps the move.
+Each tell names the move, then gives examples, and carries the level it runs
+with.
 
-- **Scan the text.** Each tell carries a level tag. A run includes the tells
-  of the levels in its scope; a request to "unslop" or to check whether text
-  "sounds like AI" runs the tells alone.
-- **Audit your own output.** Replacement text and new drafts are where tells
-  enter. Before presenting any replacement or draft, reread it against this
-  list. A replacement that adds a tell is worse than the original sentence.
-
-Machine-written text is recognized by its moves. A word list is only a hint: a
-model told to avoid a word switches to a synonym and keeps the move. Each tell
-below names the move, then gives examples.
-
-Rules for every tell:
-
-- Never introduce one. Remove one when you find it, and cite it by ID and name
-  ("T3 tail participle clause").
+- A level run includes the tells tagged with its levels; a request to
+  "unslop" runs the tells alone; and every replacement or draft you write is
+  audited against the whole list (`method.md`).
 - Removing a tell must not remove a claim, a number, or a citation. If the
   claim survives only with the tell, keep the claim and flag the tell.
-- A tell is a move, not a word. Keep a listed word when it is a technical term
-  in context or the field's own name for the thing.
 
 Adapted from the `unslop` skill in
 [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan
@@ -51,7 +38,7 @@ Adapted from the `unslop` skill in
 - **T5 Unattributed consensus** · P0 Argument. "Studies have shown", "prior
   work suggests", "it is widely recognized", "experts agree" with no citation
   attached. Keep the claim as written; do not delete it or restate it as fact.
-  Ask the writer for the citation. Never invent one. (See P0.3.)
+  No replacement: ask the writer for the citation.
 
 ## Sentence moves
 
@@ -80,10 +67,9 @@ Adapted from the `unslop` skill in
   information ecosystem, API primitive). Replace it when it stands in for a
   plainer word. (See P3.4.)
 - **T11 Synonym cycling** · P2 Flow. Rotating names for one referent: users,
-  accounts, individuals; model, system, approach, framework. Pick one term per
-  referent and repeat it. This is the same rule as P2.3 (one name per thing):
-  in a run that includes P2 Flow, report it there; in a tells-only run, report
-  it as T11.
+  accounts, individuals; model, system, approach, framework. This is P2.3 (one
+  name per thing): report it there when P2 Flow is in scope, and as T11 in a
+  tells-only run.
 
 ## Punctuation
 
@@ -107,18 +93,3 @@ Adapted from the `unslop` skill in
   A bold lead-in that ends in a period and is followed by new detail is fine.
   Slide decks and other formats where bullets are the unit are exempt from the
   bullet-list rule.
-
-## Delivery
-
-The shared delivery rules in `method.md` apply: affirm first, evidence for
-every finding, questions for the writer, a "Net:" line.
-
-- **In a level run,** tells are listed with that level's findings, each with
-  a drop-in replacement and the tell ID and name as the reason.
-- **In a tells-only run,** state the scope as "AI tells only", list the items
-  in document order — one item per sentence, naming every tell in it — and
-  check only the `WT` items of `target.md`. Any other problem noticed while
-  reading (a missing claim, a misplaced section) gets one line with its level
-  name and no fix. End with a "Net:" line saying whether the passage as a
-  whole reads as machine-written, and which tells drive that.
-- **T5 has no replacement.** It is a question for the writer.
