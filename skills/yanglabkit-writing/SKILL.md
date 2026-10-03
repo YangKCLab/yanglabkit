@@ -36,7 +36,9 @@ proposals, posts, letters, documentation. Each level file owns its principles
 (tell, fix, exception). `reference/method.md` owns the intake, the delivery
 method, and the preservation check; `reference/target.md` owns the acceptance
 checklist, numbered 1:1 to the principles. This file only orchestrates. Load
-`method.md` and the level files in scope — not the others.
+`method.md` and the level files in scope — not the other level files — and
+`target.md` when you reach a checklist step. In an all-levels run, load the P2
+Flow and P3 Polish files only after the writer has decided on the outline.
 
 ## When to Use
 
@@ -76,8 +78,10 @@ checklist, numbered 1:1 to the principles. This file only orchestrates. Load
      levels in scope over the proposed result, and present drop-in
      replacements.
 4. **Report what lies above the scope** in one line per problem, without
-   fixing it — the writer decides whether to widen the scope. Do not report
-   problems below the scope.
+   fixing it — the writer decides whether to widen the scope. Report only what
+   you noticed while reading; do not search for more or load the higher level
+   files. Name the level from the table above; no principle number is needed.
+   Do not report problems below the scope.
 5. **Apply nothing until the user approves.** Only after approval, apply the
    accepted edits exactly as approved.
 

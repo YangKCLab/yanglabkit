@@ -55,8 +55,14 @@ How the diagnosis is presented matters as much as what it says.
 - **Tie every fix to the principle it serves.** The advice inherits the
   writer's own standard; it never imports an external house style.
 - **Above the scope: one line each, no fix.** A problem at a level above the
-  scope is reported in one line so the writer can widen the scope. Problems
-  below the scope are not reported.
+  scope, noticed while reading, is reported in one line with its level name so
+  the writer can widen the scope — a handful of lines at most, not a second
+  diagnosis. An in-scope edit that sits in such a passage is still proposed,
+  with a note that it may be overtaken if the scope widens. Problems below the
+  scope are not reported.
+- **A finding that fits two levels is filed under the higher one.** Moving
+  content between paragraphs is P1 Structure even when the motive is
+  redundancy; one thing under several names is P2 Flow, not P3 Polish.
 - **Flag what lies outside the passage; don't fix it.** Problems wholly in
   other sections get noted for a later pass. In a long or multi-file document,
   work on the section in focus, read the rest for context, and treat a move
@@ -78,8 +84,9 @@ How the diagnosis is presented matters as much as what it says.
 
 These levels change which sentences exist, so they are delivered as outlines.
 
-- **Open with the intake.** If the writer disagrees with any of the three
-  lines, the diagnosis is void; let them correct it first.
+- **Open with the intake,** then what already works. If the writer disagrees
+  with any of the three intake lines, the diagnosis is void; let them correct
+  it first.
 - **Show a reverse outline.** One line per paragraph stating the job it does
   in the argument (not its topic). Gaps, repeats, and misplaced paragraphs
   show up in the outline before they show up in the prose.
@@ -87,6 +94,9 @@ These levels change which sentences exist, so they are delivered as outlines.
   the reverse outline and mark what moves, merges, grows, shrinks, or is cut.
   Where a finding calls for an added sentence (P0.2, P0.4), state in the
   outline what the sentence must say and where its content comes from.
+- **Note what you hold for lower levels.** A P2 Flow or P3 Polish problem
+  noticed on the way — one thing under several names, a repeated sentence —
+  goes in a short "held" list, not in the findings.
 - **Stop at the outline.** The diagnosis ends with the proposed outline, the
   open questions for the writer, and the "Net:" line. Draft sentences only
   after the writer approves the outline; P2 Flow, P3 Polish, and the target
